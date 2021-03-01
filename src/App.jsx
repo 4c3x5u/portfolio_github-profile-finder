@@ -15,8 +15,8 @@ const App = () => {
         <Form onSubmit={(e) => e.preventDefault()}>
           {viewSearchFormGroup(setSearchParam, setUserFound, setUserDetails, searchParam)}
         </Form>
+        {userFound && viewUserDetails(userDetails)}
       </Container>
-      {userFound && viewUserDetails(userDetails)}
     </div>
   );
 };
