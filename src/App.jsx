@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className="App">
       <Container>
-        <Form>
+        <Form onSubmit={(e) => e.preventDefault()}>
           {viewSearchFormGroup(setSearchParam, setUserFound, setUserDetails, searchParam)}
         </Form>
       </Container>

@@ -21,6 +21,7 @@ export const viewSearchFormGroup = (setSearchParam, setUserFound, setUserDetails
       xs={2}
       variant="primary"
       size="sm"
+      onKeyPress={(e) => e.preventDefault()}
       onClick={() => searchUser(
         searchParam,
         handleUserFound(setUserFound, setUserDetails),
