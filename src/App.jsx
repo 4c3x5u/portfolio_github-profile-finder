@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
-
+import axios from 'axios';
 import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
+  Container, Row, Col, Button, Form,
 } from 'react-bootstrap';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
-// const getUser = (username, setUser) => (
-//   axios
-//     .get(
-//       `https://api.github.com/users/${username}`,
-//       // {
-//       //   headers: {
-//       //     'Iv1.8271cd34738b6ede': ' 344bf47033426193a2e377ddeba155710056035d',
-//       //   },
-//       // },
-//     )
-//     .then((res) => setUser(JSON.stringify(res)))
-//     .catch((err) => setUser(JSON.stringify(err)))
-// );
+const searchUser = (searchParam, setUserFound, setUserDetails) => (
+  axios
+    .get(`https://api.github.com/users/${searchParam}`)
+    .then((res) => {
+      setUserFound(true);
+      setUserDetails(JSON.stringify(res));
+    })
+    .catch(() => {
+      setUserFound(false);
+      setUserDetails({});
+    })
+);
 
 const App = () => {
-  const [user] = useState({});
+  const [searchParam, setSearchParam] = useState('');
+  const [userFound, setUserFound] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
 
   return (
     <div className="App">
@@ -37,14 +32,34 @@ const App = () => {
             <Col xs={10}>
               <Form.Control
                 type="text"
-                // onChange={(e) => getUser(e.target.value, setUser)}
+                placeholder="Enter username..."
+                onChange={(e) => setSearchParam(e.target.value)}
               />
             </Col>
-            <Button column xs={2} variant="primary" size="sm">Search</Button>
+            <Button
+              column
+              xs={2}
+              variant="primary"
+              size="sm"
+              onClick={() => searchUser(searchParam, setUserFound, setUserDetails)}
+            >
+              Search
+            </Button>
           </Form.Group>
         </Form>
       </Container>
-      <h1>{JSON.stringify(user)}</h1>
+      <h1>
+        Search param:
+        {' '}
+        {searchParam}
+      </h1>
+      {
+        userFound && (
+          <div>
+            <h1>{JSON.stringify(userDetails)}</h1>
+          </div>
+        )
+      }
     </div>
   );
 };
