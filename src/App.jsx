@@ -7,17 +7,19 @@ import './App.sass';
 const App = () => {
   const [searchParam, setSearchParam] = useState('');
   const [userFound, setUserFound] = useState(false);
-  const [userDetails, setUserDetails] = useState({});
+  const [userDetails, setUserDetails] = useState({
+    name: '',
+  });
 
   return (
-    <div className="App">
-      <Container>
-        <Form onSubmit={(e) => e.preventDefault()}>
-          {viewSearchFormGroup(setSearchParam, setUserFound, setUserDetails, searchParam)}
-        </Form>
-        {userFound && viewUserDetails(userDetails)}
-      </Container>
-    </div>
+    <Container className="App">
+      {console.log(`Search param: ${searchParam}`)}
+      {console.log(`User details: ${JSON.stringify(userDetails)}`)}
+      <Form onSubmit={(e) => e.preventDefault()}>
+        {viewSearchFormGroup(setSearchParam, setUserFound, setUserDetails, searchParam)}
+      </Form>
+      {userFound && viewUserDetails(userDetails)}
+    </Container>
   );
 };
 

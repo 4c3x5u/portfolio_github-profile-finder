@@ -7,12 +7,15 @@ export const searchUser = (searchParam, userFound, userNotFound) => (
     .catch(() => userNotFound())
 );
 
-export const handleUserFound = (setUserFound, setUserDetails) => (foundUserDetails) => {
+export const handleUserFound = (setUserFound, setUserDetails) => (userDetails) => {
+  const { data } = userDetails;
+  setUserDetails({
+    name: data.name,
+  });
   setUserFound(true);
-  setUserDetails(JSON.stringify(foundUserDetails));
 };
 
 export const handleUserNotFound = (setUserFound, setUserDetails) => () => {
-  setUserFound(false);
   setUserDetails({});
+  setUserFound(false);
 };

@@ -21,13 +21,15 @@ export const viewSearchFormGroup = (setSearchParam, setUserFound, setUserDetails
         <Button
           variant="primary"
           size="sm"
-          style={{ height: '100%', width: '100%' }}
           onKeyPress={(e) => e.preventDefault()}
-          onClick={() => searchUser(
-            searchParam,
-            handleUserFound(setUserFound, setUserDetails),
-            handleUserNotFound(setUserFound, setUserDetails),
+          onClick={() => (
+            searchUser(
+              searchParam,
+              handleUserFound(setUserFound, setUserDetails),
+              handleUserNotFound(setUserFound, setUserDetails),
+            )
           )}
+          style={{ height: '100%', width: '100%' }}
         >
           Search
         </Button>
@@ -36,7 +38,7 @@ export const viewSearchFormGroup = (setSearchParam, setUserFound, setUserDetails
   </Form.Group>
 );
 
-export const viewUserDetails = () => (
+export const viewUserDetails = (userDetails) => (
   <Card style={{ height: '20rem', width: '100%' }}>
     <Row style={{ height: '100%' }}>
       <Col xs={4}>
@@ -48,7 +50,7 @@ export const viewUserDetails = () => (
       </Col>
       <Col xs={8}>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{userDetails.name}</Card.Title>
           <Card.Text>
             Some quick example text to build on the card title and make up the bulk of
             the cards content.
