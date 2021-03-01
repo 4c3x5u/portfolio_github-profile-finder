@@ -6,18 +6,22 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
-const searchUser = (searchParam, setUserFound, setUserDetails) => (
+const searchUser = (searchParam, userFound, userNotFound) => (
   axios
     .get(`https://api.github.com/users/${searchParam}`)
-    .then((res) => {
-      setUserFound(true);
-      setUserDetails(JSON.stringify(res));
-    })
-    .catch(() => {
-      setUserFound(false);
-      setUserDetails({});
-    })
+    .then((res) => userFound(JSON.stringify(res)))
+    .catch(() => userNotFound())
 );
+
+const handleUserFound = (setUserFound, setUserDetails) => (foundUserDetails) => {
+  setUserFound(true);
+  setUserDetails(foundUserDetails);
+};
+
+const handleUserNotFound = (setUserFound, setUserDetails) => () => {
+  setUserFound(false);
+  setUserDetails({});
+};
 
 const App = () => {
   const [searchParam, setSearchParam] = useState('');
@@ -41,7 +45,11 @@ const App = () => {
               xs={2}
               variant="primary"
               size="sm"
-              onClick={() => searchUser(searchParam, setUserFound, setUserDetails)}
+              onClick={() => searchUser(
+                searchParam,
+                handleUserFound(setUserFound, setUserDetails),
+                handleUserNotFound(setUserFound, setUserDetails),
+              )}
             >
               Search
             </Button>
