@@ -25,7 +25,7 @@ const SearchForm = ({
           </InputGroup.Prepend>
           <Form.Control
             type="text"
-            placeholder="username"
+            placeholder="4c3x5u"
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </InputGroup>

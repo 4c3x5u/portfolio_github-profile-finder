@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
 const App = () => {
-  const [searchParam, setSearchParam] = useState('');
+  const [searchParam, setSearchParam] = useState('4c3x5u');
   const [userFound, setUserFound] = useState(false);
   const [user, setUser] = useState({
     name: '',
