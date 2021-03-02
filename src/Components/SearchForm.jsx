@@ -17,11 +17,11 @@ const SearchForm = ({
           style={{
             margin: 0,
             border: '2px solid #343a40',
-            'border-radius': '4px',
+            borderRadius: '4px',
           }}
         >
           <InputGroup.Prepend>
-            <InputGroup.Text style={{ 'background-color': '#343a40', color: '#fdfdfd' }}>@</InputGroup.Text>
+            <InputGroup.Text className="bg-dark text-light">@</InputGroup.Text>
           </InputGroup.Prepend>
           <Form.Control
             type="text"
@@ -42,13 +42,7 @@ const SearchForm = ({
               handleUserNotFound(setUserFound, setUserDetails),
             )
           )}
-          style={{
-            // TODO: Add COLOUR CHANGE ON HOVER when moving to Sass
-            height: '100%',
-            width: '100%',
-            // 'background-color': '#e9ecef',
-            // border: '1px solid black',
-          }}
+          style={{ height: '100%', width: '100%' }}
         >
           Search
         </Button>

@@ -14,6 +14,10 @@ export const handleUserFound = (setUserFound, setUserDetails) => (userDetails) =
     bio: data.bio,
     location: data.location,
     avatar: data.avatar_url,
+    numberOfPublicRepos: data.public_repos,
+    numberOfPublicGists: data.public_gists,
+    numberOfFollowers: data.followers,
+    numberOfFollowing: data.following,
   });
   setUserFound(true);
 };

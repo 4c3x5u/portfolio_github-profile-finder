@@ -12,6 +12,11 @@ const App = () => {
     name: '',
     bio: '',
     location: '',
+    avatar: '',
+    numberOfPublicRepos: 0,
+    numberOfPublicGists: 0,
+    numberOfFollowers: 0,
+    numberOfFollowing: 0,
   });
 
   return (
