@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import { Container, Form } from 'react-bootstrap';
-import { viewSearchFormGroup, viewUserDetails } from './views';
+import Container from 'react-bootstrap/Container';
+import SearchForm from './Components/SearchForm';
+import UserDetails from './Components/UserDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
 const App = () => {
   const [searchParam, setSearchParam] = useState('');
   const [userFound, setUserFound] = useState(false);
-  const [userDetails, setUserDetails] = useState({
+  const [user, setUser] = useState({
     name: '',
+    bio: '',
+    location: '',
   });
 
   return (
     <Container className="App">
-      {console.log(`Search param: ${searchParam}`)}
-      {console.log(`User details: ${JSON.stringify(userDetails)}`)}
-      <Form onSubmit={(e) => e.preventDefault()}>
-        {viewSearchFormGroup(setSearchParam, setUserFound, setUserDetails, searchParam)}
-      </Form>
-      {userFound && viewUserDetails(userDetails)}
+      <SearchForm
+        setSearchParam={setSearchParam}
+        setUserFound={setUserFound}
+        setUserDetails={setUser}
+        searchParam={searchParam}
+      />
+      {userFound && <UserDetails user={user} />}
     </Container>
   );
 };

@@ -11,6 +11,8 @@ export const handleUserFound = (setUserFound, setUserDetails) => (userDetails) =
   const { data } = userDetails;
   setUserDetails({
     name: data.name,
+    bio: data.bio,
+    location: data.location,
   });
   setUserFound(true);
 };
