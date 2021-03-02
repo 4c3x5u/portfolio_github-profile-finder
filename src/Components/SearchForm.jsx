@@ -11,22 +11,22 @@ const SearchForm = ({
   setSearchParam, setUserFound, setUserDetails, searchParam,
 }) => (
   <Form onSubmit={(e) => e.preventDefault()} className="mb-3">
-    <Row>
-      <Col xs={10}>
-        <InputGroup style={{ margin: 0 }}>
+    <Row noGutters>
+      <Col xs={9}>
+        <InputGroup style={{ margin: 0, border: '1px solid black', 'border-radius': '4px' }}>
           <InputGroup.Prepend>
             <InputGroup.Text>@</InputGroup.Text>
           </InputGroup.Prepend>
           <Form.Control
             type="text"
-            placeholder="Enter username"
+            placeholder="username"
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </InputGroup>
       </Col>
-      <Col size={2}>
+      <Col className="pl-2" size={3}>
         <Button
-          variant="primary"
+          variant="light"
           size="sm"
           onKeyPress={(e) => e.preventDefault()}
           onClick={() => (
@@ -36,7 +36,12 @@ const SearchForm = ({
               handleUserNotFound(setUserFound, setUserDetails),
             )
           )}
-          style={{ height: '100%', width: '100%' }}
+          style={{
+            height: '100%',
+            width: '100%',
+            'background-color': '#e9ecef',
+            border: '1px solid black',
+          }}
         >
           Search
         </Button>

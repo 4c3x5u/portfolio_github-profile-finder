@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Container from 'react-bootstrap/Container';
+import { Container, Row, Col } from 'react-bootstrap';
 import SearchForm from './Components/SearchForm';
 import UserDetails from './Components/UserDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,12 +16,20 @@ const App = () => {
 
   return (
     <Container className="App">
-      <SearchForm
-        setSearchParam={setSearchParam}
-        setUserFound={setUserFound}
-        setUserDetails={setUser}
-        searchParam={searchParam}
-      />
+      <Row>
+        <Col>
+          <h2 className="text-dark">GitHub Profile Finder</h2>
+        </Col>
+        <Col xs={4}>
+          <SearchForm
+            setSearchParam={setSearchParam}
+            setUserFound={setUserFound}
+            setUserDetails={setUser}
+            searchParam={searchParam}
+          />
+        </Col>
+      </Row>
+
       {userFound && <UserDetails user={user} />}
     </Container>
   );
