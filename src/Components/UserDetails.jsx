@@ -3,25 +3,32 @@ import PropTypes from 'prop-types';
 import {
   Row, Col, Button, Card,
 } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 
 const UserDetails = ({ user }) => (
-  <Card style={{ height: '20rem', width: '100%' }}>
+  <Card style={{ height: '22rem', width: '100%', border: '3px solid #343a40' }}>
     <Row style={{ height: '100%' }}>
-      <Col xs={4}>
+      <Col xs={4} style={{ height: '100%' }}>
         <Card.Img
           variant="left"
-          src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png"
+          src={user.avatar}
           style={{ width: '100%', height: '100%' }}
         />
       </Col>
       <Col xs={8}>
         <Card.Body>
-          <Card.Title>{user.name}</Card.Title>
+          <Card.Title>
+            <h2>{user.name}</h2>
+          </Card.Title>
           <Card.Text>
             <p>{user.bio}</p>
-            <p>{user.location}</p>
+            <p>
+              <FontAwesomeIcon icon={faMapMarkedAlt} size="md" className="mr-2" />
+              {user.location}
+            </p>
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="dark">Go somewhere</Button>
         </Card.Body>
       </Col>
     </Row>

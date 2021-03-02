@@ -13,9 +13,15 @@ const SearchForm = ({
   <Form onSubmit={(e) => e.preventDefault()} className="mb-3">
     <Row noGutters>
       <Col xs={9}>
-        <InputGroup style={{ margin: 0, border: '1px solid black', 'border-radius': '4px' }}>
+        <InputGroup
+          style={{
+            margin: 0,
+            border: '2px solid #343a40',
+            'border-radius': '4px',
+          }}
+        >
           <InputGroup.Prepend>
-            <InputGroup.Text>@</InputGroup.Text>
+            <InputGroup.Text style={{ 'background-color': '#343a40', color: '#fdfdfd' }}>@</InputGroup.Text>
           </InputGroup.Prepend>
           <Form.Control
             type="text"
@@ -26,7 +32,7 @@ const SearchForm = ({
       </Col>
       <Col className="pl-2" size={3}>
         <Button
-          variant="light"
+          variant="dark"
           size="sm"
           onKeyPress={(e) => e.preventDefault()}
           onClick={() => (
@@ -37,10 +43,11 @@ const SearchForm = ({
             )
           )}
           style={{
+            // TODO: Add COLOUR CHANGE ON HOVER when moving to Sass
             height: '100%',
             width: '100%',
-            'background-color': '#e9ecef',
-            border: '1px solid black',
+            // 'background-color': '#e9ecef',
+            // border: '1px solid black',
           }}
         >
           Search
