@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import SearchForm from './Components/SearchForm';
-import UserDetails from './Components/UserDetails';
+import Container from 'react-bootstrap/Container';
+import Head from './Components/Head/Head';
+import UserDetails from './Components/UserDetails/UserDetails';
+import PublicRepos from './Components/PublicRepos/PublicRepos';
+import Following from './Components/ListFollowing/ListFollowing';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
 const App = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
+  const [user, setUser] = useState({});
   const [userFound, setUserFound] = useState(false);
-  const [user, setUser] = useState({
-    name: '',
-    bio: '',
-    location: '',
-    avatar: '',
-    numberOfPublicRepos: 0,
-    numberOfPublicGists: 0,
-    numberOfFollowers: 0,
-    numberOfFollowing: 0,
-  });
+  const [repos, setRepos] = useState([]);
+  const [reposFound, setReposFound] = useState(false);
+  const [following, setFollowing] = useState(false);
+  const [followingFound, setFollowingFound] = useState(false);
 
   return (
     <Container className="App">
-      <Row>
-        <Col>
-          <h2 className="text-dark">GitHub Profile Finder</h2>
-        </Col>
-        <Col xs={4}>
-          <SearchForm
-            setSearchParam={setSearchParam}
-            setUserFound={setUserFound}
-            setUserDetails={setUser}
-            searchParam={searchParam}
-          />
-        </Col>
-      </Row>
+      <Head
+        searchParam={searchParam}
+        setSearchParam={setSearchParam}
+        setUser={setUser}
+        setUserFound={setUserFound}
+      />
 
-      {userFound && <UserDetails user={user} />}
+      {userFound && (
+        <div>
+          <UserDetails
+            user={user}
+            setRepos={setRepos}
+            setReposFound={setReposFound}
+            setFollowing={setFollowing}
+            setFollowingFound={setFollowingFound}
+          />
+          {reposFound ? (
+            <PublicRepos repos={repos} />
+          ) : (
+            followingFound && (
+              <Following following={following} />
+            )
+          )}
+        </div>
+      )}
     </Container>
   );
 };

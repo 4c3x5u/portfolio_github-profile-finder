@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import {
   searchUser, handleUserFound, handleUserNotFound,
-} from '../utils';
+} from '../../API/UserAPI';
 
 const SearchForm = ({
   setSearchParam, setUserFound, setUserDetails, searchParam,
@@ -14,11 +14,7 @@ const SearchForm = ({
     <Row noGutters>
       <Col xs={9}>
         <InputGroup
-          style={{
-            margin: 0,
-            border: '2px solid #343a40',
-            borderRadius: '4px',
-          }}
+          style={{ border: '2px solid #343a40', borderRadius: '4px' }}
         >
           <InputGroup.Prepend>
             <InputGroup.Text className="bg-dark text-light">@</InputGroup.Text>
@@ -26,7 +22,7 @@ const SearchForm = ({
           <Form.Control
             type="text"
             placeholder="4c3x5u"
-            onChange={(e) => setSearchParam(e.target.value)}
+            onChange={(e) => setSearchParam(e.target.value || '4c3x5u')}
           />
         </InputGroup>
       </Col>
