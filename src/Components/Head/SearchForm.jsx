@@ -8,7 +8,10 @@ import {
 } from '../../API/UserAPI';
 
 const SearchForm = ({
-  setSearchParam, setUserFound, setUserDetails, searchParam,
+  setSearchParam,
+  setUserFound,
+  setUser,
+  searchParam,
 }) => (
   <Form onSubmit={(e) => e.preventDefault()} className="mb-3">
     <Row noGutters>
@@ -34,8 +37,8 @@ const SearchForm = ({
           onClick={() => (
             searchUser(
               searchParam,
-              handleUserFound(setUserFound, setUserDetails),
-              handleUserNotFound(setUserFound, setUserDetails),
+              handleUserFound(setUserFound, setUser),
+              handleUserNotFound(setUserFound, setUser),
             )
           )}
           style={{ height: '100%', width: '100%' }}
@@ -50,7 +53,7 @@ const SearchForm = ({
 SearchForm.propTypes = {
   setSearchParam: PropTypes.func.isRequired,
   setUserFound: PropTypes.func.isRequired,
-  setUserDetails: PropTypes.func.isRequired,
+  setUser: PropTypes.func.isRequired,
   searchParam: PropTypes.string.isRequired,
 };
 

@@ -14,7 +14,7 @@ const Head = ({
       <SearchForm
         setSearchParam={setSearchParam}
         setUserFound={setUserFound}
-        setUserDetails={setUser}
+        setUser={setUser}
         searchParam={searchParam}
       />
     </Col>

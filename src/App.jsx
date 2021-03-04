@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Head from './Components/Head/Head';
 import UserDetails from './Components/UserDetails/UserDetails';
 import PublicRepos from './Components/PublicRepos/PublicRepos';
-import Following from './Components/ListFollowing/ListFollowing';
+import ListFollowing from './Components/ListFollowing/ListFollowing';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
@@ -18,6 +18,7 @@ const App = () => {
 
   return (
     <Container className="App">
+      {console.log(`followingFound: ${followingFound}\nfollowing: ${JSON.stringify(following)}`)}
       <Head
         searchParam={searchParam}
         setSearchParam={setSearchParam}
@@ -38,7 +39,7 @@ const App = () => {
             <PublicRepos repos={repos} />
           ) : (
             followingFound && (
-              <Following following={following} />
+              <ListFollowing following={following} />
             )
           )}
         </div>

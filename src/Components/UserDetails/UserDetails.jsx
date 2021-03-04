@@ -9,6 +9,7 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
 import { requestFollowing, handleFollowingFound, handleFollowingNotFound } from '../../API/FollowingAPI';
 
+// TODO: Rename this to BasicInfo
 const UserDetails = ({
   user,
   setRepos,
@@ -32,7 +33,7 @@ const UserDetails = ({
               <Row className="mb-2" style={{ margin: 'auto' }}>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
-                    user.numberOfPublicRepos > 0 && (
+                    user.numberOfPublicRepos > 0 ? (
                       // TODO: make this just a link with additional font styling
                       <h6
                         className="text-primary"
@@ -47,12 +48,21 @@ const UserDetails = ({
                       >
                         Public Repos: {user.numberOfPublicRepos}
                       </h6>
+                    ) : (
+                      <h6>Public Repos: {user.numberOfPublicRepos}</h6>
                     )
                   }
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
+                  <h6>Public Gists: {user.numberOfPublicGists} </h6>
+                </Col>
+                <Col xs={6} style={{ textAlign: 'center' }}>
+                  <h6>Followers: {user.numberOfFollowers}</h6>
+                </Col>
+                <Col xs={6} style={{ textAlign: 'center' }}>
+                  {console.log(`numberOfFollowing: ${user.numberOfFollowing}`)}
                   {
-                    user.numberOfFollowing > 0 && (
+                    user.numberOfFollowing > 0 ? (
                       <h6
                         className="text-primary"
                         style={{ cursor: 'pointer' }}
@@ -61,21 +71,15 @@ const UserDetails = ({
                             user.followingUrl,
                             handleFollowingFound(setFollowing, setFollowingFound),
                             handleFollowingNotFound(setFollowing, setFollowingFound),
-                          ),
+                          )
                         )}
                       >
-                        Public Gists: {user.numberOfPublicGists}
+                        Following: {user.numberOfFollowing}
                       </h6>
+                    ) : (
+                      <h6>Following: {user.numberOfFollowing} </h6>
                     )
                   }
-
-                  {/* <h6>Public Gists: {user.numberOfPublicGists} </h6> */}
-                </Col>
-                <Col xs={6} style={{ textAlign: 'center' }}>
-                  <h6>Followers: {user.numberOfFollowers}</h6>
-                </Col>
-                <Col xs={6} style={{ textAlign: 'center' }}>
-                  <h6>Following: {user.numberOfFollowing} </h6>
                 </Col>
               </Row>
               <h5 style={{ width: '100%', textAlign: 'center' }}>
@@ -99,8 +103,8 @@ UserDetails.propTypes = {
   }).isRequired,
   setRepos: PropTypes.func.isRequired,
   setReposFound: PropTypes.func.isRequired,
-  setFollowing: PropTypes.func.isrequired,
-  setFollowingFound: PropTypes.func.isrequired,
+  setFollowing: PropTypes.func.isRequired,
+  setFollowingFound: PropTypes.func.isRequired,
 };
 
 export default UserDetails;
