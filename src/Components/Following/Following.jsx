@@ -1,20 +1,20 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
-import Following from './Following';
+import FollowingUser from './FollowingUser';
 
-const ListFollowing = ({ followingUsers }) => (
+const Following = ({ followingUsers }) => (
   <ListGroup>
     {followingUsers.map((user) => (
-      <Following user={user} />
+      <FollowingUser user={user} />
     ))}
   </ListGroup>
 );
 
-ListFollowing.propTypes = {
+Following.propTypes = {
   followingUsers: PropTypes.arrayOf({
     login: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default ListFollowing;
+export default Following;

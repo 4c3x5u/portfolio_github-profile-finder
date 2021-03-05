@@ -9,8 +9,7 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
 import { requestFollowing, handleFollowingFound, handleFollowingNotFound } from '../../API/FollowingAPI';
 
-// TODO: Rename this to BasicInfo
-const UserDetails = ({
+const UserInfo = ({
   user,
   setRepos,
   setReposFound,
@@ -94,7 +93,7 @@ const UserDetails = ({
   </Card>
 );
 
-UserDetails.propTypes = {
+UserInfo.propTypes = {
   user: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
@@ -107,4 +106,4 @@ UserDetails.propTypes = {
   setFollowingUsersFound: PropTypes.func.isRequired,
 };
 
-export default UserDetails;
+export default UserInfo;

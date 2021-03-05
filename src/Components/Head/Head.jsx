@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import SearchForm from './SearchForm';
 
 const Head = ({
-  searchParam, setSearchParam, setUser, setUserFound,
+  searchParam,
+  setSearchParam,
+  setUser,
+  setUserFound,
 }) => (
   <Row>
     <Col>
@@ -12,10 +15,10 @@ const Head = ({
     </Col>
     <Col xs={4}>
       <SearchForm
-        setSearchParam={setSearchParam}
-        setUserFound={setUserFound}
-        setUser={setUser}
         searchParam={searchParam}
+        setSearchParam={setSearchParam}
+        setUser={setUser}
+        setUserFound={setUserFound}
       />
     </Col>
   </Row>

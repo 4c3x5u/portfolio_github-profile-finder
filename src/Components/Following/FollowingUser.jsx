@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const Following = ({ user }) => (
+const FollowingUser = ({ user }) => (
   <ListGroup.Item
     key={user.login}
     action
@@ -15,10 +15,10 @@ const Following = ({ user }) => (
   </ListGroup.Item>
 );
 
-Following.propTypes = {
+FollowingUser.propTypes = {
   user: PropTypes.objectOf({
     login: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default Following;
+export default FollowingUser;

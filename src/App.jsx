@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Head from './Components/Head/Head';
-import UserDetails from './Components/UserDetails/UserDetails';
+import UserInfo from './Components/UserInfo/UserInfo';
 import PublicRepos from './Components/PublicRepos/PublicRepos';
-import ListFollowing from './Components/ListFollowing/ListFollowing';
+import Following from './Components/Following/Following';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
@@ -27,7 +27,7 @@ const App = () => {
 
       {userFound && (
         <div>
-          <UserDetails
+          <UserInfo
             user={user}
             setRepos={setRepos}
             setReposFound={setReposFound}
@@ -38,7 +38,7 @@ const App = () => {
             <PublicRepos repos={repos} />
           ) : (
             followingUsersFound && (
-              <ListFollowing followingUsers={followingUsers} />
+              <Following followingUsers={followingUsers} />
             )
           )}
         </div>
