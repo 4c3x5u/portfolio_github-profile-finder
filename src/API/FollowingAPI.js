@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const parseFollowing = (followingResponseData) => ({
-  username: followingResponseData.login,
+  login: followingResponseData.login,
   url: followingResponseData.html_url,
 });
 

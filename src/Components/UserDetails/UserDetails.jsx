@@ -14,8 +14,8 @@ const UserDetails = ({
   user,
   setRepos,
   setReposFound,
-  setFollowing,
-  setFollowingFound,
+  setFollowingUsers,
+  setFollowingUsersFound,
 }) => (
   <Card className="bg-light" style={{ border: '3px solid #343a40', marginBottom: '1rem' }}>
     <Row noGutters style={{ height: '100%' }}>
@@ -69,8 +69,8 @@ const UserDetails = ({
                         onClick={() => (
                           requestFollowing(
                             user.followingUrl,
-                            handleFollowingFound(setFollowing, setFollowingFound),
-                            handleFollowingNotFound(setFollowing, setFollowingFound),
+                            handleFollowingFound(setFollowingUsers, setFollowingUsersFound),
+                            handleFollowingNotFound(setFollowingUsers, setFollowingUsersFound),
                           )
                         )}
                       >
@@ -103,8 +103,8 @@ UserDetails.propTypes = {
   }).isRequired,
   setRepos: PropTypes.func.isRequired,
   setReposFound: PropTypes.func.isRequired,
-  setFollowing: PropTypes.func.isRequired,
-  setFollowingFound: PropTypes.func.isRequired,
+  setFollowingUsers: PropTypes.func.isRequired,
+  setFollowingUsersFound: PropTypes.func.isRequired,
 };
 
 export default UserDetails;

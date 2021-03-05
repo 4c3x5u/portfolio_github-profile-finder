@@ -13,12 +13,11 @@ const App = () => {
   const [userFound, setUserFound] = useState(false);
   const [repos, setRepos] = useState([]);
   const [reposFound, setReposFound] = useState(false);
-  const [following, setFollowing] = useState(false);
-  const [followingFound, setFollowingFound] = useState(false);
+  const [followingUsers, setFollowingUsers] = useState(false);
+  const [followingUsersFound, setFollowingUsersFound] = useState(false);
 
   return (
     <Container className="App">
-      {console.log(`followingFound: ${followingFound}\nfollowing: ${JSON.stringify(following)}`)}
       <Head
         searchParam={searchParam}
         setSearchParam={setSearchParam}
@@ -32,14 +31,14 @@ const App = () => {
             user={user}
             setRepos={setRepos}
             setReposFound={setReposFound}
-            setFollowing={setFollowing}
-            setFollowingFound={setFollowingFound}
+            setFollowingUsers={setFollowingUsers}
+            setFollowingUsersFound={setFollowingUsersFound}
           />
           {reposFound ? (
             <PublicRepos repos={repos} />
           ) : (
-            followingFound && (
-              <ListFollowing following={following} />
+            followingUsersFound && (
+              <ListFollowing followingUsers={followingUsers} />
             )
           )}
         </div>

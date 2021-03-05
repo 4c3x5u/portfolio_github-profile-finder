@@ -4,11 +4,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 const Following = ({ user }) => (
   <ListGroup.Item
+    key={user.login}
     action
-    className="bg-light text-center mb-2"
-    style={{ border: '2px solid #343a40' }}
+    className="bg-light text-center"
+    style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
   >
-    <h5>
+    <h5 stlye={{ marginTop: '2rem', padding: 0 }}>
       {user.login}
     </h5>
   </ListGroup.Item>
