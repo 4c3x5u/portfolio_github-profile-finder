@@ -17,13 +17,13 @@ const parseUser = (userResponseData) => ({
     ),
 });
 
-export const handleUserFound = (setUserFound, setUser) => (userResponse) => {
+export const handleUserFound = (setUser, setUserFound) => (userResponse) => {
   const user = parseUser(userResponse.data);
   setUser(user);
   setUserFound(true);
 };
 
-export const handleUserNotFound = (setUserFound, setUser) => () => {
+export const handleUserNotFound = (setUser, setUserFound) => () => {
   setUser({});
   setUserFound(false);
 };

@@ -37,8 +37,8 @@ const SearchForm = ({
           onClick={() => (
             searchUser(
               searchParam,
-              handleUserFound(setUserFound, setUser),
-              handleUserNotFound(setUserFound, setUser),
+              handleUserFound(setUser, setUserFound),
+              handleUserNotFound(setUser, setUserFound),
             )
           )}
           style={{ height: '100%', width: '100%' }}

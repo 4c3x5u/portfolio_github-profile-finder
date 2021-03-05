@@ -9,6 +9,7 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
 import { requestFollowing, handleFollowingFound, handleFollowingNotFound } from '../../API/FollowingAPI';
 
+// TODO: Rename this to BasicInfo
 const UserInfo = ({
   user,
   setRepos,
@@ -33,15 +34,14 @@ const UserInfo = ({
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
                     user.numberOfPublicRepos > 0 ? (
-                      // TODO: make this just a link with additional font styling
                       <h6
                         className="text-primary"
                         style={{ cursor: 'pointer' }}
                         onClick={() => (
                           getReposForUser(
                             user.reposUrl,
-                            handleReposFound(setReposFound, setRepos),
-                            handleReposNotFound(setReposFound, setRepos),
+                            handleReposFound(setRepos, setReposFound),
+                            handleReposNotFound(setRepos, setReposFound),
                           )
                         )}
                       >

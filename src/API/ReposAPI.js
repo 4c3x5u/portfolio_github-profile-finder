@@ -5,13 +5,13 @@ const parseRepo = (reposResponseData) => ({
   description: reposResponseData.description || '[ No Description ]',
 });
 
-export const handleReposFound = (setReposFound, setRepos) => (reposResponse) => {
+export const handleReposFound = (setRepos, setReposFound) => (reposResponse) => {
   const repos = reposResponse.data.map(parseRepo);
   setRepos(repos);
   setReposFound(true);
 };
 
-export const handleReposNotFound = (setReposFound, setRepos) => () => {
+export const handleReposNotFound = (setRepos, setReposFound) => () => {
   setRepos([]);
   setReposFound(false);
 };
