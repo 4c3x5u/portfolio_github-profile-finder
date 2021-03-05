@@ -45,7 +45,7 @@ const App = () => {
               <Route path="/*/repos">
                 {reposFound && <PublicRepos repos={repos} />}
               </Route>
-              <Route path="/following">
+              <Route path="/*/following">
                 {followingUsersFound && <Following users={followingUsers} />}
               </Route>
             </Switch>

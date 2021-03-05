@@ -60,9 +60,8 @@ const UserInfo = ({
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
                     user.numberOfFollowing > 0 ? (
-                      <h6
-                        className="text-primary"
-                        style={{ cursor: 'pointer' }}
+                      <Link
+                        to={`/${user.login}/following`}
                         onClick={() => (
                           requestFollowing(
                             user.followingUrl,
@@ -72,7 +71,7 @@ const UserInfo = ({
                         )}
                       >
                         Following: {user.numberOfFollowing}
-                      </h6>
+                      </Link>
                     ) : (
                       <h6>Following: {user.numberOfFollowing} </h6>
                     )
