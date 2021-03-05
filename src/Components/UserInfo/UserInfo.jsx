@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +10,6 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
 import { requestFollowing, handleFollowingFound, handleFollowingNotFound } from '../../API/FollowingAPI';
 
-// TODO: Rename this to BasicInfo
 const UserInfo = ({
   user,
   setRepos,
@@ -34,9 +34,8 @@ const UserInfo = ({
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
                     user.numberOfPublicRepos > 0 ? (
-                      <h6
-                        className="text-primary"
-                        style={{ cursor: 'pointer' }}
+                      <Link
+                        to={`/${user.login}/repos`}
                         onClick={() => (
                           getReposForUser(
                             user.reposUrl,
@@ -46,7 +45,7 @@ const UserInfo = ({
                         )}
                       >
                         Public Repos: {user.numberOfPublicRepos}
-                      </h6>
+                      </Link>
                     ) : (
                       <h6>Public Repos: {user.numberOfPublicRepos}</h6>
                     )
@@ -59,7 +58,6 @@ const UserInfo = ({
                   <h6>Followers: {user.numberOfFollowers}</h6>
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  {console.log(`numberOfFollowing: ${user.numberOfFollowing}`)}
                   {
                     user.numberOfFollowing > 0 ? (
                       <h6
@@ -95,6 +93,7 @@ const UserInfo = ({
 
 UserInfo.propTypes = {
   user: PropTypes.objectOf({
+    login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,

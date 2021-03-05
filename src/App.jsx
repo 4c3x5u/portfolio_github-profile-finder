@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Head from './Components/Head/Head';
 import UserInfo from './Components/UserInfo/UserInfo';
@@ -17,33 +22,37 @@ const App = () => {
   const [followingUsersFound, setFollowingUsersFound] = useState(false);
 
   return (
-    <Container className="App">
-      <Head
-        searchParam={searchParam}
-        setSearchParam={setSearchParam}
-        setUser={setUser}
-        setUserFound={setUserFound}
-      />
+    <Router>
+      <Container className="App">
+        <Head
+          searchParam={searchParam}
+          setSearchParam={setSearchParam}
+          setUser={setUser}
+          setUserFound={setUserFound}
+        />
 
-      {userFound && (
-        <div>
-          <UserInfo
-            user={user}
-            setRepos={setRepos}
-            setReposFound={setReposFound}
-            setFollowingUsers={setFollowingUsers}
-            setFollowingUsersFound={setFollowingUsersFound}
-          />
-          {reposFound ? (
-            <PublicRepos repos={repos} />
-          ) : (
-            followingUsersFound && (
-              <Following followingUsers={followingUsers} />
-            )
-          )}
-        </div>
-      )}
-    </Container>
+        {userFound && (
+          <div>
+            <UserInfo
+              user={user}
+              setRepos={setRepos}
+              setReposFound={setReposFound}
+              setFollowingUsers={setFollowingUsers}
+              setFollowingUsersFound={setFollowingUsersFound}
+            />
+
+            <Switch>
+              <Route path="/*/repos">
+                {reposFound && <PublicRepos repos={repos} />}
+              </Route>
+              <Route path="/following">
+                {followingUsersFound && <Following users={followingUsers} />}
+              </Route>
+            </Switch>
+          </div>
+        )}
+      </Container>
+    </Router>
   );
 };
 

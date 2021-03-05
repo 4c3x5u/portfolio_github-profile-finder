@@ -3,16 +3,16 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
 import FollowingUser from './FollowingUser';
 
-const Following = ({ followingUsers }) => (
+const Following = ({ users }) => (
   <ListGroup>
-    {followingUsers.map((user) => (
+    {users.map((user) => (
       <FollowingUser user={user} />
     ))}
   </ListGroup>
 );
 
 Following.propTypes = {
-  followingUsers: PropTypes.arrayOf({
+  users: PropTypes.arrayOf({
     login: PropTypes.string.isRequired,
   }).isRequired,
 };

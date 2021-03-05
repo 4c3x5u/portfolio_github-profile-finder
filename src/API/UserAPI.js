@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const parseUser = (userResponseData) => ({
+  login: userResponseData.login,
   name: userResponseData.name || '[No Name]',
   bio: userResponseData.bio || '[No Bio]',
   location: userResponseData.location || '[No Location]',
