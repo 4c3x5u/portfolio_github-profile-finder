@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
-  Row, Col, Form, InputGroup, Button,
+  Row,
+  Col,
+  Form,
+  InputGroup,
 } from 'react-bootstrap';
-import {
-  searchUser, handleUserFound, handleUserNotFound,
-} from '../../API/UserAPI';
+import { searchUser, handleUserFound, handleUserNotFound } from '../../API/UserAPI';
 
 const SearchForm = ({
   setSearchParam,
@@ -30,10 +32,9 @@ const SearchForm = ({
         </InputGroup>
       </Col>
       <Col className="pl-2" size={3}>
-        <Button
-          variant="dark"
-          size="sm"
-          onKeyPress={(e) => e.preventDefault()}
+        <Link
+          to={`/${searchParam}`}
+          className="btn btn-dark sm"
           onClick={() => (
             searchUser(
               searchParam,
@@ -44,7 +45,7 @@ const SearchForm = ({
           style={{ height: '100%', width: '100%' }}
         >
           Search
-        </Button>
+        </Link>
       </Col>
     </Row>
   </Form>

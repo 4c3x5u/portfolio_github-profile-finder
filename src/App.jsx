@@ -33,20 +33,23 @@ const App = () => {
 
         {userFound && (
           <div>
-            <UserInfo
-              user={user}
-              setRepos={setRepos}
-              setReposFound={setReposFound}
-              setFollowingUsers={setFollowingUsers}
-              setFollowingUsersFound={setFollowingUsersFound}
-            />
-
             <Switch>
-              <Route path="/*/repos">
-                {reposFound && <PublicRepos repos={repos} />}
-              </Route>
-              <Route path="/*/following">
-                {followingUsersFound && <Following users={followingUsers} />}
+              <Route path={`/${user.login}`}>
+                <UserInfo
+                  user={user}
+                  setRepos={setRepos}
+                  setReposFound={setReposFound}
+                  setFollowingUsers={setFollowingUsers}
+                  setFollowingUsersFound={setFollowingUsersFound}
+                />
+                <Switch>
+                  <Route path={`/${user.login}/repos`}>
+                    {reposFound && <PublicRepos repos={repos} />}
+                  </Route>
+                  <Route path={`/${user.login}/following`}>
+                    {followingUsersFound && <Following users={followingUsers} />}
+                  </Route>
+                </Switch>
               </Route>
             </Switch>
           </div>
