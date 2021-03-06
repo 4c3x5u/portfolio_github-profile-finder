@@ -1,12 +1,12 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
-import FollowingUser from './FollowingUser';
+import FollowingSingle from './FollowingSingle';
 
 const FollowingSuccess = ({ following }) => (
   <ListGroup>
     {following.map((user) => (
-      <FollowingUser user={user} />
+      <FollowingSingle user={user} />
     ))}
   </ListGroup>
 );

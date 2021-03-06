@@ -2,7 +2,7 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
 
-const Repository = ({ repo }) => (
+const ReposSingle = ({ repo }) => (
   <ListGroup.Item
     action
     className="bg-light text-center mb-2"
@@ -15,11 +15,11 @@ const Repository = ({ repo }) => (
   </ListGroup.Item>
 );
 
-Repository.propTypes = {
+ReposSingle.propTypes = {
   repo: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default Repository;
+export default ReposSingle;

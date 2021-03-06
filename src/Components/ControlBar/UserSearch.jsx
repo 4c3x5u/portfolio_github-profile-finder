@@ -7,11 +7,11 @@ import {
   InputGroup,
 } from 'react-bootstrap';
 
-const SearchForm = () => {
+const UserSearch = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
 
   return (
-    <Form onSubmit={(e) => e.preventDefault()} className="mb-3">
+    <Form className="UserSearch mb-3" onSubmit={(e) => e.preventDefault()}>
       <Row noGutters>
         <Col xs={9}>
           <InputGroup
@@ -41,4 +41,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default UserSearch;
