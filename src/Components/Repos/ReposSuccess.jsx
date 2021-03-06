@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Repository from './Repository';
+import ReposSingle from './ReposSingle';
 
 const PublicReposSuccess = ({ repos }) => (
   <ListGroup>
     {repos.map((repo) => (
-      <Repository key={repo.name} repo={repo} />
+      <ReposSingle repo={repo} />
     ))}
   </ListGroup>
 );

@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const parseFile = (file) => ({
-  name: file.filename,
-  type: file.type,
-  language: file.language,
-});
-
 const parseGist = (gist) => ({
   description: gist.description || '[No Description]',
   url: gist.html_url,
-  files: gist.files.map(parseFile),
+  files: gist.files.map((file) => ({
+    name: file.filename,
+    type: file.type,
+    lang: file.language,
+  })),
 });
 
 const handleGistsFound = (setGists, setGistsFound) => (gists) => {
