@@ -16,9 +16,9 @@ export const handleReposNotFound = (setRepos, setReposFound) => () => {
   setReposFound(false);
 };
 
-export const getReposForUser = (reposUrl, handleSuccess, handleFailure) => {
+export const getReposForUser = (userLogin, handleSuccess, handleFailure) => {
   axios
-    .get(reposUrl)
+    .get(`https://api.github.com/users/${userLogin}/repos`)
     .then(handleSuccess)
     .catch(handleFailure);
 };

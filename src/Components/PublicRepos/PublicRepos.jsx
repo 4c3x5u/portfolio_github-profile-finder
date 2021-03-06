@@ -1,15 +1,33 @@
-import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Repository from './Repository';
+import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
+import PublicReposSuccess from './PublicReposSuccess';
+// import PublicReposFailure from './PublicReposFailure';
 
-const PublicRepos = ({ repos }) => (
-  <ListGroup>
-    {repos.map((repo) => (
-      <Repository key={repo.name} repo={repo} />
-    ))}
-  </ListGroup>
-);
+const PublicRepos = () => {
+  const { id } = useParams();
+  const [repos, setRepos] = useState([]);
+  const [reposFound, setReposFound] = useState(false);
+
+  useEffect(() => (
+    getReposForUser(
+      id,
+      handleReposFound(setRepos, setReposFound),
+      handleReposNotFound(setRepos, setReposFound),
+    )
+  ), []);
+
+  const view = () => (
+    reposFound ? (
+      <PublicReposSuccess repos={repos} />
+    ) : (
+      <h1>UserNotFound</h1>
+    )
+  );
+
+  return view();
+};
 
 PublicRepos.propTypes = {
   repos: PropTypes.arrayOf(

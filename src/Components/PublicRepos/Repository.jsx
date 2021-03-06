@@ -8,9 +8,7 @@ const Repository = ({ repo }) => (
     className="bg-light text-center mb-2"
     style={{ border: '2px solid #343a40' }}
   >
-    <h5>
-      {repo.name}
-    </h5>
+    <h5>{repo.name}</h5>
     <p className="m-0">
       {repo.description}
     </p>

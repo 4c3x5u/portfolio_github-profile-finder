@@ -9,11 +9,6 @@ import {
   Card,
 } from 'react-bootstrap';
 import {
-  getReposForUser,
-  handleReposFound,
-  handleReposNotFound,
-} from '../../API/ReposAPI';
-import {
   requestFollowing,
   handleFollowingFound,
   handleFollowingNotFound,
@@ -21,13 +16,10 @@ import {
 
 const UserInfoSuccess = ({
   user,
-  setRepos,
-  setReposFound,
   setFollowingUsers,
   setFollowingUsersFound,
 }) => (
   <Card className="bg-light" style={{ border: '3px solid #343a40', marginBottom: '1rem' }}>
-    {console.log('RENDERING USERINFOSUCCESS')}
     <Row noGutters style={{ height: '100%' }}>
       <Col xs={4} style={{ height: '100%' }}>
         <Card.Img variant="left" src={user.avatar} style={{ width: '100%', height: '100%' }} />
@@ -44,16 +36,7 @@ const UserInfoSuccess = ({
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
                     user.numberOfPublicRepos > 0 ? (
-                      <Link
-                        to={`/${user.login}/repos`}
-                        onClick={() => (
-                          getReposForUser(
-                            user.reposUrl,
-                            handleReposFound(setRepos, setReposFound),
-                            handleReposNotFound(setRepos, setReposFound),
-                          )
-                        )}
-                      >
+                      <Link to={`/${user.login}/repos`}>
                         {`Public Repos: ${user.numberOfPublicRepos}`}
                       </Link>
                     ) : (
@@ -108,8 +91,6 @@ UserInfoSuccess.propTypes = {
     location: PropTypes.string.isRequired,
     numberOfFollowing: PropTypes.number.isRequired,
   }).isRequired,
-  setRepos: PropTypes.func.isRequired,
-  setReposFound: PropTypes.func.isRequired,
   setFollowingUsers: PropTypes.func.isRequired,
   setFollowingUsersFound: PropTypes.func.isRequired,
 };

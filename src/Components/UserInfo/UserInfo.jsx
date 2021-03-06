@@ -14,35 +14,31 @@ import UserInfoSuccess from './UserInfoSuccess';
 // import UserInfoFailure from './UserInfoFailure';
 
 const UserInfo = ({
-  setRepos,
-  setReposFound,
   setFollowingUsers,
   setFollowingUsersFound,
 }) => {
   const { id } = useParams();
   const [user, setUser] = useState({});
-  const [userFound, setUserFound] = useState({});
+  const [userFound, setUserFound] = useState(false);
 
-  useEffect(() => {
-    console.log('EFFECT EXECUTING');
+  useEffect(() => (
     searchUser(
       id,
       handleUserFound(setUser, setUserFound),
       handleUserNotFound(setUser, setUserFound),
-    );
-  }, []);
+    )
+  ), []);
 
   const view = () => (
     userFound ? (
       <UserInfoSuccess
         user={user}
-        setRepos={setRepos}
-        setReposFound={setReposFound}
         setFollowingUsers={setFollowingUsers}
         setFollowingUsersFound={setFollowingUsersFound}
       />
     ) : (
-      <h1>BABAN</h1>
+      // <UserInfoFailure />
+      <h1>User Not Found</h1>
     )
   );
 
