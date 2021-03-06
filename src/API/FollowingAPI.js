@@ -16,9 +16,9 @@ export const handleFollowingNotFound = (setFollowing, setFollowingFound) => () =
   setFollowingFound(false);
 };
 
-export const requestFollowing = (followingUrl, handleSuccess, handleFailure) => {
+export const requestFollowing = (userLogin, handleSuccess, handleFailure) => {
   axios
-    .get(followingUrl)
+    .get(`https://api.github.com/users/${userLogin}/following`)
     .then(handleSuccess)
     .catch(handleFailure);
 };

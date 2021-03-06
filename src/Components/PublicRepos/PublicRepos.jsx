@@ -6,13 +6,13 @@ import PublicReposSuccess from './PublicReposSuccess';
 // import PublicReposFailure from './PublicReposFailure';
 
 const PublicRepos = () => {
-  const { id } = useParams();
+  const { login } = useParams();
   const [repos, setRepos] = useState([]);
   const [reposFound, setReposFound] = useState(false);
 
   useEffect(() => (
     getReposForUser(
-      id,
+      login,
       handleReposFound(setRepos, setReposFound),
       handleReposNotFound(setRepos, setReposFound),
     )

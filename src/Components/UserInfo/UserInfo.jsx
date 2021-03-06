@@ -13,17 +13,14 @@ import {
 import UserInfoSuccess from './UserInfoSuccess';
 // import UserInfoFailure from './UserInfoFailure';
 
-const UserInfo = ({
-  setFollowingUsers,
-  setFollowingUsersFound,
-}) => {
-  const { id } = useParams();
+const UserInfo = () => {
+  const { login } = useParams();
   const [user, setUser] = useState({});
   const [userFound, setUserFound] = useState(false);
 
   useEffect(() => (
     searchUser(
-      id,
+      login,
       handleUserFound(setUser, setUserFound),
       handleUserNotFound(setUser, setUserFound),
     )
@@ -31,11 +28,7 @@ const UserInfo = ({
 
   const view = () => (
     userFound ? (
-      <UserInfoSuccess
-        user={user}
-        setFollowingUsers={setFollowingUsers}
-        setFollowingUsersFound={setFollowingUsersFound}
-      />
+      <UserInfoSuccess user={user} />
     ) : (
       // <UserInfoFailure />
       <h1>User Not Found</h1>

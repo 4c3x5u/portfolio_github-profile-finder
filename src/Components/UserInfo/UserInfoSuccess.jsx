@@ -3,22 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
-import {
-  Row,
-  Col,
-  Card,
-} from 'react-bootstrap';
-import {
-  requestFollowing,
-  handleFollowingFound,
-  handleFollowingNotFound,
-} from '../../API/FollowingAPI';
+import { Row, Col, Card } from 'react-bootstrap';
 
-const UserInfoSuccess = ({
-  user,
-  setFollowingUsers,
-  setFollowingUsersFound,
-}) => (
+const UserInfoSuccess = ({ user }) => (
   <Card className="bg-light" style={{ border: '3px solid #343a40', marginBottom: '1rem' }}>
     <Row noGutters style={{ height: '100%' }}>
       <Col xs={4} style={{ height: '100%' }}>
@@ -53,16 +40,7 @@ const UserInfoSuccess = ({
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {
                     user.numberOfFollowing > 0 ? (
-                      <Link
-                        to={`/${user.login}/following`}
-                        onClick={() => (
-                          requestFollowing(
-                            user.followingUrl,
-                            handleFollowingFound(setFollowingUsers, setFollowingUsersFound),
-                            handleFollowingNotFound(setFollowingUsers, setFollowingUsersFound),
-                          )
-                        )}
-                      >
+                      <Link to={`/${user.login}/following`}>
                         {`Following: ${user.numberOfFollowing}`}
                       </Link>
                     ) : (
@@ -91,8 +69,6 @@ UserInfoSuccess.propTypes = {
     location: PropTypes.string.isRequired,
     numberOfFollowing: PropTypes.number.isRequired,
   }).isRequired,
-  setFollowingUsers: PropTypes.func.isRequired,
-  setFollowingUsersFound: PropTypes.func.isRequired,
 };
 
 export default UserInfoSuccess;

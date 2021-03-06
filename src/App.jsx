@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Head from './Components/Head/Head';
 import UserInfo from './Components/UserInfo/UserInfo';
@@ -12,38 +8,27 @@ import Following from './Components/Following/Following';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
-const App = () => {
-  const [searchParam, setSearchParam] = useState('4c3x5u');
-  const [followingUsers, setFollowingUsers] = useState([]);
-  const [, setFollowingUsersFound] = useState(false);
+const App = () => (
+  <Container className="App">
 
-  return (
     <Router>
-      <Container className="App">
-        <Head
-          searchParam={searchParam}
-          setSearchParam={setSearchParam}
-        />
-        <Switch>
-          <Route path="/:id">
-            <UserInfo
-              setFollowingUsers={setFollowingUsers}
-              setFollowingUsersFound={setFollowingUsersFound}
-            />
-            <Switch>
-              <Route path="/:id/repos">
-                <PublicRepos />
-              </Route>
-              <Route path="/:id/following">
-                <Following users={followingUsers} />
-              </Route>
-            </Switch>
-          </Route>
-        </Switch>
-
-      </Container>
+      <Head />
+      <Switch>
+        <Route path="/:login">
+          <UserInfo />
+          <Switch>
+            <Route path="/:login/repos">
+              <PublicRepos />
+            </Route>
+            <Route path="/:login/following">
+              <Following />
+            </Route>
+          </Switch>
+        </Route>
+      </Switch>
     </Router>
-  );
-};
+
+  </Container>
+);
 
 export default App;
