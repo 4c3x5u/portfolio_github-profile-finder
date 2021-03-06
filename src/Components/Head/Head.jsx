@@ -6,8 +6,6 @@ import SearchForm from './SearchForm';
 const Head = ({
   searchParam,
   setSearchParam,
-  setUser,
-  setUserFound,
 }) => (
   <Row>
     <Col>
@@ -17,8 +15,6 @@ const Head = ({
       <SearchForm
         searchParam={searchParam}
         setSearchParam={setSearchParam}
-        setUser={setUser}
-        setUserFound={setUserFound}
       />
     </Col>
   </Row>
@@ -27,8 +23,6 @@ const Head = ({
 Head.propTypes = {
   searchParam: PropTypes.string.isRequired,
   setSearchParam: PropTypes.func.isRequired,
-  setUser: PropTypes.func.isRequired,
-  setUserFound: PropTypes.func.isRequired,
 };
 
 export default Head;

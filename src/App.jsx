@@ -14,12 +14,8 @@ import './App.sass';
 
 const App = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
-  const [user, setUser] = useState({});
-  const [userFound, setUserFound] = useState(false);
   const [repos, setRepos] = useState([]);
-  const [reposFound, setReposFound] = useState(false);
   const [followingUsers, setFollowingUsers] = useState(false);
-  const [followingUsersFound, setFollowingUsersFound] = useState(false);
 
   return (
     <Router>
@@ -27,33 +23,24 @@ const App = () => {
         <Head
           searchParam={searchParam}
           setSearchParam={setSearchParam}
-          setUser={setUser}
-          setUserFound={setUserFound}
         />
-
-        {userFound && (
-          <div>
+        <Switch>
+          <Route path="/:id">
+            <UserInfo
+              setRepos={setRepos}
+              setFollowingUsers={setFollowingUsers}
+            />
             <Switch>
-              <Route path={`/${user.login}`}>
-                <UserInfo
-                  user={user}
-                  setRepos={setRepos}
-                  setReposFound={setReposFound}
-                  setFollowingUsers={setFollowingUsers}
-                  setFollowingUsersFound={setFollowingUsersFound}
-                />
-                <Switch>
-                  <Route path={`/${user.login}/repos`}>
-                    {reposFound && <PublicRepos repos={repos} />}
-                  </Route>
-                  <Route path={`/${user.login}/following`}>
-                    {followingUsersFound && <Following users={followingUsers} />}
-                  </Route>
-                </Switch>
+              <Route path="/:id/repos">
+                <PublicRepos repos={repos} />
+              </Route>
+              <Route path="/:id/following">
+                <Following users={followingUsers} />
               </Route>
             </Switch>
-          </div>
-        )}
+          </Route>
+        </Switch>
+
       </Container>
     </Router>
   );
