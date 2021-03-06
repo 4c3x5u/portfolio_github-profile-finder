@@ -5,23 +5,25 @@ const parseRepo = (reposResponseData) => ({
   description: reposResponseData.description || '[ No Description ]',
 });
 
-const handleReposFound = (setRepos, setReposFound) => (reposResponse) => {
+const handleReposFound = (setLoading, setReposFound, setRepos) => (reposResponse) => {
   const repos = reposResponse.data.map(parseRepo);
   setRepos(repos);
   setReposFound(true);
+  setTimeout(() => setLoading(false), 700);
 };
 
-const handleReposNotFound = (setRepos, setReposFound) => () => {
+const handleReposNotFound = (setLoading, setReposFound, setRepos) => () => {
   setRepos([]);
   setReposFound(false);
+  setTimeout(() => setLoading(false), 700);
 };
 
 const reposAPI = {
-  get: (login, setRepos, setReposFound) => (
+  get: (login, setLoading, setReposFound, setRepos) => (
     axios
       .get(`https://api.github.com/users/${login}/repos`)
-      .then(handleReposFound(setRepos, setReposFound))
-      .catch(handleReposNotFound(setRepos, setReposFound))
+      .then(handleReposFound(setLoading, setReposFound, setRepos))
+      .catch(handleReposNotFound(setLoading, setReposFound, setRepos))
   ),
 };
 

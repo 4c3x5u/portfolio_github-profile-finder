@@ -4,18 +4,31 @@ import reposAPI from '../../API/reposAPI';
 import ReposSuccess from './ReposSuccess';
 import ReposFailure from './ReposFailure';
 import SubpageHeader from '../Shared/SubpageHeader';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const Repos = () => {
   const { login } = useParams();
-  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [reposFound, setReposFound] = useState(false);
-  useEffect(() => reposAPI.get(login, setRepos, setReposFound), []);
+  const [repos, setRepos] = useState([]);
+
+  useEffect(
+    () => reposAPI.get(login, setLoading, setReposFound, setRepos),
+    [],
+  );
+
+  const reposHeader = () => (<SubpageHeader subpage="Repos" />);
+
+  const reposContent = () => {
+    if (loading) { return <Spinner />; }
+    if (reposFound) { return <ReposSuccess repos={repos} />; }
+    return <ReposFailure />;
+  };
+
   return (
     <div className="Repos">
-      <SubpageHeader subpage="Repos" />
-      {reposFound
-        ? <ReposSuccess repos={repos} />
-        : <ReposFailure />}
+      {reposHeader()}
+      {reposContent()}
     </div>
   );
 };
