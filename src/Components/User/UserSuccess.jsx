@@ -8,11 +8,23 @@ import { Row, Col, Card } from 'react-bootstrap';
 const UserSuccess = ({ user }) => (
   <Card
     className="UserSuccess bg-light"
-    style={{ border: '3px solid #343a40', marginBottom: '1rem' }}
+    style={{
+      border: '3px solid #343a40',
+      marginBottom: '1rem',
+      borderRadius: '0 0 2rem 2rem',
+    }}
   >
     <Row noGutters style={{ height: '100%' }}>
       <Col xs={4} style={{ height: '100%' }}>
-        <Card.Img variant="left" src={user.avatar} style={{ width: '100%', height: '100%' }} />
+        <Card.Img
+          variant="left"
+          src={user.avatar}
+          style={{
+            width: '100%',
+            height: '100%',
+            borderBottomLeftRadius: '1.8rem',
+          }}
+        />
       </Col>
       <Col xs={8} style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
         <Card.Body style={{ height: '100%', width: '100%' }}>
