@@ -5,20 +5,24 @@ const parseRepo = (reposResponseData) => ({
   description: reposResponseData.description || '[ No Description ]',
 });
 
-export const handleReposFound = (setRepos, setReposFound) => (reposResponse) => {
+const handleReposFound = (setRepos, setReposFound) => (reposResponse) => {
   const repos = reposResponse.data.map(parseRepo);
   setRepos(repos);
   setReposFound(true);
 };
 
-export const handleReposNotFound = (setRepos, setReposFound) => () => {
+const handleReposNotFound = (setRepos, setReposFound) => () => {
   setRepos([]);
   setReposFound(false);
 };
 
-export const getReposForUser = (userLogin, handleSuccess, handleFailure) => {
-  axios
-    .get(`https://api.github.com/users/${userLogin}/repos`)
-    .then(handleSuccess)
-    .catch(handleFailure);
+const reposAPI = {
+  get: (userLogin, setRepos, setReposFound) => (
+    axios
+      .get(`https://api.github.com/users/${userLogin}/repos`)
+      .then(handleReposFound(setRepos, setReposFound))
+      .catch(handleReposNotFound(setRepos, setReposFound))
+  ),
 };
+
+export default reposAPI;

@@ -10,22 +10,15 @@ import './App.sass';
 
 const App = () => (
   <Container className="App">
-
     <Router>
       <Head />
-      <Switch>
-        <Route path="/:login">
-          <UserInfo />
-          <Switch>
-            <Route path="/:login/repos">
-              <PublicRepos />
-            </Route>
-            <Route path="/:login/following">
-              <Following />
-            </Route>
-          </Switch>
-        </Route>
-      </Switch>
+      <Route path="/:login">
+        <UserInfo />
+        <Switch>
+          <Route path="/:login/repos" component={PublicRepos} />
+          <Route path="/:login/following" component={Following} />
+        </Switch>
+      </Route>
     </Router>
 
   </Container>

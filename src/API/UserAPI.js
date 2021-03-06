@@ -18,20 +18,24 @@ const parseUser = (userResponseData) => ({
     ),
 });
 
-export const handleUserFound = (setUser, setUserFound) => (userResponse) => {
+const handleUserFound = (setUser, setUserFound) => (userResponse) => {
   const user = parseUser(userResponse.data);
   setUser(user);
   setUserFound(true);
 };
 
-export const handleUserNotFound = (setUser, setUserFound) => () => {
+const handleUserNotFound = (setUser, setUserFound) => () => {
   setUser({});
   setUserFound(false);
 };
 
-export const searchUser = (searchParam, handleSuccess, handleFailure) => (
-  axios
-    .get(`https://api.github.com/users/${searchParam}`)
-    .then(handleSuccess)
-    .catch(handleFailure)
-);
+const userAPI = {
+  get: (searchParam, setUser, setUserFound) => (
+    axios
+      .get(`https://api.github.com/users/${searchParam}`)
+      .then(handleUserFound(setUser, setUserFound))
+      .catch(handleUserNotFound(setUser, setUserFound))
+  ),
+};
+
+export default userAPI;

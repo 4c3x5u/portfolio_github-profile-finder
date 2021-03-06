@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  requestFollowing,
-  handleFollowingFound,
-  handleFollowingNotFound,
-} from '../../API/FollowingAPI';
+import followingAPI from '../../API/followingAPI';
 import FollowingSuccess from './FollowingSuccess';
 // import FollowingFailure from './FollowingFailure';
 
@@ -12,25 +8,12 @@ const Following = () => {
   const { login } = useParams();
   const [following, setFollowing] = useState([]);
   const [followingFound, setFollowingFound] = useState(false);
-
-  useEffect(() => (
-    requestFollowing(
-      login,
-      handleFollowingFound(setFollowing, setFollowingFound),
-      handleFollowingNotFound(setFollowing, setFollowingFound),
-    )
-  ), []);
-
-  const view = () => (
-    followingFound ? (
-      <FollowingSuccess following={following} />
-    ) : (
-      // <FollowingFailure />
-      <h1>Following Not Found</h1>
-    )
+  useEffect(() => followingAPI.get(login, setFollowing, setFollowingFound), []);
+  return (
+    followingFound
+      ? <FollowingSuccess following={following} />
+      : <h1>Following Not Found</h1> // TODO: Replace this with <FollowingFailure />
   );
-
-  return view();
 };
 
 export default Following;

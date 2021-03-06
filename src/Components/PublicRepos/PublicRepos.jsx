@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { getReposForUser, handleReposFound, handleReposNotFound } from '../../API/ReposAPI';
+import reposAPI from '../../API/reposAPI';
 import PublicReposSuccess from './PublicReposSuccess';
 // import PublicReposFailure from './PublicReposFailure';
 
@@ -9,33 +8,12 @@ const PublicRepos = () => {
   const { login } = useParams();
   const [repos, setRepos] = useState([]);
   const [reposFound, setReposFound] = useState(false);
-
-  useEffect(() => (
-    getReposForUser(
-      login,
-      handleReposFound(setRepos, setReposFound),
-      handleReposNotFound(setRepos, setReposFound),
-    )
-  ), []);
-
-  const view = () => (
-    reposFound ? (
-      <PublicReposSuccess repos={repos} />
-    ) : (
-      <h1>UserNotFound</h1>
-    )
+  useEffect(() => reposAPI.get(login, setRepos, setReposFound), []);
+  return (
+    reposFound
+      ? <PublicReposSuccess repos={repos} />
+      : <h1>User not found.</h1> // TODO: Replace this with <PublicReposFailure />
   );
-
-  return view();
-};
-
-PublicRepos.propTypes = {
-  repos: PropTypes.arrayOf(
-    PropTypes.objectOf({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
 };
 
 export default PublicRepos;
