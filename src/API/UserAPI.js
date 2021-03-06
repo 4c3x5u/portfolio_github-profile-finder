@@ -7,15 +7,9 @@ const parseUser = (userResponseData) => ({
   location: userResponseData.location || '[No Location]',
   avatar: userResponseData.avatar_url,
   numberOfPublicRepos: userResponseData.public_repos,
-  reposUrl: userResponseData.repos_url,
   numberOfPublicGists: userResponseData.public_gists,
   numberOfFollowers: userResponseData.followers,
   numberOfFollowing: userResponseData.following,
-  followingUrl:
-    userResponseData.following_url.substring(
-      0,
-      userResponseData.following_url.indexOf('{'),
-    ),
 });
 
 const handleUserFound = (setUser, setUserFound) => (userResponse) => {

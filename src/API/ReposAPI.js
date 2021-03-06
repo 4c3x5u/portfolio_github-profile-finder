@@ -17,9 +17,9 @@ const handleReposNotFound = (setRepos, setReposFound) => () => {
 };
 
 const reposAPI = {
-  get: (userLogin, setRepos, setReposFound) => (
+  get: (login, setRepos, setReposFound) => (
     axios
-      .get(`https://api.github.com/users/${userLogin}/repos`)
+      .get(`https://api.github.com/users/${login}/repos`)
       .then(handleReposFound(setRepos, setReposFound))
       .catch(handleReposNotFound(setRepos, setReposFound))
   ),

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Card } from 'react-bootstrap';
 
-const UserInfoSuccess = ({ user }) => (
+const UserSuccess = ({ user }) => (
   <Card
     className="UserSuccess bg-light"
     style={{ border: '3px solid #343a40', marginBottom: '1rem' }}
@@ -27,15 +27,27 @@ const UserInfoSuccess = ({ user }) => (
                   {
                     user.numberOfPublicRepos > 0 ? (
                       <Link to={`/${user.login}/repos`}>
-                        {`Public Repos: ${user.numberOfPublicRepos}`}
+                        {`Repos: ${user.numberOfPublicRepos}`}
                       </Link>
                     ) : (
-                      <h6>{`Public Repos: ${user.numberOfPublicRepos}`}</h6>
+                      <h6>
+                        {`Repos: ${user.numberOfPublicRepos}`}
+                      </h6>
                     )
                   }
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  <h6>{`Public Gists: ${user.numberOfPublicGists}`}</h6>
+                  {
+                    user.numberOfPublicGists > 0 ? (
+                      <Link to={`/${user.login}/gists`}>
+                        {`Gists: ${user.numberOfPublicGists}`}
+                      </Link>
+                    ) : (
+                      <h6>
+                        {`Gists: ${user.numberOfPublicGists}`}
+                      </h6>
+                    )
+                  }
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   <h6>{`Followers: ${user.numberOfFollowers}`}</h6>
@@ -47,13 +59,15 @@ const UserInfoSuccess = ({ user }) => (
                         {`Following: ${user.numberOfFollowing}`}
                       </Link>
                     ) : (
-                      <h6>{` Following: ${user.numberOfFollowing}`}</h6>
+                      <h6>
+                        {` Following: ${user.numberOfFollowing}`}
+                      </h6>
                     )
                   }
                 </Col>
               </Row>
               <h5 style={{ width: '100%', textAlign: 'center' }}>
-                <FontAwesomeIcon icon={faMapMarkedAlt} size="md" className="mr-2" />
+                <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
                 {user.location}
               </h5>
             </div>
@@ -64,14 +78,17 @@ const UserInfoSuccess = ({ user }) => (
   </Card>
 );
 
-UserInfoSuccess.propTypes = {
+UserSuccess.propTypes = {
   user: PropTypes.objectOf({
     login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    numberOfPublicRepos: PropTypes.number.isRequired,
+    numberOfPublicGists: PropTypes.number.isRequried,
+    numberOfFollowers: PropTypes.number.isRequired,
     numberOfFollowing: PropTypes.number.isRequired,
   }).isRequired,
 };
 
-export default UserInfoSuccess;
+export default UserSuccess;

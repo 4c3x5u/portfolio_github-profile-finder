@@ -16,13 +16,6 @@ GistsSuccess.propTypes = ({
     PropTypes.objectOf({
       description: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
-      files: PropTypes.arrayOf(
-        PropTypes.objectOf({
-          name: PropTypes.string.isRequired,
-          type: PropTypes.string.isRequired,
-          lang: PropTypes.string.isRequired,
-        }),
-      ).isRequired,
     }).isRequired,
   ).isRequired,
 });

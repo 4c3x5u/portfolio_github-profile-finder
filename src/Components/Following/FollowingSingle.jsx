@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const FollowingSingle = ({ user }) => (
   <ListGroup.Item
     action
-    className="FollowingSingle bg-light text-center"
+    className="FollowingSingle bg-light text-center mb-2"
     style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
   >
     <h5 stlye={{ marginTop: '2rem', padding: 0 }}>
