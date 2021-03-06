@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followersAPI from '../../API/followersAPI';
 import FollowersSuccess from './FollowersSuccess';
+import FollowersFailure from './FollowersFailure';
 
 const Followers = () => {
   const { login } = useParams();
@@ -11,7 +12,7 @@ const Followers = () => {
   return (
     followersFound
       ? <FollowersSuccess followers={followers} />
-      : <h1>Followers not found.</h1> // TODO: Replace this with <PublicReposFailure />
+      : <FollowersFailure />
   );
 };
 
