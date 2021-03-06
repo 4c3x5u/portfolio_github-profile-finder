@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
-import PublicReposSuccess from './PublicReposSuccess';
-// import PublicReposFailure from './PublicReposFailure';
+import ReposSuccess from './ReposSuccess';
+// import ReposFailure from './ReposFailure';
 
-const PublicRepos = () => {
+const Repos = () => {
   const { login } = useParams();
   const [repos, setRepos] = useState([]);
   const [reposFound, setReposFound] = useState(false);
   useEffect(() => reposAPI.get(login, setRepos, setReposFound), []);
   return (
     reposFound
-      ? <PublicReposSuccess repos={repos} />
+      ? <ReposSuccess repos={repos} />
       : <h1>User not found.</h1> // TODO: Replace this with <PublicReposFailure />
   );
 };
 
-export default PublicRepos;
+export default Repos;

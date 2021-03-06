@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Head from './Components/Head/Head';
-import UserInfo from './Components/UserInfo/UserInfo';
-import PublicRepos from './Components/PublicRepos/PublicRepos';
+import ControlBar from './Components/ControlBar/ControlBar';
+import User from './Components/User/User';
+import Repos from './Components/Repos/Repos';
 import Following from './Components/Following/Following';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
@@ -11,11 +11,11 @@ import './App.sass';
 const App = () => (
   <Container className="App">
     <Router>
-      <Head />
+      <ControlBar />
       <Route path="/:login">
-        <UserInfo />
+        <User />
         <Switch>
-          <Route path="/:login/repos" component={PublicRepos} />
+          <Route path="/:login/repos" component={Repos} />
           <Route path="/:login/following" component={Following} />
         </Switch>
       </Route>
