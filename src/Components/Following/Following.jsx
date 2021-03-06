@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
 import FollowingSuccess from './FollowingSuccess';
 import FollowingFailure from './FollowingFailure';
+import SubpageHeader from '../Shared/SubpageHeader';
 
 const Following = () => {
   const { login } = useParams();
@@ -11,16 +12,7 @@ const Following = () => {
   useEffect(() => followingAPI.get(login, setFollowing, setFollowingFound), []);
   return (
     <div className="Following">
-      <div
-        className="FollowingHead bg-dark text-center mb-2"
-        style={{
-          border: '2px solid #343a40',
-          padding: '1.2rem 0 0.7rem 0',
-          borderRadius: '2rem 2rem 0 0',
-        }}
-      >
-        <h5 className="text-light">Following</h5>
-      </div>
+      <SubpageHeader subpage="Following" />
       {followingFound
         ? <FollowingSuccess following={following} />
         : <FollowingFailure />}
