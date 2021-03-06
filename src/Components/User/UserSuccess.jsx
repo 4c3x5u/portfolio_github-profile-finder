@@ -24,46 +24,48 @@ const UserSuccess = ({ user }) => (
               <p style={{ fontSize: '14pt', textAlign: 'center' }}>{user.bio}</p>
               <Row className="mb-2" style={{ margin: 'auto' }}>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  {
-                    user.numberOfPublicRepos > 0 ? (
-                      <Link to={`/${user.login}/repos`}>
-                        {`Repos: ${user.numberOfPublicRepos}`}
-                      </Link>
-                    ) : (
-                      <h6>
-                        {`Repos: ${user.numberOfPublicRepos}`}
-                      </h6>
-                    )
-                  }
+                  {user.numberOfPublicRepos > 0 ? (
+                    <Link to={`/${user.login}/repos`}>
+                      {`Repos: ${user.numberOfPublicRepos}`}
+                    </Link>
+                  ) : (
+                    <h6>
+                      {`Repos: ${user.numberOfPublicRepos}`}
+                    </h6>
+                  )}
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  {
-                    user.numberOfPublicGists > 0 ? (
-                      <Link to={`/${user.login}/gists`}>
-                        {`Gists: ${user.numberOfPublicGists}`}
-                      </Link>
-                    ) : (
-                      <h6>
-                        {`Gists: ${user.numberOfPublicGists}`}
-                      </h6>
-                    )
-                  }
+                  {user.numberOfPublicGists > 0 ? (
+                    <Link to={`/${user.login}/gists`}>
+                      {`Gists: ${user.numberOfPublicGists}`}
+                    </Link>
+                  ) : (
+                    <h6>
+                      {`Gists: ${user.numberOfPublicGists}`}
+                    </h6>
+                  )}
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  <h6>{`Followers: ${user.numberOfFollowers}`}</h6>
+                  {user.numberOfFollowers > 0 ? (
+                    <Link to={`/${user.login}/followers`}>
+                      {`Followers: ${user.numberOfFollowers}`}
+                    </Link>
+                  ) : (
+                    <h6>
+                      {`Followers: ${user.numberOfFollowers}`}
+                    </h6>
+                  )}
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
-                  {
-                    user.numberOfFollowing > 0 ? (
-                      <Link to={`/${user.login}/following`}>
-                        {`Following: ${user.numberOfFollowing}`}
-                      </Link>
-                    ) : (
-                      <h6>
-                        {` Following: ${user.numberOfFollowing}`}
-                      </h6>
-                    )
-                  }
+                  {user.numberOfFollowing > 0 ? (
+                    <Link to={`/${user.login}/following`}>
+                      {`Following: ${user.numberOfFollowing}`}
+                    </Link>
+                  ) : (
+                    <h6>
+                      {` Following: ${user.numberOfFollowing}`}
+                    </h6>
+                  )}
                 </Col>
               </Row>
               <h5 style={{ width: '100%', textAlign: 'center' }}>

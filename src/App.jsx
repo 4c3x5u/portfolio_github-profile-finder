@@ -5,6 +5,7 @@ import ControlBar from './Components/ControlBar/ControlBar';
 import User from './Components/User/User';
 import Repos from './Components/Repos/Repos';
 import Gists from './Components/Gists/Gists';
+import Followers from './Components/Followers/Followers';
 import Following from './Components/Following/Following';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
@@ -18,6 +19,7 @@ const App = () => (
         <Switch>
           <Route path="/:login/repos" component={Repos} />
           <Route path="/:login/gists" component={Gists} />
+          <Route path="/:login/followers" component={Followers} />
           <Route path="/:login/following" component={Following} />
         </Switch>
       </Route>
