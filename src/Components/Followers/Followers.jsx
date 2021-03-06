@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followersAPI from '../../API/followersAPI';
-import FollowersSuccess from './FollowersSuccess';
-import FollowersFailure from './FollowersFailure';
 import SubpageHeader from '../Shared/SubpageHeader';
-import Spinner from '../Shared/Spinner/Spinner';
+import Loader from '../Shared/Loader/Loader';
+import FollowersFound from './FollowersFound';
+import FollowersNotFound from './FollowersNotFound';
 
 const Followers = () => {
   const { login } = useParams();
@@ -20,9 +20,9 @@ const Followers = () => {
   const followersHeader = () => <SubpageHeader subpage="Followers" />;
 
   const followersContent = () => {
-    if (loading) { return <Spinner />; }
-    if (followersFound) { return <FollowersSuccess followers={followers} />; }
-    return <FollowersFailure />;
+    if (loading) { return <Loader />; }
+    if (followersFound) { return <FollowersFound followers={followers} />; }
+    return <FollowersNotFound />;
   };
 
   return (

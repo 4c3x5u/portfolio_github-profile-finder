@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 import FollowersSingle from './FollowersSingle';
 
-const FollowersSuccess = ({ followers }) => (
+const FollowersFound = ({ followers }) => (
   <ListGroup className="GistsSuccess">
     {followers.map((follower) => (
       <FollowersSingle follower={follower} />
@@ -11,7 +11,7 @@ const FollowersSuccess = ({ followers }) => (
   </ListGroup>
 );
 
-FollowersSuccess.propTypes = {
+FollowersFound.propTypes = {
   followers: PropTypes.arrayOf(
     PropTypes.objectOf({
       login: PropTypes.string.isRequired,
@@ -19,4 +19,4 @@ FollowersSuccess.propTypes = {
   ).isRequired,
 };
 
-export default FollowersSuccess;
+export default FollowersFound;

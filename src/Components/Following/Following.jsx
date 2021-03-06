@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
-import Spinner from '../Shared/Spinner/Spinner';
-import FollowingSuccess from './FollowingSuccess';
-import FollowingFailure from './FollowingFailure';
+import Loading from '../Shared/Loading/Loading';
+import FollowingFound from './FollowingFound';
+import FollowingNotFound from './FollowingNotFound';
 import SubpageHeader from '../Shared/SubpageHeader';
 
 const Following = () => {
@@ -20,9 +20,9 @@ const Following = () => {
   const followingHeader = () => (<SubpageHeader subpage="Following" />);
 
   const followingContent = () => {
-    if (loading) { return (<Spinner />); }
-    if (followingFound) { return (<FollowingSuccess following={following} />); }
-    return (<FollowingFailure />);
+    if (loading) { return (<Loading />); }
+    if (followingFound) { return (<FollowingFound following={following} />); }
+    return (<FollowingNotFound />);
   };
 
   return (

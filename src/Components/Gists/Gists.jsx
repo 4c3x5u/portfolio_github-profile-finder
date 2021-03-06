@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
-import GistsSuccess from './GistsSuccess';
-import GistsFailure from './GistsFailure';
+import Loader from '../Shared/Loader/Loader';
+import GistsFound from './GistsFound';
+import GistsNotFound from './GistsNotFound';
 import SubpageHeader from '../Shared/SubpageHeader';
-import Spinner from '../Shared/Spinner/Spinner';
 
 const Gists = () => {
   const { login } = useParams();
@@ -20,9 +20,9 @@ const Gists = () => {
   const gistsHeader = () => <SubpageHeader subpage="Gists" />;
 
   const gistsContent = () => {
-    if (loading) { return <Spinner />; }
-    if (gistsFound) { return <GistsSuccess gists={gists} />; }
-    return <GistsFailure />;
+    if (loading) { return <Loader />; }
+    if (gistsFound) { return <GistsFound gists={gists} />; }
+    return <GistsNotFound />;
   };
 
   return (

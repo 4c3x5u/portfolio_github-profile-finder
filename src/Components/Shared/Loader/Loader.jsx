@@ -1,8 +1,8 @@
 import React from 'react';
 import RotateLoader from 'react-spinners/RotateLoader';
 
-const Spinner = () => (
-  <div className="Spinner">
+const Loader = () => (
+  <div className="Loader">
     <RotateLoader
       loading
       size={60}
@@ -17,4 +17,4 @@ const Spinner = () => (
   </div>
 );
 
-export default Spinner;
+export default Loader;

@@ -1,22 +1,28 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import userAPI from '../../API/userAPI';
-import UserSuccess from './UserSuccess';
-// import UserInfoFailure from './UserInfoFailure';
+import Loading from '../Shared/Loading/Loading';
+import UserFound from './UserFound';
+import UserNotFound from './UserNotFound';
 
 const User = () => {
   const { login } = useParams();
-  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
   const [userFound, setUserFound] = useState(false);
-  useEffect(() => userAPI.get(login, setUser, setUserFound), []);
-  return (
-    userFound
-      ? <UserSuccess user={user} />
-      : <h1>User Not Found</h1> // TODO: Replace this with <UserInfoFailure />
+  const [user, setUser] = useState({});
+
+  useEffect(
+    () => userAPI.get(login, setLoading, setUserFound, setUser),
+    [login],
   );
+
+  const viewUser = () => {
+    if (loading) { return <Loading />; }
+    if (userFound) { return <UserFound user={user} />; }
+    return <UserNotFound />;
+  };
+
+  return viewUser();
 };
 
 export default User;

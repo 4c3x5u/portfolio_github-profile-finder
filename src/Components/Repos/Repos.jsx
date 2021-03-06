@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
-import ReposSuccess from './ReposSuccess';
-import ReposFailure from './ReposFailure';
 import SubpageHeader from '../Shared/SubpageHeader';
-import Spinner from '../Shared/Spinner/Spinner';
+import Loading from '../Shared/Loading/Loading';
+import ReposFound from './ReposFound';
+import ReposNotFound from './ReposNotFound';
 
 const Repos = () => {
   const { login } = useParams();
@@ -20,9 +20,9 @@ const Repos = () => {
   const reposHeader = () => (<SubpageHeader subpage="Repos" />);
 
   const reposContent = () => {
-    if (loading) { return <Spinner />; }
-    if (reposFound) { return <ReposSuccess repos={repos} />; }
-    return <ReposFailure />;
+    if (loading) { return <Loading />; }
+    if (reposFound) { return <ReposFound repos={repos} />; }
+    return <ReposNotFound />;
   };
 
   return (

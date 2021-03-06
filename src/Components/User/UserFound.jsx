@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Card } from 'react-bootstrap';
 
-const UserSuccess = ({ user }) => (
+const UserFound = ({ user }) => (
   <Card
     className="UserSuccess bg-light"
     style={{
@@ -92,7 +92,7 @@ const UserSuccess = ({ user }) => (
   </Card>
 );
 
-UserSuccess.propTypes = {
+UserFound.propTypes = {
   user: PropTypes.objectOf({
     login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -105,4 +105,4 @@ UserSuccess.propTypes = {
   }).isRequired,
 };
 
-export default UserSuccess;
+export default UserFound;
