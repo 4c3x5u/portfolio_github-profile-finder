@@ -6,7 +6,7 @@ import FollowersSingle from './FollowersSingle';
 const FollowersSuccess = ({ followers }) => (
   <ListGroup className="GistsSuccess">
     {followers.map((follower) => (
-      <FollowerSingle follower={follower} />
+      <FollowersSingle follower={follower} />
     ))}
   </ListGroup>
 );
@@ -18,5 +18,5 @@ FollowersSuccess.propTypes = {
     }).isRequired,
   ).isRequired,
 };
- 
+
 export default FollowersSuccess;
