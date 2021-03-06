@@ -6,9 +6,9 @@ const GistsSingle = ({ gist }) => (
   <ListGroup.Item
     action
     className="GistsSingle bg-light text-center mb-2"
-    style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
+    style={{ border: '2px solid #343a40', padding: '1rem 0 0 0' }}
   >
-    <h5>{gist.description}</h5>
+    <p style={{ fontSize: '13pt' }}>{gist.description}</p>
   </ListGroup.Item>
 );
 
