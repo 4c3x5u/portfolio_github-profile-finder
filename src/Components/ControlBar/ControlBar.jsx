@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import UserSearch from './UserSearch';
 
 const ControlBar = () => (
-  <Row>
+  <Row className="ControlBar">
     <Col>
       <h2 className="Title text-dark">
         GitHub Profile Finder

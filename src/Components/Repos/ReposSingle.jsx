@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ReposSingle = ({ repo }) => (
   <ListGroup.Item
     action
-    className="bg-light text-center mb-2"
+    className="ReposSingle bg-light text-center mb-2"
     style={{ border: '2px solid #343a40' }}
   >
     <h5>{repo.name}</h5>

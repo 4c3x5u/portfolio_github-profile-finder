@@ -6,7 +6,10 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Card } from 'react-bootstrap';
 
 const UserInfoSuccess = ({ user }) => (
-  <Card className="bg-light" style={{ border: '3px solid #343a40', marginBottom: '1rem' }}>
+  <Card
+    className="UserSuccess bg-light"
+    style={{ border: '3px solid #343a40', marginBottom: '1rem' }}
+  >
     <Row noGutters style={{ height: '100%' }}>
       <Col xs={4} style={{ height: '100%' }}>
         <Card.Img variant="left" src={user.avatar} style={{ width: '100%', height: '100%' }} />

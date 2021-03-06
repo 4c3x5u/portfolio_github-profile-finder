@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import GistsSingle from './GistsSingle';
 
 const GistsSuccess = ({ gists }) => (
-  <ListGroup>
+  <ListGroup className="GistsSuccess">
     {gists.map((gist) => (
       <GistsSingle gist={gist} />
     ))}
@@ -22,7 +22,7 @@ GistsSuccess.propTypes = ({
           type: PropTypes.string.isRequired,
           lang: PropTypes.string.isRequired,
         }),
-      ),
+      ).isRequired,
     }).isRequired,
   ).isRequired,
 });

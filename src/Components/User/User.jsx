@@ -4,19 +4,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import userAPI from '../../API/userAPI';
-import UserInfoSuccess from './UserInfoSuccess';
+import UserSuccess from './UserSuccess';
 // import UserInfoFailure from './UserInfoFailure';
 
-const UserInfo = () => {
+const User = () => {
   const { login } = useParams();
   const [user, setUser] = useState({});
   const [userFound, setUserFound] = useState(false);
   useEffect(() => userAPI.get(login, setUser, setUserFound), []);
   return (
     userFound
-      ? <UserInfoSuccess user={user} />
+      ? <UserSuccess user={user} />
       : <h1>User Not Found</h1> // TODO: Replace this with <UserInfoFailure />
   );
 };
 
-export default UserInfo;
+export default User;

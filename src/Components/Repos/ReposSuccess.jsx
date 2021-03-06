@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ReposSingle from './ReposSingle';
 
-const PublicReposSuccess = ({ repos }) => (
-  <ListGroup>
+const ReposSuccess = ({ repos }) => (
+  <ListGroup className="ReposSuccess">
     {repos.map((repo) => (
       <ReposSingle repo={repo} />
     ))}
   </ListGroup>
 );
 
-PublicReposSuccess.propTypes = {
+ReposSuccess.propTypes = {
   repos: PropTypes.arrayOf(
     PropTypes.objectOf({
       name: PropTypes.string.isRequired,
@@ -20,4 +20,4 @@ PublicReposSuccess.propTypes = {
   ).isRequired,
 };
 
-export default PublicReposSuccess;
+export default ReposSuccess;
