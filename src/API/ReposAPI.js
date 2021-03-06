@@ -5,9 +5,14 @@ const parseRepo = (reposResponseData) => ({
   description: reposResponseData.description || '[ No Description ]',
 });
 
-const handleReposFound = (setLoading, setReposFound, setRepos) => (reposResponse) => {
-  const repos = reposResponse.data.map(parseRepo);
-  setRepos(repos);
+const handleReposFound = (
+  setLoading,
+  setReposFound,
+  setRepos,
+) => (
+  reposResponse,
+) => {
+  setRepos(reposResponse.data.map(parseRepo));
   setReposFound(true);
   setTimeout(() => setLoading(false), 700);
 };

@@ -13,8 +13,7 @@ const parseUser = (userResponseData) => ({
 });
 
 const handleUserFound = (setUser, setUserFound) => (userResponse) => {
-  const user = parseUser(userResponse.data);
-  setUser(user);
+  setUser(parseUser(userResponse.data));
   setUserFound(true);
 };
 
