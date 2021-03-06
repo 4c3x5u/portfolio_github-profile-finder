@@ -10,9 +10,22 @@ const Followers = () => {
   const [followersFound, setFollowersFound] = useState(false);
   useEffect(() => followersAPI.get(login, setFollowers, setFollowersFound), []);
   return (
-    followersFound
-      ? <FollowersSuccess followers={followers} />
-      : <FollowersFailure />
+    <div className="Followers">
+      <div
+        className="FollowersHeader bg-dark text-center mb-2"
+        style={{
+          border: '2px solid #343a40',
+          padding: '1.2rem 0 0.7rem 0',
+          borderRadius: '2rem 2rem 0 0',
+        }}
+      >
+        <h5 className="text-light">Followers</h5>
+      </div>
+
+      {followersFound
+        ? <FollowersSuccess followers={followers} />
+        : <FollowersFailure />}
+    </div>
   );
 };
 
