@@ -4,20 +4,32 @@ import gistsAPI from '../../API/gistsAPI';
 import GistsSuccess from './GistsSuccess';
 import GistsFailure from './GistsFailure';
 import SubpageHeader from '../Shared/SubpageHeader';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const Gists = () => {
   const { login } = useParams();
-  const [gists, setGists] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [gistsFound, setGistsFound] = useState(false);
-  useEffect(() => gistsAPI.get(login, setGists, setGistsFound), []);
+  const [gists, setGists] = useState([]);
+
+  useEffect(
+    () => gistsAPI.get(login, setLoading, setGistsFound, setGists),
+    [],
+  );
+
+  const gistsHeader = () => <SubpageHeader subpage="Gists" />;
+
+  const gistsContent = () => {
+    if (loading) { return <Spinner />; }
+    if (gistsFound) { return <GistsSuccess gists={gists} />; }
+    return <GistsFailure />;
+  };
+
   return (
     <div className="Gists">
-      <SubpageHeader subpage="Gists" />
-      {gistsFound
-        ? <GistsSuccess gists={gists} />
-        : <GistsFailure />}
+      {gistsHeader()}
+      {gistsContent()}
     </div>
-
   );
 };
 

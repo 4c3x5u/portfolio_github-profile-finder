@@ -5,31 +5,30 @@ const parseGist = (gist) => ({
   url: gist.html_url,
 });
 
-const handleGistsFound = (setGists, setGistsFound) => (gistsResponse) => {
-  const parsedGists = gistsResponse.data.map(parseGist);
-  setGists(parsedGists);
+const handleGistsFound = (
+  setLoading,
+  setGistsFound,
+  setGists,
+) => (
+  gistsResponse,
+) => {
+  setGists(gistsResponse.data.map(parseGist));
   setGistsFound(true);
+  setTimeout(() => setLoading(false), 700);
 };
 
-const handleGistsNotFound = (setGists, setGistsFound) => () => {
-  console.log('HANDLEGISTSNOTFOUND');
+const handleGistsNotFound = (setLoading, setGistsFound, setGists) => () => {
   setGists([]);
   setGistsFound(false);
+  setTimeout(() => setLoading(false), 700);
 };
 
 const gistsAPI = {
-  get: (login, setGists, setGistsFound) => {
-    console.log(`URL: https://api.github.com/users/${login}/gists`);
+  get: (login, setLoading, setGistsFound, setGists) => {
     axios
       .get(`https://api.github.com/users/${login}/gists`)
-      .then((res) => {
-        console.log(`RES: ${JSON.stringify(res)}`);
-        handleGistsFound(setGists, setGistsFound)(res);
-      })
-      .catch((ex) => {
-        console.log(`EX: ${JSON.stringify(ex)}`);
-        handleGistsNotFound(setGists, setGistsFound);
-      });
+      .then(handleGistsFound(setLoading, setGistsFound, setGists))
+      .catch(handleGistsNotFound(setLoading, setGistsFound, setGists));
   },
 };
 
