@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
 import GistsSuccess from './GistsSuccess';
-// import GistsFailure from './GistsFailure';
+import GistsFailure from './GistsFailure';
 
 const Gists = () => {
   const { login } = useParams();
@@ -12,7 +12,7 @@ const Gists = () => {
   return (
     gistsFound
       ? <GistsSuccess gists={gists} />
-      : <h1>Gists not found.</h1> // TODO: Replace this with <GistsFailure />
+      : <GistsFailure />
   );
 };
 
