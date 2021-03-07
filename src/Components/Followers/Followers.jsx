@@ -10,6 +10,7 @@ const Followers = () => (
     api={followersAPI}
     renderFound={(followers) => <FollowersFound followers={followers} />}
     renderNotFound={() => <FollowersNotFound />}
+    hasFooter
   />
 );
 

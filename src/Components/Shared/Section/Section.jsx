@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Searching from '../Searching/Searching';
-import Subheader from '../Subheader/Subheader';
+import './Section.sass';
 
 const Section = ({
   title,
   api,
   renderFound,
   renderNotFound,
+  hasFooter,
 }) => {
   const { login } = useParams();
   const [searching, setSearching] = useState(false);
@@ -20,7 +21,11 @@ const Section = ({
     api.search(login, setSearching, setFound, setItems);
   }, []);
 
-  const sectionHeader = () => <Subheader title={title} />;
+  const sectionHeader = () => (
+    <div className="SectionHeader bg-dark text-center">
+      <h5 className="text-light">{title}</h5>
+    </div>
+  );
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
@@ -28,10 +33,21 @@ const Section = ({
     return renderNotFound();
   };
 
+  const sectionFooter = () => (
+    hasFooter && (
+      <div className="SectionFooter bg-dark text-center">
+        <h5 className="text-light">
+          Footer
+        </h5>
+      </div>
+    )
+  );
+
   return (
-    <div className="Followers">
+    <div className="Section">
       {sectionHeader()}
       {sectionContent()}
+      {sectionFooter()}
     </div>
   );
 };
@@ -43,6 +59,7 @@ Section.propTypes = {
   }).isRequired,
   renderFound: PropTypes.func.isRequired,
   renderNotFound: PropTypes.func.isRequired,
+  hasFooter: PropTypes.bool.isRequired,
 };
 
 export default Section;

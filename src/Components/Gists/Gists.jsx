@@ -10,6 +10,7 @@ const Gists = () => (
     api={gistsAPI}
     renderFound={(gists) => <GistsFound gists={gists} />}
     renderNotFound={() => <GistsNotFound />}
+    hasFooter
   />
 );
 

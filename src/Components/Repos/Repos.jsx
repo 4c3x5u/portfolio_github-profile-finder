@@ -10,6 +10,7 @@ const Repos = () => (
     api={reposAPI}
     renderFound={(repos) => <ReposFound repos={repos} />}
     renderNotFound={() => <ReposNotFound />}
+    hasFooter
   />
 );
 
