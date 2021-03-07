@@ -1,17 +1,20 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
-import Section from '../Shared/Section/Section';
+import Section from '../Shared/Section';
 import GistsFound from './GistsFound';
-import GistsNotFound from './GistsNotFound';
 
-const Gists = () => (
-  <Section
-    title="Gists"
-    api={gistsAPI}
-    renderFound={(gists) => <GistsFound gists={gists} />}
-    renderNotFound={() => <GistsNotFound />}
-    hasFooter
-  />
-);
+const Gists = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      title="Gists"
+      href={`https://gist.github.com/${login}`}
+      api={gistsAPI}
+      renderFound={(gists) => <GistsFound gists={gists} />}
+      hasFooter
+    />
+  );
+};
 
 export default Gists;

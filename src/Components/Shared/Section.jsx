@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Searching from '../Searching/Searching';
-import Footer from '../Footer/Footer';
-import './Section.sass';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Searching from './Searching';
+import NotFound from './NotFound';
 
 const Section = ({
   title,
   api,
+  href,
   renderFound,
-  renderNotFound,
   hasFooter,
 }) => {
   const { login } = useParams();
@@ -22,18 +23,12 @@ const Section = ({
     api.search(login, setSearching, setFound, setItems);
   }, []);
 
-  const sectionHeader = () => (
-    <div className={`${hasFooter ? 'Section' : 'Profile'}Header text-center bg-dark`}>
-      <h5 className="text-light">
-        {title}
-      </h5>
-    </div>
-  );
+  const sectionHeader = () => <Header title={title} href={href} hasFooter={hasFooter} />;
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
     if (found) { return renderFound(items); }
-    return renderNotFound();
+    return <NotFound page={title} />;
   };
 
   const sectionFooter = () => hasFooter && <Footer />;
@@ -52,8 +47,8 @@ Section.propTypes = {
   api: PropTypes.objectOf({
     search: PropTypes.func.isRequried,
   }).isRequired,
+  href: PropTypes.string.isRequired,
   renderFound: PropTypes.func.isRequired,
-  renderNotFound: PropTypes.func.isRequired,
   hasFooter: PropTypes.bool.isRequired,
 };
 

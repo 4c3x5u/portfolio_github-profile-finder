@@ -1,17 +1,20 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
-import Section from '../Shared/Section/Section';
+import Section from '../Shared/Section';
 import ReposFound from './ReposFound';
-import ReposNotFound from './ReposNotFound';
 
-const Repos = () => (
-  <Section
-    title="Repos"
-    api={reposAPI}
-    renderFound={(repos) => <ReposFound repos={repos} />}
-    renderNotFound={() => <ReposNotFound />}
-    hasFooter
-  />
-);
+const Repos = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      title="Repos"
+      href={`https://www.github.com/${login}?tab=repositories`}
+      api={reposAPI}
+      renderFound={(repos) => <ReposFound repos={repos} />}
+      hasFooter
+    />
+  );
+};
 
 export default Repos;

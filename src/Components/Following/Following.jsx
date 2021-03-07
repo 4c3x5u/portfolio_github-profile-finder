@@ -1,17 +1,20 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
-import Section from '../Shared/Section/Section';
+import Section from '../Shared/Section';
 import FollowingFound from './FollowingFound';
-import FollowingNotFound from './FollowingNotFound';
 
-const Following = () => (
-  <Section
-    title="Following"
-    api={followingAPI}
-    renderFound={(following) => <FollowingFound following={following} />}
-    renderNotFound={() => <FollowingNotFound />}
-    hasFooter
-  />
-);
+const Following = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      title="Following"
+      href={`https://www.github.com/${login}/following`}
+      api={followingAPI}
+      renderFound={(following) => <FollowingFound following={following} />}
+      hasFooter
+    />
+  );
+};
 
 export default Following;

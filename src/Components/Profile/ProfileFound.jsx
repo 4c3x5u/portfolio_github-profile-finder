@@ -9,7 +9,7 @@ import {
   Card,
   Button,
 } from 'react-bootstrap';
-import InfoModal from '../Shared/InfoModal/InfoModal';
+import InfoModal from '../Shared/InfoModal';
 
 const ProfileFound = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
