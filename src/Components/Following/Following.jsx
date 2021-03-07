@@ -17,7 +17,7 @@ const Following = () => {
     [],
   );
 
-  const followingHeader = () => (<PageHeader page="Following" />);
+  const followingHeader = () => (<PageHeader title="Following" />);
 
   const followingContent = () => {
     if (loading) { return (<Loader />); }

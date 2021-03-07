@@ -17,7 +17,7 @@ const Repos = () => {
     [],
   );
 
-  const reposHeader = () => (<PageHeader page="Repos" />);
+  const reposHeader = () => (<PageHeader title="Repos" />);
 
   const reposContent = () => {
     if (loading) { return <Loader />; }

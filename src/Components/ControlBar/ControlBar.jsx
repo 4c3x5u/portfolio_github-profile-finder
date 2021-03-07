@@ -1,13 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import AppTitle from './AppTitle';
 import UserSearch from './UserSearch';
 
 const ControlBar = () => (
   <Row className="ControlBar">
-    <Col>
-      <h2 className="Title text-dark">
-        GitHub Profile Finder
-      </h2>
+    <Col xs={8}>
+      <AppTitle />
     </Col>
     <Col xs={4}>
       <UserSearch />

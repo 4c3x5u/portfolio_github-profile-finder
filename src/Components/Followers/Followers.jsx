@@ -17,7 +17,7 @@ const Followers = () => {
     [],
   );
 
-  const followersHeader = () => <PageHeader page="Followers" />;
+  const followersHeader = () => <PageHeader title="Followers" />;
 
   const followersContent = () => {
     if (loading) { return <Loader />; }

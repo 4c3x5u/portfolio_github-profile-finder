@@ -17,7 +17,7 @@ const Gists = () => {
     [],
   );
 
-  const gistsHeader = () => <PageHeader page="Gists" />;
+  const gistsHeader = () => <PageHeader title="Gists" />;
 
   const gistsContent = () => {
     if (loading) { return <Loader />; }
