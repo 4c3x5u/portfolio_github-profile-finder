@@ -19,11 +19,7 @@ const ProfileFound = ({ user }) => {
   return (
     <Card
       className="ProfileFound bg-light"
-      style={{
-        border: '3px solid #343a40',
-        marginBottom: '1rem',
-        borderRadius: '0 0 2rem 2rem',
-      }}
+      style={{ border: '3px solid #343a40', marginBottom: '0.4rem' }}
     >
       {showingInfoModal && <InfoModal handleHide={handleHideInfoModal} />}
       <Row noGutters style={{ height: '100%' }}>
@@ -31,11 +27,7 @@ const ProfileFound = ({ user }) => {
           <Card.Img
             variant="left"
             src={user.avatar}
-            style={{
-              width: '100%',
-              height: '100%',
-              borderBottomLeftRadius: '1.8rem',
-            }}
+            style={{ width: '100%', height: '100%' }}
           />
         </Col>
         <Col xs={8} style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>

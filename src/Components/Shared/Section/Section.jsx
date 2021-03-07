@@ -23,8 +23,10 @@ const Section = ({
   }, []);
 
   const sectionHeader = () => (
-    <div className="SectionHeader bg-dark text-center">
-      <h5 className="text-light">{title}</h5>
+    <div className={`${hasFooter ? 'Section' : 'Profile'}Header text-center bg-dark`}>
+      <h5 className="text-light">
+        {title}
+      </h5>
     </div>
   );
 
