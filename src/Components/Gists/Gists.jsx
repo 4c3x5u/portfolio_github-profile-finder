@@ -4,7 +4,7 @@ import gistsAPI from '../../API/gistsAPI';
 import Loader from '../Shared/Loader/Loader';
 import GistsFound from './GistsFound';
 import GistsNotFound from './GistsNotFound';
-import SubpageHeader from '../Shared/SubpageHeader';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const Gists = () => {
   const { login } = useParams();
@@ -17,7 +17,7 @@ const Gists = () => {
     [],
   );
 
-  const gistsHeader = () => <SubpageHeader subpage="Gists" />;
+  const gistsHeader = () => <PageHeader page="Gists" />;
 
   const gistsContent = () => {
     if (loading) { return <Loader />; }

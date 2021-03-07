@@ -6,7 +6,7 @@ import FollowingSingle from './FollowingSingle';
 const FollowingFound = ({ following }) => (
   <ListGroup className="FollowingSuccess">
     {following.map((user) => (
-      <FollowingSingle user={user} />
+      <FollowingSingle following={user} />
     ))}
   </ListGroup>
 );

@@ -1,5 +1,6 @@
 import React from 'react';
+import NotFound from '../Shared/NotFound/NotFound';
 
-const FollowersFailure = () => <h1>Followers not found.</h1>;
+const FollowersNotFound = () => <NotFound page="Followers" />;
 
-export default FollowersFailure;
+export default FollowersNotFound;

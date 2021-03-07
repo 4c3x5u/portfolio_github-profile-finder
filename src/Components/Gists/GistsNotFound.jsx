@@ -1,5 +1,6 @@
 import React from 'react';
+import NotFound from '../Shared/NotFound/NotFound';
 
-const GistsNotFound = () => <h1>Gists not found.</h1>;
+const GistsNotFound = () => <NotFound page="Gists" />;
 
 export default GistsNotFound;

@@ -1,5 +1,6 @@
 import React from 'react';
+import NotFound from '../Shared/NotFound/NotFound';
 
-const ReposFailure = () => <h1>Repos not found.</h1>;
+const ReposNotFound = () => <NotFound page="Followers" />;
 
-export default ReposFailure;
+export default ReposNotFound;

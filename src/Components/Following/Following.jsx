@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
-import Loading from '../Shared/Loading/Loading';
+import Loader from '../Shared/Loader/Loader';
 import FollowingFound from './FollowingFound';
 import FollowingNotFound from './FollowingNotFound';
-import SubpageHeader from '../Shared/SubpageHeader';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const Following = () => {
   const { login } = useParams();
@@ -17,10 +17,10 @@ const Following = () => {
     [],
   );
 
-  const followingHeader = () => (<SubpageHeader subpage="Following" />);
+  const followingHeader = () => (<PageHeader page="Following" />);
 
   const followingContent = () => {
-    if (loading) { return (<Loading />); }
+    if (loading) { return (<Loader />); }
     if (followingFound) { return (<FollowingFound following={following} />); }
     return (<FollowingNotFound />);
   };

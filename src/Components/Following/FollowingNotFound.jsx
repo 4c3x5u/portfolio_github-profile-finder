@@ -1,5 +1,6 @@
 import React from 'react';
+import NotFound from '../Shared/NotFound/NotFound';
 
-const FollowingNotFound = () => <h1>Following not found.</h1>;
+const FollowingNotFound = () => <NotFound page="Following" />;
 
 export default FollowingNotFound;

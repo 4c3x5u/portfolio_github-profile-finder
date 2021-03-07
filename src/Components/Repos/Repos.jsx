@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
-import SubpageHeader from '../Shared/SubpageHeader';
-import Loading from '../Shared/Loading/Loading';
+import PageHeader from '../Shared/PageHeader/PageHeader';
+import Loader from '../Shared/Loader/Loader';
 import ReposFound from './ReposFound';
 import ReposNotFound from './ReposNotFound';
 
@@ -17,10 +17,10 @@ const Repos = () => {
     [],
   );
 
-  const reposHeader = () => (<SubpageHeader subpage="Repos" />);
+  const reposHeader = () => (<PageHeader page="Repos" />);
 
   const reposContent = () => {
-    if (loading) { return <Loading />; }
+    if (loading) { return <Loader />; }
     if (reposFound) { return <ReposFound repos={repos} />; }
     return <ReposNotFound />;
   };

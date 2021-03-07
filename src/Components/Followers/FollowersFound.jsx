@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import FollowersSingle from './FollowersSingle';
 
 const FollowersFound = ({ followers }) => (
-  <ListGroup className="GistsSuccess">
+  <ListGroup className="FollowersFound">
     {followers.map((follower) => (
       <FollowersSingle follower={follower} />
     ))}
