@@ -7,15 +7,17 @@ const InfoModal = ({ handleHide }) => (
   <Modal show onHide={handleHide}>
     <Modal.Header closeButton>
       <Modal.Title>
-        {/* TODO: Write title */}
-        Modal Title
+        Profile Controls
       </Modal.Title>
     </Modal.Header>
 
     <Modal.Body>
-      <p>
-        {/* TODO: Write body */}
-        Modal Body
+      <p className="mb-0">
+        Click on
+        <em>{' Repos, Gists, Followers, Following, '}</em>
+        or
+        <em>{' the location '}</em>
+        to toggle their corresponding sections.
       </p>
     </Modal.Body>
 
