@@ -9,7 +9,7 @@ const Profile = () => {
   const { login } = useParams();
   return (
     <Section
-      title={login}
+      title={`@${login}`}
       api={userAPI}
       renderFound={(user) => <ProfileFound user={user} />}
       renderNotFound={() => <ProfileNotFound />}

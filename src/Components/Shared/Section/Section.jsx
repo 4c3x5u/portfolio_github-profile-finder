@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Searching from '../Searching/Searching';
+import Footer from '../Footer/Footer';
 import './Section.sass';
 
 const Section = ({
@@ -33,15 +34,7 @@ const Section = ({
     return renderNotFound();
   };
 
-  const sectionFooter = () => (
-    hasFooter && (
-      <div className="SectionFooter bg-dark text-center">
-        <h5 className="text-light">
-          Footer
-        </h5>
-      </div>
-    )
-  );
+  const sectionFooter = () => hasFooter && <Footer />;
 
   return (
     <div className="Section">

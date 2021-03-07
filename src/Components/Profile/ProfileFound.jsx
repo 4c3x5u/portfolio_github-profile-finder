@@ -97,7 +97,7 @@ const ProfileFound = ({ user }) => {
                       {user.location}
                     </h5>
                   </Col>
-                  <Col className="QuestionCol mt-2" xs={12} style={{ textAlign: 'center' }}>
+                  <Col className="QuestionCol mt-3" xs={12} style={{ textAlign: 'center' }}>
                     <Button
                       onClick={handleShowInfoModal}
                       variant="dark"

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Title from './Title';
-import Search from './Search';
+import AppTitle from './AppTitle';
+import SearchBox from './SearchBox';
 
-const Header = () => (
+const AppHead = () => (
   <Row className="Header">
     <Col xs={8}>
-      <Title />
+      <AppTitle />
     </Col>
     <Col xs={4}>
-      <Search />
+      <SearchBox />
     </Col>
   </Row>
 );
 
-export default Header;
+export default AppHead;
