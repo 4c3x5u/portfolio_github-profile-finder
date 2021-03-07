@@ -1,36 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import gistsAPI from '../../API/gistsAPI';
-import Subheader from '../Shared/Subheader/Subheader';
-import Searching from '../Shared/Searching/Searching';
+import Section from '../Shared/Section/Section';
 import GistsFound from './GistsFound';
 import GistsNotFound from './GistsNotFound';
 
-const Gists = () => {
-  const { login } = useParams();
-  const [searching, setSearching] = useState(true);
-  const [found, setFound] = useState(false);
-  const [gists, setGists] = useState([]);
-
-  useEffect(
-    () => gistsAPI.search(login, setSearching, setFound, setGists),
-    [],
-  );
-
-  const gistsHeader = () => <Subheader title="Gists" />;
-
-  const gistsContent = () => {
-    if (searching) { return <Searching />; }
-    if (found) { return <GistsFound gists={gists} />; }
-    return <GistsNotFound />;
-  };
-
-  return (
-    <div className="Gists">
-      {gistsHeader()}
-      {gistsContent()}
-    </div>
-  );
-};
+const Gists = () => (
+  <Section
+    title="Gists"
+    api={gistsAPI}
+    renderFound={(gists) => <GistsFound gists={gists} />}
+    renderNotFound={() => <GistsNotFound />}
+  />
+);
 
 export default Gists;
