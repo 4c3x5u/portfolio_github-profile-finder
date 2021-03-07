@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Searching from '../Searching/Searching';
 import Subheader from '../Subheader/Subheader';
 
 const Section = ({
   title,
-  login,
   api,
   renderFound,
   renderNotFound,
 }) => {
+  const { login } = useParams();
   const [searching, setSearching] = useState(false);
   const [found, setFound] = useState(false);
   const [items, setItems] = useState([]);
@@ -37,7 +38,6 @@ const Section = ({
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  login: PropTypes.string.isRequired,
   api: PropTypes.objectOf({
     search: PropTypes.func.isRequried,
   }).isRequired,
