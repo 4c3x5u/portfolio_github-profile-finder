@@ -2,12 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
-import { Row, Col, Card } from 'react-bootstrap';
+import { faMapMarkedAlt, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+} from 'react-bootstrap';
 
 const UserFound = ({ user }) => (
   <Card
-    className="UserSuccess bg-light"
+    className="UserFound bg-light"
     style={{
       border: '3px solid #343a40',
       marginBottom: '1rem',
@@ -37,7 +42,7 @@ const UserFound = ({ user }) => (
               <Row className="mb-2" style={{ margin: 'auto' }}>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {user.numberOfPublicRepos > 0 ? (
-                    <Link to={`/${user.login}/repos`}>
+                    <Link className="text-dark font-weight-bold" to={`/${user.login}/repos`}>
                       {`Repos: ${user.numberOfPublicRepos}`}
                     </Link>
                   ) : (
@@ -48,7 +53,7 @@ const UserFound = ({ user }) => (
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {user.numberOfPublicGists > 0 ? (
-                    <Link to={`/${user.login}/gists`}>
+                    <Link className="text-dark font-weight-bold" to={`/${user.login}/gists`}>
                       {`Gists: ${user.numberOfPublicGists}`}
                     </Link>
                   ) : (
@@ -59,7 +64,7 @@ const UserFound = ({ user }) => (
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {user.numberOfFollowers > 0 ? (
-                    <Link to={`/${user.login}/followers`}>
+                    <Link className="text-dark font-weight-bold" to={`/${user.login}/followers`}>
                       {`Followers: ${user.numberOfFollowers}`}
                     </Link>
                   ) : (
@@ -70,7 +75,7 @@ const UserFound = ({ user }) => (
                 </Col>
                 <Col xs={6} style={{ textAlign: 'center' }}>
                   {user.numberOfFollowing > 0 ? (
-                    <Link to={`/${user.login}/following`}>
+                    <Link className="text-dark font-weight-bold" to={`/${user.login}/following`}>
                       {`Following: ${user.numberOfFollowing}`}
                     </Link>
                   ) : (
@@ -79,11 +84,19 @@ const UserFound = ({ user }) => (
                     </h6>
                   )}
                 </Col>
+                <Col className="LocationCol" xs={12} style={{ textAlign: 'center' }}>
+                  <h5 style={{ width: '100%', textAlign: 'center' }}>
+                    <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
+                    {user.location}
+                  </h5>
+                </Col>
+                <Col className="QuestionCol mt-2" xs={12} style={{ textAlign: 'center' }}>
+                  <Button variant="dark" style={{ borderRadius: 100 }}>
+                    <FontAwesomeIcon icon={faQuestion} />
+                  </Button>
+                </Col>
               </Row>
-              <h5 style={{ width: '100%', textAlign: 'center' }}>
-                <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
-                {user.location}
-              </h5>
+
             </div>
           </Card.Text>
         </Card.Body>
