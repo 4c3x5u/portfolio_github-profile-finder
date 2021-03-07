@@ -1,35 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
-const InfoModal = ({ title, body, showing }) => {
-  const [show, setShow] = useState(showing);
-  const hideModal = () => setShow(false);
+const InfoModal = ({ handleHide }) => (
+  <Modal show onHide={handleHide}>
+    <Modal.Header closeButton>
+      <Modal.Title>
+        {/* TODO: Write title */}
+        Modal Title
+      </Modal.Title>
+    </Modal.Header>
 
-  return (
-    <Modal show={show} onHide={hideModal}>
-      <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
-      </Modal.Header>
+    <Modal.Body>
+      <p>
+        {/* TODO: Write body */}
+        Modal Body
+      </p>
+    </Modal.Body>
 
-      <Modal.Body>
-        <p>{body}</p>
-      </Modal.Body>
-
-      <Modal.Footer>
-        <Button variant="dark" onClick={hideModal}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-};
+    <Modal.Footer>
+      <Button variant="dark" onClick={handleHide}>
+        Close
+      </Button>
+    </Modal.Footer>
+  </Modal>
+);
 
 InfoModal.propTypes = {
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  showing: PropTypes.bool.isRequired,
+  handleHide: PropTypes.func.isRequired,
 };
 
 export default InfoModal;
