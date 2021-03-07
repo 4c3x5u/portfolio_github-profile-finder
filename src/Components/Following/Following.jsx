@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
-import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+import Subheader from '../Shared/Subheader/Subheader';
 import Loader from '../Shared/Loader/Loader';
 import FollowingFound from './FollowingFound';
 import FollowingNotFound from './FollowingNotFound';
@@ -17,7 +17,7 @@ const Following = () => {
     [],
   );
 
-  const followingHeader = () => (<SectionHeader title="Following" />);
+  const followingHeader = () => (<Subheader title="Following" />);
 
   const followingContent = () => {
     if (loading) { return (<Loader />); }

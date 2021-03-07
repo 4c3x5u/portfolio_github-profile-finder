@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followersAPI from '../../API/followersAPI';
-import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+import Subheader from '../Shared/Subheader/Subheader';
 import Loader from '../Shared/Loader/Loader';
 import FollowersFound from './FollowersFound';
 import FollowersNotFound from './FollowersNotFound';
@@ -17,7 +17,7 @@ const Followers = () => {
     [],
   );
 
-  const followersHeader = () => <SectionHeader title="Followers" />;
+  const followersHeader = () => <Subheader title="Followers" />;
 
   const followersContent = () => {
     if (loading) { return <Loader />; }

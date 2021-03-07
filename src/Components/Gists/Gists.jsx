@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
-import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+import Subheader from '../Shared/Subheader/Subheader';
 import Loader from '../Shared/Loader/Loader';
 import GistsFound from './GistsFound';
 import GistsNotFound from './GistsNotFound';
@@ -17,7 +17,7 @@ const Gists = () => {
     [],
   );
 
-  const gistsHeader = () => <SectionHeader title="Gists" />;
+  const gistsHeader = () => <Subheader title="Gists" />;
 
   const gistsContent = () => {
     if (loading) { return <Loader />; }

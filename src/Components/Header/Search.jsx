@@ -7,7 +7,7 @@ import {
   InputGroup,
 } from 'react-bootstrap';
 
-const SearchBar = () => {
+const Search = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
 
   return (
@@ -41,4 +41,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;

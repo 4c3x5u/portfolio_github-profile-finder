@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import userAPI from '../../API/userAPI';
-import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+import Subheader from '../Shared/Subheader/Subheader';
 import Loader from '../Shared/Loader/Loader';
 import UserFound from './UserFound';
 import UserNotFound from './UserNotFound';
@@ -17,7 +17,7 @@ const User = () => {
     [login],
   );
 
-  const userHeader = () => <SectionHeader title={`@${login}`} />;
+  const userHeader = () => <Subheader title={`@${login}`} />;
 
   const userContent = () => {
     if (loading) { return <Loader />; }
