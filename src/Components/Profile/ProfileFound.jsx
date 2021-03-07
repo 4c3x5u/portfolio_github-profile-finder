@@ -11,14 +11,14 @@ import {
 } from 'react-bootstrap';
 import InfoModal from '../Shared/InfoModal/InfoModal';
 
-const UserFound = ({ user }) => {
+const ProfileFound = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
   const handleShowInfoModal = () => setShowingInfoModal(true);
   const handleHideInfoModal = () => setShowingInfoModal(false);
 
   return (
     <Card
-      className="UserFound bg-light"
+      className="ProfileFound bg-light"
       style={{
         border: '3px solid #343a40',
         marginBottom: '1rem',
@@ -117,7 +117,7 @@ const UserFound = ({ user }) => {
   );
 };
 
-UserFound.propTypes = {
+ProfileFound.propTypes = {
   user: PropTypes.objectOf({
     login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -130,4 +130,4 @@ UserFound.propTypes = {
   }).isRequired,
 };
 
-export default UserFound;
+export default ProfileFound;

@@ -12,24 +12,24 @@ const parseUser = (userResponseData) => ({
   numberOfFollowing: userResponseData.following,
 });
 
-const handleUserFound = (setLoading, setUserFound, setUser) => (userResponse) => {
-  setUser(parseUser(userResponse.data));
-  setUserFound(true);
-  setTimeout(() => setLoading(false), 700);
+const handleUserFound = (setSearching, setFound, setUser) => (response) => {
+  setUser(parseUser(response.data));
+  setFound(true);
+  setTimeout(() => setSearching(false), 700);
 };
 
-const handleUserNotFound = (setLoading, setUserFound, setUser) => () => {
+const handleUserNotFound = (setSearching, setFound, setUser) => () => {
   setUser({});
-  setUserFound(false);
-  setTimeout(() => setLoading(false), 700);
+  setFound(false);
+  setTimeout(() => setSearching(false), 700);
 };
 
 const userAPI = {
-  get: (login, setLoading, setUserFound, setUser) => (
+  search: (login, setSearching, setFound, setUser) => (
     axios
       .get(`https://api.github.com/users/${login}`)
-      .then(handleUserFound(setLoading, setUserFound, setUser))
-      .catch(handleUserNotFound(setLoading, setUserFound, setUser))
+      .then(handleUserFound(setSearching, setFound, setUser))
+      .catch(handleUserNotFound(setSearching, setFound, setUser))
   ),
 };
 

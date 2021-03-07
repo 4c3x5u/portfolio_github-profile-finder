@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 import GistsSingle from './GistsSingle';
 
-const GistsSuccess = ({ gists }) => (
-  <ListGroup className="GistsSuccess">
+const GistsFound = ({ gists }) => (
+  <ListGroup className="GistsFound">
     {gists.map((gist) => (
       <GistsSingle gist={gist} />
     ))}
   </ListGroup>
 );
 
-GistsSuccess.propTypes = ({
+GistsFound.propTypes = ({
   gists: PropTypes.arrayOf(
     PropTypes.objectOf({
       description: PropTypes.string.isRequired,
@@ -20,4 +20,4 @@ GistsSuccess.propTypes = ({
   ).isRequired,
 });
 
-export default GistsSuccess;
+export default GistsFound;

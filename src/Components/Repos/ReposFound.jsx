@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ReposSingle from './ReposSingle';
 
 const ReposFound = ({ repos }) => (
-  <ListGroup className="ReposSuccess">
+  <ListGroup className="ReposFound">
     {repos.map((repo) => (
       <ReposSingle repo={repo} />
     ))}

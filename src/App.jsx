@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Header from './Components/Header/Header';
-import User from './Components/User/User';
+import Profile from './Components/Profile/Profile';
 import Repos from './Components/Repos/Repos';
 import Gists from './Components/Gists/Gists';
 import Followers from './Components/Followers/Followers';
@@ -15,7 +15,7 @@ const App = () => (
     <Router>
       <Header />
       <Route path="/:login">
-        <User />
+        <Profile />
         <Switch>
           <Route path="/:login/repos" component={Repos} />
           <Route path="/:login/gists" component={Gists} />

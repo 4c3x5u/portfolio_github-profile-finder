@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
 const InfoModal = ({ handleHide }) => (
-  <Modal show onHide={handleHide}>
+  <Modal className="InfoModal" show onHide={handleHide}>
     <Modal.Header closeButton>
       <Modal.Title>
         Profile Controls

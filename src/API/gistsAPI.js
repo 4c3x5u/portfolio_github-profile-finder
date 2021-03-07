@@ -5,30 +5,24 @@ const parseGist = (gist) => ({
   url: gist.html_url,
 });
 
-const handleGistsFound = (
-  setLoading,
-  setGistsFound,
-  setGists,
-) => (
-  gistsResponse,
-) => {
-  setGists(gistsResponse.data.map(parseGist));
-  setGistsFound(true);
-  setTimeout(() => setLoading(false), 700);
+const handleGistsFound = (setSearching, setFound, setGists) => (response) => {
+  setGists(response.data.map(parseGist));
+  setFound(true);
+  setTimeout(() => setSearching(false), 700);
 };
 
-const handleGistsNotFound = (setLoading, setGistsFound, setGists) => () => {
+const handleGistsNotFound = (setSearching, setFound, setGists) => () => {
   setGists([]);
-  setGistsFound(false);
-  setTimeout(() => setLoading(false), 700);
+  setFound(false);
+  setTimeout(() => setSearching(false), 700);
 };
 
 const gistsAPI = {
-  get: (login, setLoading, setGistsFound, setGists) => {
+  search: (login, setSearhing, setFound, setGists) => {
     axios
       .get(`https://api.github.com/users/${login}/gists`)
-      .then(handleGistsFound(setLoading, setGistsFound, setGists))
-      .catch(handleGistsNotFound(setLoading, setGistsFound, setGists));
+      .then(handleGistsFound(setSearhing, setFound, setGists))
+      .catch(handleGistsNotFound(setSearhing, setFound, setGists));
   },
 };
 

@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followersAPI from '../../API/followersAPI';
 import Subheader from '../Shared/Subheader/Subheader';
-import Loader from '../Shared/Loader/Loader';
+import Searching from '../Shared/Searching/Searching';
 import FollowersFound from './FollowersFound';
 import FollowersNotFound from './FollowersNotFound';
 
 const Followers = () => {
   const { login } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [followersFound, setFollowersFound] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const [found, setFound] = useState(false);
   const [followers, setFollowers] = useState([]);
 
-  useEffect(
-    () => followersAPI.get(login, setLoading, setFollowersFound, setFollowers),
-    [],
-  );
+  useEffect(() => {
+    setSearching(true);
+    followersAPI.search(login, setSearching, setFound, setFollowers);
+  }, []);
 
   const followersHeader = () => <Subheader title="Followers" />;
 
   const followersContent = () => {
-    if (loading) { return <Loader />; }
-    if (followersFound) { return <FollowersFound followers={followers} />; }
+    if (searching) { return <Searching />; }
+    if (found) { return <FollowersFound followers={followers} />; }
     return <FollowersNotFound />;
   };
 

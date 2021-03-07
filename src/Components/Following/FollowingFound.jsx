@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FollowingSingle from './FollowingSingle';
 
 const FollowingFound = ({ following }) => (
-  <ListGroup className="FollowingSuccess">
+  <ListGroup className="FollowingFound">
     {following.map((user) => (
       <FollowingSingle following={user} />
     ))}

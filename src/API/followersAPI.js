@@ -2,30 +2,24 @@ import axios from 'axios';
 
 const parseFollower = (follower) => ({ login: follower.login });
 
-const handleFollowersFound = (
-  setLoading,
-  setFollowersFound,
-  setFollowers,
-) => (
-  followersReponse,
-) => {
-  setFollowers(followersReponse.data.map(parseFollower));
-  setFollowersFound(true);
-  setTimeout(() => setLoading(false), 700);
+const handleFollowersFound = (setSearching, setFound, setFollowers) => (response) => {
+  setFollowers(response.data.map(parseFollower));
+  setFound(true);
+  setTimeout(() => setSearching(false), 700);
 };
 
-const handleFollowersNotFound = (setLoading, setFollowersFound, setFollowers) => () => {
+const handleFollowersNotFound = (setSearching, setFound, setFollowers) => () => {
   setFollowers([]);
-  setFollowersFound(false);
-  setTimeout(() => setLoading(false), 700);
+  setFound(false);
+  setTimeout(() => setSearching(false), 700);
 };
 
 const followersAPI = {
-  get: (login, setLoading, setFollowersFound, setFollowers) => (
+  search: (login, setSearcing, setFound, setFollowers) => (
     axios
       .get(`https://api.github.com/users/${login}/followers`)
-      .then(handleFollowersFound(setLoading, setFollowersFound, setFollowers))
-      .catch(handleFollowersNotFound(setLoading, setFollowersFound, setFollowers))
+      .then(handleFollowersFound(setSearcing, setFound, setFollowers))
+      .catch(handleFollowersNotFound(setSearcing, setFound, setFollowers))
   ),
 };
 

@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
 import Subheader from '../Shared/Subheader/Subheader';
-import Loader from '../Shared/Loader/Loader';
+import Searching from '../Shared/Searching/Searching';
 import GistsFound from './GistsFound';
 import GistsNotFound from './GistsNotFound';
 
 const Gists = () => {
   const { login } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [gistsFound, setGistsFound] = useState(false);
+  const [searching, setSearching] = useState(true);
+  const [found, setFound] = useState(false);
   const [gists, setGists] = useState([]);
 
   useEffect(
-    () => gistsAPI.get(login, setLoading, setGistsFound, setGists),
+    () => gistsAPI.search(login, setSearching, setFound, setGists),
     [],
   );
 
   const gistsHeader = () => <Subheader title="Gists" />;
 
   const gistsContent = () => {
-    if (loading) { return <Loader />; }
-    if (gistsFound) { return <GistsFound gists={gists} />; }
+    if (searching) { return <Searching />; }
+    if (found) { return <GistsFound gists={gists} />; }
     return <GistsNotFound />;
   };
 

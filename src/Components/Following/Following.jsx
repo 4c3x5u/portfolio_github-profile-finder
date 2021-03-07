@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
 import Subheader from '../Shared/Subheader/Subheader';
-import Loader from '../Shared/Loader/Loader';
+import Searching from '../Shared/Searching/Searching';
 import FollowingFound from './FollowingFound';
 import FollowingNotFound from './FollowingNotFound';
 
 const Following = () => {
   const { login } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [followingFound, setFollowingFound] = useState(false);
+  const [searching, setSearching] = useState(true);
+  const [found, setFound] = useState(false);
   const [following, setFollowing] = useState([]);
 
   useEffect(
-    () => followingAPI.get(login, setLoading, setFollowingFound, setFollowing),
+    () => followingAPI.search(login, setSearching, setFound, setFollowing),
     [],
   );
 
   const followingHeader = () => (<Subheader title="Following" />);
 
   const followingContent = () => {
-    if (loading) { return (<Loader />); }
-    if (followingFound) { return (<FollowingFound following={following} />); }
+    if (searching) { return (<Searching />); }
+    if (found) { return (<FollowingFound following={following} />); }
     return (<FollowingNotFound />);
   };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import RotateLoader from 'react-spinners/RotateLoader';
 
-const Loader = () => (
-  <div className="Loader">
+const Searching = () => (
+  <div className="Searching mb-5">
     <RotateLoader
       loading
       size={60}
@@ -10,11 +10,10 @@ const Loader = () => (
       color="#343a40"
       css={{
         display: 'block',
-        margin: '7rem auto 0 auto',
-        borderColor: 'red',
+        margin: '7rem auto 7rem auto',
       }}
     />
   </div>
 );
 
-export default Loader;
+export default Searching;

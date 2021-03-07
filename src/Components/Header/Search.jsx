@@ -11,7 +11,7 @@ const Search = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
 
   return (
-    <Form className="SearchBar mb-3" onSubmit={(e) => e.preventDefault()}>
+    <Form className="Search mb-3" onSubmit={(e) => e.preventDefault()}>
       <Row noGutters>
         <Col xs={9}>
           <InputGroup

@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
 import Subheader from '../Shared/Subheader/Subheader';
-import Loader from '../Shared/Loader/Loader';
+import Searching from '../Shared/Searching/Searching';
 import ReposFound from './ReposFound';
 import ReposNotFound from './ReposNotFound';
 
 const Repos = () => {
   const { login } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [reposFound, setReposFound] = useState(false);
+  const [searching, setSearching] = useState(true);
+  const [found, setFound] = useState(false);
   const [repos, setRepos] = useState([]);
 
   useEffect(
-    () => reposAPI.get(login, setLoading, setReposFound, setRepos),
+    () => reposAPI.search(login, setSearching, setFound, setRepos),
     [],
   );
 
   const reposHeader = () => (<Subheader title="Repos" />);
 
   const reposContent = () => {
-    if (loading) { return <Loader />; }
-    if (reposFound) { return <ReposFound repos={repos} />; }
+    if (searching) { return <Searching />; }
+    if (found) { return <ReposFound repos={repos} />; }
     return <ReposNotFound />;
   };
 
