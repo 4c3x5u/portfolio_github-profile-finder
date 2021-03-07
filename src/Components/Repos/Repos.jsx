@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import reposAPI from '../../API/reposAPI';
-import PageHeader from '../Shared/PageHeader/PageHeader';
+import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 import Loader from '../Shared/Loader/Loader';
 import ReposFound from './ReposFound';
 import ReposNotFound from './ReposNotFound';
@@ -17,7 +17,7 @@ const Repos = () => {
     [],
   );
 
-  const reposHeader = () => (<PageHeader title="Repos" />);
+  const reposHeader = () => (<SectionHeader title="Repos" />);
 
   const reposContent = () => {
     if (loading) { return <Loader />; }

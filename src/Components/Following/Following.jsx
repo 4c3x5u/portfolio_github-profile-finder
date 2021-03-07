@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import followingAPI from '../../API/followingAPI';
+import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 import Loader from '../Shared/Loader/Loader';
 import FollowingFound from './FollowingFound';
 import FollowingNotFound from './FollowingNotFound';
-import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const Following = () => {
   const { login } = useParams();
@@ -17,7 +17,7 @@ const Following = () => {
     [],
   );
 
-  const followingHeader = () => (<PageHeader title="Following" />);
+  const followingHeader = () => (<SectionHeader title="Following" />);
 
   const followingContent = () => {
     if (loading) { return (<Loader />); }
