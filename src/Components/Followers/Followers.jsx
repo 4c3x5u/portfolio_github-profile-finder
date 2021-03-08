@@ -2,20 +2,20 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import followersAPI from '../../API/followersAPI';
 import Section from '../Shared/Section';
-import List from '../Shared/List/List';
-import Item from '../Shared/Item/Item';
+import List from '../Shared/List';
+import Item from '../Shared/Item';
 
 const Followers = () => (
   <Section
     hasFooter
-    title="Followers"
+    name="Followers"
     api={followersAPI}
     href={`https://www.github.com/${useParams().login}?tab=followers`}
-    viewList={(followers) => (
+    view={(followers) => (
       <List
         name="Followers"
         items={followers}
-        viewItem={(follower) => <Item section="Followers" item={follower} />}
+        view={(follower) => <Item section="Followers" item={follower} />}
       />
     )}
   />

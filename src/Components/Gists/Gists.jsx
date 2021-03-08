@@ -2,20 +2,20 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import gistsAPI from '../../API/gistsAPI';
 import Section from '../Shared/Section';
-import List from '../Shared/List/List';
-import Item from '../Shared/Item/Item';
+import List from '../Shared/List';
+import Item from '../Shared/Item';
 
 const Gists = () => (
   <Section
     hasFooter
-    title="Gists"
+    name="Gists"
     href={`https://gist.github.com/${useParams().login}`}
     api={gistsAPI}
-    viewList={(gists) => (
+    view={(gists) => (
       <List
         name="Gists"
         items={gists}
-        viewItem={(gist) => <Item newTabOnClick section="Gists" item={gist} />}
+        view={(gist) => <Item newTabOnClick section="Gists" item={gist} />}
       />
     )}
   />

@@ -7,10 +7,10 @@ import Searching from './Searching';
 import NotFound from './NotFound';
 
 const Section = ({
-  title,
+  name,
   api,
   href,
-  viewList,
+  view,
   hasFooter,
 }) => {
   const { login } = useParams();
@@ -23,12 +23,12 @@ const Section = ({
     api.search(login, setSearching, setFound, setItems);
   }, [login]);
 
-  const sectionHeader = () => <Header title={title} href={href} hasFooter={hasFooter} />;
+  const sectionHeader = () => <Header title={name} href={href} hasFooter={hasFooter} />;
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
-    if (found) { return viewList(items); }
-    return <NotFound page={title} />;
+    if (found) { return view(items); }
+    return <NotFound page={name} />;
   };
 
   const sectionFooter = () => hasFooter && <Footer />;
@@ -43,12 +43,12 @@ const Section = ({
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   api: PropTypes.objectOf({
     search: PropTypes.func.isRequried,
   }).isRequired,
   href: PropTypes.string.isRequired,
-  viewList: PropTypes.func.isRequired,
+  view: PropTypes.func.isRequired,
   hasFooter: PropTypes.bool.isRequired,
 };
 
