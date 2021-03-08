@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import reposAPI from '../../API/reposAPI';
 import Section from '../Shared/Section';
+import reposAPI from '../../API/reposAPI';
 import ReposFound from './ReposFound';
 
 const Repos = () => {
