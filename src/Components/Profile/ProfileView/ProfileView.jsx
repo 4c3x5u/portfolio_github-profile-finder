@@ -8,8 +8,9 @@ import {
   Card,
   Button,
 } from 'react-bootstrap';
-import InfoModal from '../Shared/InfoModal/InfoModal';
-import NavCol from '../Shared/NavCol/NavCol';
+import InfoModal from '../../Shared/InfoModal/InfoModal';
+import NavCol from '../NavCol/NavCol';
+import './ProfileView.sass';
 
 const ProfileView = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);

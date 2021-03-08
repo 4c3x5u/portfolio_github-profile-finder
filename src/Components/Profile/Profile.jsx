@@ -2,8 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../Shared/Section';
 import userAPI from '../../API/userAPI';
-import ProfileView from './ProfileView';
-import './Profile.sass';
+import ProfileView from './ProfileView/ProfileView';
 
 const Profile = () => {
   const { login } = useParams();
