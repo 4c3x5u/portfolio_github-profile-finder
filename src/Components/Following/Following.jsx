@@ -9,7 +9,7 @@ const Following = () => {
   return (
     <Section
       title="Following"
-      href={`https://www.github.com/${login}/following`}
+      href={`https://www.github.com/${login}?tab=following`}
       api={followingAPI}
       renderFound={(following) => <FollowingFound following={following} />}
       hasFooter
