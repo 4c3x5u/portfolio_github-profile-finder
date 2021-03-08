@@ -1,23 +1,12 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
+import Single from '../Shared/Single/Single';
 
-const GistsSingle = ({ gist }) => (
-  <ListGroup.Item
-    className="GistsSingle bg-light text-center mb-2"
-    action
-    href={gist.url}
-    target="_blank"
-    rel="noreferrer"
-    style={{ border: '2px solid #343a40', padding: '1rem 0 0 0' }}
-  >
-    <p style={{ fontSize: '13pt' }}>{gist.description}</p>
-  </ListGroup.Item>
-);
+const GistsSingle = ({ gist }) => <Single newTabOnClick section="Gists" item={gist} />;
 
 GistsSingle.propTypes = {
   gist: PropTypes.objectOf({
-    description: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
 };

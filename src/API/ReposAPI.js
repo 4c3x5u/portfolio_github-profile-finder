@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const parseRepo = (repoData) => ({
   name: repoData.name,
-  description: repoData.description || '[ No Description ]',
   url: repoData.html_url,
 });
 

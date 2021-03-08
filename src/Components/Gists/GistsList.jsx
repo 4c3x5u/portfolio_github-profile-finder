@@ -14,7 +14,7 @@ const GistsList = ({ gists }) => (
 GistsList.propTypes = ({
   gists: PropTypes.arrayOf(
     PropTypes.objectOf({
-      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
