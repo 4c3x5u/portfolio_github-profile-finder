@@ -21,7 +21,7 @@ const Section = ({
   useEffect(() => {
     setSearching(true);
     api.search(login, setSearching, setFound, setItems);
-  }, []);
+  }, [login]);
 
   const sectionHeader = () => <Header title={title} href={href} hasFooter={hasFooter} />;
 
