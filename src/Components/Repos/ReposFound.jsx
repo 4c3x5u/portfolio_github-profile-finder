@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListGroup from 'react-bootstrap/ListGroup';
 import ReposSingle from './ReposSingle';
+import List from '../Shared/List/List';
 
 const ReposFound = ({ repos }) => (
-  <ListGroup className="ReposFound">
-    {repos.map((repo) => (
-      <ReposSingle repo={repo} />
-    ))}
-  </ListGroup>
+  <List
+    name="Repos"
+    items={repos}
+    viewSingle={(repo) => <ReposSingle repo={repo} />}
+  />
 );
 
 ReposFound.propTypes = {
