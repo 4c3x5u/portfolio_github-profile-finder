@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const parseGist = (gist) => ({
-  description: gist.description || '[No Description]',
-  url: gist.html_url,
+const parseGist = (gistData) => ({
+  description: gistData.description || '[No Description]',
+  url: gistData.html_url,
 });
 
 const handleGistsFound = (setSearching, setFound, setGists) => (response) => {

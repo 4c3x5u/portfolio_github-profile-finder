@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const parseFollower = (follower) => ({ login: follower.login });
+const parseFollower = (followerData) => ({
+  login: followerData.login,
+});
 
 const handleFollowersFound = (setSearching, setFound, setFollowers) => (response) => {
   setFollowers(response.data.map(parseFollower));

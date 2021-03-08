@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const parseUser = (userResponseData) => ({
-  login: userResponseData.login,
-  name: userResponseData.name || '[No Name]',
-  bio: userResponseData.bio || '[No Bio]',
-  location: userResponseData.location || '[No Location]',
-  avatar: userResponseData.avatar_url,
-  numberOfPublicRepos: userResponseData.public_repos,
-  numberOfPublicGists: userResponseData.public_gists,
-  numberOfFollowers: userResponseData.followers,
-  numberOfFollowing: userResponseData.following,
+const parseUser = (userData) => ({
+  login: userData.login,
+  name: userData.name || '[No Name]',
+  bio: userData.bio || '[No Bio]',
+  location: userData.location || '[No Location]',
+  avatar: userData.avatar_url,
+  numberOfPublicRepos: userData.public_repos,
+  numberOfPublicGists: userData.public_gists,
+  numberOfFollowers: userData.followers,
+  numberOfFollowing: userData.following,
 });
 
 const handleUserFound = (setSearching, setFound, setUser) => (response) => {

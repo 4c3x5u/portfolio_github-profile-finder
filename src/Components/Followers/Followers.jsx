@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import followersAPI from '../../API/followersAPI';
 import Section from '../Shared/Section';
+import followersAPI from '../../API/followersAPI';
 import FollowersFound from './FollowersFound';
 
 const Followers = () => {

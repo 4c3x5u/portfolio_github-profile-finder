@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const parseRepo = (reposResponseData) => ({
-  name: reposResponseData.name,
-  description: reposResponseData.description || '[ No Description ]',
+const parseRepo = (repoData) => ({
+  name: repoData.name,
+  description: repoData.description || '[ No Description ]',
+  url: repoData.html_url,
 });
 
 const handleReposFound = (setSearching, setFound, setRepos) => (response) => {
