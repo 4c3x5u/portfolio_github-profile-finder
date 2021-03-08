@@ -1,7 +1,7 @@
 import React from 'react';
-import './Footer.sass';
+import './SectionFooter.sass';
 
-const Footer = () => (
+const SectionFooter = () => (
   <a
     className="FooterLink"
     href="https://github.com/4c3x5u/portfolio_github-profile-finder"
@@ -16,4 +16,4 @@ const Footer = () => (
   </a>
 );
 
-export default Footer;
+export default SectionFooter;

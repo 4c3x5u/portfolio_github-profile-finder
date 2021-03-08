@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import AppHead from './Components/AppHead/AppHead';
+import AppHeader from './Components/AppHeader/AppHeader';
 import Profile from './Components/Profile/Profile';
-import Repos from './Components/Repos/Repos';
-import Gists from './Components/Gists/Gists';
-import Followers from './Components/Followers/Followers';
-import Following from './Components/Following/Following';
-import Footer from './Components/Shared/Footer/Footer';
+import Repos from './Components/Repos';
+import Gists from './Components/Gists';
+import Followers from './Components/Followers';
+import Following from './Components/Following';
+import SectionFooter from './Components/Shared/Section/Footer/SectionFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
 const App = () => (
   <Container className="App">
     <Router>
-      <AppHead />
+      <AppHeader />
       <Route path="/:login">
         <Profile />
         <Switch>
@@ -22,7 +22,7 @@ const App = () => (
           <Route exact path="/:login/gists" component={Gists} />
           <Route exact path="/:login/followers" component={Followers} />
           <Route exact path="/:login/following" component={Following} />
-          <Route path="/:login" component={Footer} />
+          <Route path="/:login" component={SectionFooter} />
         </Switch>
       </Route>
     </Router>

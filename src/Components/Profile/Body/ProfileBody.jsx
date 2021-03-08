@@ -8,18 +8,18 @@ import {
   Card,
   Button,
 } from 'react-bootstrap';
-import InfoModal from '../../Shared/InfoModal/InfoModal';
-import NavCol from '../NavCol/NavCol';
-import './ProfileView.sass';
+import ProfileInfoModal from '../InfoModal/ProfileInfoModal';
+import ProfileNavCol from '../NavCol/ProfileNavCol';
+import './ProfileBody.sass';
 
-const ProfileView = ({ user }) => {
+const ProfileBody = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
   const handleShowInfoModal = () => setShowingInfoModal(true);
   const handleHideInfoModal = () => setShowingInfoModal(false);
 
   return (
-    <Card className="ProfileView bg-light">
-      {showingInfoModal && <InfoModal handleHide={handleHideInfoModal} />}
+    <Card className="ProfileBody bg-light">
+      {showingInfoModal && <ProfileInfoModal handleHide={handleHideInfoModal} />}
       <Row noGutters>
         <Col className="PictureCol" xs={4}>
           <Card.Img className="Picture" variant="left" src={user.avatar} />
@@ -31,10 +31,10 @@ const ProfileView = ({ user }) => {
                 <Card.Title className="Title">{user.name}</Card.Title>
                 <p className="Bio">{user.bio}</p>
                 <Row className="NavRow mb-2">
-                  <NavCol name="Repos" amount={user.numberOfPublicRepos} url={`/${user.login}/repos`} />
-                  <NavCol name="Gists" amount={user.numberOfPublicGists} url={`/${user.login}/gists`} />
-                  <NavCol name="Followers" amount={user.numberOfFollowers} url={`/${user.login}/followers`} />
-                  <NavCol name="Following" amount={user.numberOfFollowing} url={`/${user.login}/following`} />
+                  <ProfileNavCol name="Repos" amount={user.numberOfPublicRepos} url={`/${user.login}/repos`} />
+                  <ProfileNavCol name="Gists" amount={user.numberOfPublicGists} url={`/${user.login}/gists`} />
+                  <ProfileNavCol name="Followers" amount={user.numberOfFollowers} url={`/${user.login}/followers`} />
+                  <ProfileNavCol name="Following" amount={user.numberOfFollowing} url={`/${user.login}/following`} />
                   <Col className="LocationCol mt-3 mb-0" xs={12}>
                     <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
                     {user.location}
@@ -54,7 +54,7 @@ const ProfileView = ({ user }) => {
   );
 };
 
-ProfileView.propTypes = {
+ProfileBody.propTypes = {
   user: PropTypes.objectOf({
     login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -67,4 +67,4 @@ ProfileView.propTypes = {
   }).isRequired,
 };
 
-export default ProfileView;
+export default ProfileBody;

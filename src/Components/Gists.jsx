@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import gistsAPI from '../../API/gistsAPI';
-import Section from '../Shared/Section';
-import List from '../Shared/List';
-import Item from '../Shared/Item';
+import gistsAPI from '../API/gistsAPI';
+import Section from './Shared/Section/Section';
+import SectionList from './Shared/Section/List/SectionList';
+import SectionItem from './Shared/Section/Item/SectionItem';
 
 const Gists = () => (
   <Section
@@ -12,10 +12,9 @@ const Gists = () => (
     href={`https://gist.github.com/${useParams().login}`}
     api={gistsAPI}
     view={(gists) => (
-      <List
-        name="Gists"
+      <SectionList
         items={gists}
-        view={(gist) => <Item newTabOnClick section="Gists" item={gist} />}
+        view={(gist) => <SectionItem newTabOnClick item={gist} />}
       />
     )}
   />

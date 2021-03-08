@@ -6,12 +6,12 @@ import {
   Form,
   InputGroup,
 } from 'react-bootstrap';
+import './AppHeader.sass';
 
-const AppHead = () => {
+const AppHeader = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
-
   return (
-    <Row className="Header">
+    <Row className="AppHeader">
       <Col xs={8}>
         <h2 className="Title text-dark">GitHub Profile Finder</h2>
       </Col>
@@ -19,7 +19,7 @@ const AppHead = () => {
         <Form className="Controls mb-3" onSubmit={(e) => e.preventDefault()}>
           <Row noGutters>
             <Col xs={9}>
-              <InputGroup style={{ border: '2px solid #343a40', borderRadius: '4px' }}>
+              <InputGroup className="TextBox">
                 <InputGroup.Prepend>
                   <InputGroup.Text className="bg-dark text-light">@</InputGroup.Text>
                 </InputGroup.Prepend>
@@ -31,11 +31,7 @@ const AppHead = () => {
               </InputGroup>
             </Col>
             <Col className="pl-2" size={3}>
-              <Link
-                to={`/${searchParam}`}
-                className="btn btn-dark sm"
-                style={{ height: '100%', width: '100%' }}
-              >
+              <Link className="SearchButton btn btn-dark sm" to={`/${searchParam}`}>
                 Search
               </Link>
             </Col>
@@ -46,4 +42,4 @@ const AppHead = () => {
   );
 };
 
-export default AppHead;
+export default AppHeader;

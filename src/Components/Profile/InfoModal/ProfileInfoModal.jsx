@@ -2,9 +2,9 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
-import './InfoModal.sass';
+import './ProfileInfoModal.sass';
 
-const InfoModal = ({ handleHide }) => (
+const ProfileInfoModal = ({ handleHide }) => (
   <Modal className="InfoModal" show onHide={handleHide}>
     <Modal.Header>
       <div className="ModalHeader">
@@ -51,8 +51,8 @@ const InfoModal = ({ handleHide }) => (
   </Modal>
 );
 
-InfoModal.propTypes = {
+ProfileInfoModal.propTypes = {
   handleHide: PropTypes.func.isRequired,
 };
 
-export default InfoModal;
+export default ProfileInfoModal;

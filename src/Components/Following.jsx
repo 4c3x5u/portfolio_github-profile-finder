@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import followingAPI from '../../API/followingAPI';
-import Section from '../Shared/Section';
-import List from '../Shared/List';
-import Item from '../Shared/Item';
+import followingAPI from '../API/followingAPI';
+import Section from './Shared/Section/Section';
+import SectionList from './Shared/Section/List/SectionList';
+import SectionItem from './Shared/Section/Item/SectionItem';
 
 const Following = () => (
   <Section
@@ -12,10 +12,9 @@ const Following = () => (
     href={`https://www.github.com/${useParams().login}?tab=following`}
     api={followingAPI}
     view={(following) => (
-      <List
-        name="Following"
+      <SectionList
         items={following}
-        view={(user) => <Item section="Following" item={user} />}
+        view={(user) => <SectionItem item={user} />}
       />
     )}
   />

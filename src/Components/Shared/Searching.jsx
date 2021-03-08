@@ -8,10 +8,7 @@ const Searching = () => (
       size={60}
       margin={50}
       color="#343a40"
-      css={{
-        display: 'block',
-        margin: '7rem auto 7rem auto',
-      }}
+      css={{ display: 'block', margin: '7rem auto 7rem auto' }}
     />
   </div>
 );

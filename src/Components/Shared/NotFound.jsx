@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const NotFound = ({ page }) => (
-  <h1 className={`${page}NotFound`}>
+  <h1 className="NotFound">
     {`${page} not found.`}
   </h1>
 );

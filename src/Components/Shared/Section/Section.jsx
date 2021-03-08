@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import Searching from './Searching';
-import NotFound from './NotFound';
+import SectionHeader from './Header/SectionHeader';
+import SectionFooter from './Footer/SectionFooter';
+import Searching from '../Searching';
+import NotFound from '../NotFound';
 
 const Section = ({
   name,
@@ -23,7 +23,7 @@ const Section = ({
     api.search(login, setSearching, setFound, setItems);
   }, [login]);
 
-  const sectionHeader = () => <Header title={name} href={href} hasFooter={hasFooter} />;
+  const sectionHeader = () => <SectionHeader title={name} href={href} hasFooter={hasFooter} />;
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
@@ -31,7 +31,7 @@ const Section = ({
     return <NotFound page={name} />;
   };
 
-  const sectionFooter = () => hasFooter && <Footer />;
+  const sectionFooter = () => hasFooter && <SectionFooter />;
 
   return (
     <div className="Section">
