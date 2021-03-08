@@ -14,7 +14,7 @@ const FollowersList = ({ followers }) => (
 FollowersList.propTypes = {
   followers: PropTypes.arrayOf(
     PropTypes.objectOf({
-      login: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
