@@ -4,17 +4,14 @@ import Section from '../Shared/Section';
 import reposAPI from '../../API/reposAPI';
 import ReposFound from './ReposFound';
 
-const Repos = () => {
-  const { login } = useParams();
-  return (
-    <Section
-      title="Repos"
-      href={`https://www.github.com/${login}?tab=repositories`}
-      api={reposAPI}
-      renderFound={(repos) => <ReposFound repos={repos} />}
-      hasFooter
-    />
-  );
-};
+const Repos = () => (
+  <Section
+    title="Repos"
+    href={`https://www.github.com/${useParams().login}?tab=repositories`}
+    api={reposAPI}
+    renderFound={(repos) => <ReposFound repos={repos} />}
+    hasFooter
+  />
+);
 
 export default Repos;

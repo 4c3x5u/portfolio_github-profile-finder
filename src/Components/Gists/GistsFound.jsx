@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListGroup from 'react-bootstrap/ListGroup';
 import GistsSingle from './GistsSingle';
+import List from '../Shared/List/List';
 
 const GistsFound = ({ gists }) => (
-  <ListGroup className="GistsFound">
-    {gists.map((gist) => (
-      <GistsSingle gist={gist} />
-    ))}
-  </ListGroup>
+  <List
+    name="Gists"
+    items={gists}
+    viewSingle={(gist) => <GistsSingle gist={gist} />}
+  />
 );
 
 GistsFound.propTypes = ({
