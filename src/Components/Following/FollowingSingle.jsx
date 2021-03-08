@@ -4,10 +4,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 const FollowingSingle = ({ following }) => (
   <ListGroup.Item
-    action
     className="FollowingSingle bg-light text-center mb-2"
-    style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
+    action
     href={`/${following.login}`}
+    style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
   >
     <h5 stlye={{ marginTop: '2rem', padding: 0 }}>
       {following.login}

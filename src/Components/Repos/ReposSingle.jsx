@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 const ReposSingle = ({ repo }) => (
   <ListGroup.Item
+    className="ReposSingle bg-light text-center mb-2"
     action
     href={repo.url}
     target="_blank"
     rel="noreferrer"
-    className="ReposSingle bg-light text-center mb-2"
     style={{ border: '2px solid #343a40' }}
   >
     <h5>{repo.name}</h5>
