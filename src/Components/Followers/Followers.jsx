@@ -10,7 +10,7 @@ const Followers = () => {
     <Section
       title="Followers"
       api={followersAPI}
-      href={`https://www.github.com/${login}/followers`}
+      href={`https://www.github.com/${login}?tab=followers`}
       renderFound={(followers) => <FollowersFound followers={followers} />}
       hasFooter
     />

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const FollowersSingle = ({ follower }) => (
   <ListGroup.Item
     action
+    href={`/${follower.login}`}
     className="FollowersSingle bg-light text-center mb-2"
     style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
   >
