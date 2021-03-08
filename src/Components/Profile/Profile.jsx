@@ -12,7 +12,7 @@ const Profile = () => {
       title={`@${login}`}
       href={`https://www.github.com/${login}`}
       api={userAPI}
-      renderFound={(user) => <ProfileFound user={user} />}
+      viewList={(user) => <ProfileFound user={user} />}
       hasFooter={false}
     />
   );

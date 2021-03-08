@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const parseFollowing = (followingData) => ({
-  login: followingData.login,
+  name: followingData.login,
+  url: `/${followingData.login}`,
 });
 
 const handleFollowingFound = (setSearching, setFound, setFollowing) => (response) => {

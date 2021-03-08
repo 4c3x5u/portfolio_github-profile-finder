@@ -2,9 +2,9 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
 
-const Single = ({ newTabOnClick, section, item }) => (
+const Item = ({ item, section, newTabOnClick }) => (
   <ListGroup.Item
-    className={`${section}Single Single bg-light text-center mb-2`}
+    className={`${section}Item Single bg-light text-center mb-2`}
     action
     href={item.url}
     target={newTabOnClick ? '_blank' : ''}
@@ -17,7 +17,7 @@ const Single = ({ newTabOnClick, section, item }) => (
   </ListGroup.Item>
 );
 
-Single.propTypes = {
+Item.propTypes = {
   newTabOnClick: PropTypes.bool,
   section: PropTypes.string.isRequired,
   item: PropTypes.objectOf({
@@ -26,6 +26,6 @@ Single.propTypes = {
   }).isRequired,
 };
 
-Single.defaultProps = { newTabOnClick: false };
+Item.defaultProps = { newTabOnClick: false };
 
-export default Single;
+export default Item;

@@ -10,7 +10,7 @@ const Section = ({
   title,
   api,
   href,
-  renderFound,
+  viewList,
   hasFooter,
 }) => {
   const { login } = useParams();
@@ -27,7 +27,7 @@ const Section = ({
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
-    if (found) { return renderFound(items); }
+    if (found) { return viewList(items); }
     return <NotFound page={title} />;
   };
 
@@ -48,7 +48,7 @@ Section.propTypes = {
     search: PropTypes.func.isRequried,
   }).isRequired,
   href: PropTypes.string.isRequired,
-  renderFound: PropTypes.func.isRequired,
+  viewList: PropTypes.func.isRequired,
   hasFooter: PropTypes.bool.isRequired,
 };
 

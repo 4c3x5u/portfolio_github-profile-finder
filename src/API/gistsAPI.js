@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const parseGist = (gistData) => ({
-  name: gistData.description || '[No Description]',
+  name: gistData.description || '[No Name]',
   url: gistData.html_url,
 });
 
