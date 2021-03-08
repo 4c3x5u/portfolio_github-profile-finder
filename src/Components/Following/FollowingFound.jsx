@@ -1,14 +1,14 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
 import FollowingSingle from './FollowingSingle';
+import List from '../Shared/List/List';
 
 const FollowingFound = ({ following }) => (
-  <ListGroup className="FollowingFound">
-    {following.map((user) => (
-      <FollowingSingle following={user} />
-    ))}
-  </ListGroup>
+  <List
+    name="Following"
+    items={following}
+    viewSingle={(user) => <FollowingSingle following={user} />}
+  />
 );
 
 FollowingFound.propTypes = {
