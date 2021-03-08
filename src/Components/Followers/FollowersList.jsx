@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FollowersSingle from './FollowersSingle';
 import List from '../Shared/List/List';
 
-const FollowersFound = ({ followers }) => (
+const FollowersList = ({ followers }) => (
   <List
     name="Followers"
     items={followers}
@@ -11,7 +11,7 @@ const FollowersFound = ({ followers }) => (
   />
 );
 
-FollowersFound.propTypes = {
+FollowersList.propTypes = {
   followers: PropTypes.arrayOf(
     PropTypes.objectOf({
       login: PropTypes.string.isRequired,
@@ -19,4 +19,4 @@ FollowersFound.propTypes = {
   ).isRequired,
 };
 
-export default FollowersFound;
+export default FollowersList;

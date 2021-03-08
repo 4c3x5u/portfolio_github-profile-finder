@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReposSingle from './ReposSingle';
 import List from '../Shared/List/List';
 
-const ReposFound = ({ repos }) => (
+const ReposList = ({ repos }) => (
   <List
     name="Repos"
     items={repos}
@@ -11,7 +11,7 @@ const ReposFound = ({ repos }) => (
   />
 );
 
-ReposFound.propTypes = {
+ReposList.propTypes = {
   repos: PropTypes.arrayOf(
     PropTypes.objectOf({
       name: PropTypes.string.isRequired,
@@ -20,4 +20,4 @@ ReposFound.propTypes = {
   ).isRequired,
 };
 
-export default ReposFound;
+export default ReposList;

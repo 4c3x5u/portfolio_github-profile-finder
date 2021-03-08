@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GistsSingle from './GistsSingle';
 import List from '../Shared/List/List';
 
-const GistsFound = ({ gists }) => (
+const GistsList = ({ gists }) => (
   <List
     name="Gists"
     items={gists}
@@ -11,7 +11,7 @@ const GistsFound = ({ gists }) => (
   />
 );
 
-GistsFound.propTypes = ({
+GistsList.propTypes = ({
   gists: PropTypes.arrayOf(
     PropTypes.objectOf({
       description: PropTypes.string.isRequired,
@@ -20,4 +20,4 @@ GistsFound.propTypes = ({
   ).isRequired,
 });
 
-export default GistsFound;
+export default GistsList;
