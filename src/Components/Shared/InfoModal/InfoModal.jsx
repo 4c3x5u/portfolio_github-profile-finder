@@ -24,13 +24,20 @@ const InfoModal = ({ handleHide }) => (
       </p>
       <br />
       <p className="mb-0">
-        You can also click on the headers and the footer to trigger their actions.
+        You can also click on the section headers and the app footer to trigger their actions.
       </p>
       <br />
       <p className="mb-0">
         The profile section header navigates to the user&apos;s GitHub profile.
-        The subsection headers navigate to their corresponding GitHub pages,
-        and the footer navigates to this project&apos;s GitHub page.
+      </p>
+      <br />
+      <p className="mb-0">
+        The other section headers navigate to either Repos, Gists, Followers, or the Following page
+        for the user on GitHub depending on its title.
+      </p>
+      <br />
+      <p className="mb-0">
+        The footer navigates to this project&apos;s GitHub page.
       </p>
     </Modal.Body>
 
