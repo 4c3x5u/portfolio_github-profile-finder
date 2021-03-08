@@ -39,7 +39,7 @@ const ProfileFound = ({ user }) => {
                 </Card.Title>
                 <p style={{ fontSize: '14pt', textAlign: 'center' }}>{user.bio}</p>
                 <Row className="mb-2" style={{ margin: 'auto' }}>
-                  <Col xs={6} style={{ textAlign: 'center' }}>
+                  <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfPublicRepos > 0 ? (
                       <Link className="text-dark font-weight-bold" to={`/${user.login}/repos`}>
                         {`Repos: ${user.numberOfPublicRepos}`}
@@ -50,7 +50,7 @@ const ProfileFound = ({ user }) => {
                       </h6>
                     )}
                   </Col>
-                  <Col xs={6} style={{ textAlign: 'center' }}>
+                  <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfPublicGists > 0 ? (
                       <Link className="text-dark font-weight-bold" to={`/${user.login}/gists`}>
                         {`Gists: ${user.numberOfPublicGists}`}
@@ -61,7 +61,7 @@ const ProfileFound = ({ user }) => {
                       </h6>
                     )}
                   </Col>
-                  <Col xs={6} style={{ textAlign: 'center' }}>
+                  <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfFollowers > 0 ? (
                       <Link className="text-dark font-weight-bold" to={`/${user.login}/followers`}>
                         {`Followers: ${user.numberOfFollowers}`}
@@ -72,7 +72,7 @@ const ProfileFound = ({ user }) => {
                       </h6>
                     )}
                   </Col>
-                  <Col xs={6} style={{ textAlign: 'center' }}>
+                  <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfFollowing > 0 ? (
                       <Link className="text-dark font-weight-bold" to={`/${user.login}/following`}>
                         {`Following: ${user.numberOfFollowing}`}
@@ -83,7 +83,7 @@ const ProfileFound = ({ user }) => {
                       </h6>
                     )}
                   </Col>
-                  <Col className="LocationCol" xs={12} style={{ textAlign: 'center' }}>
+                  <Col className="LocationCol mt-3 mb-0" xs={12} style={{ textAlign: 'center' }}>
                     <h5 style={{ width: '100%', textAlign: 'center' }}>
                       <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
                       {user.location}

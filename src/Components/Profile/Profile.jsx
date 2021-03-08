@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Section from '../Shared/Section';
 import userAPI from '../../API/userAPI';
 import ProfileFound from './ProfileFound';
+import './Profile.sass';
 
 const Profile = () => {
   const { login } = useParams();
