@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Single from '../Shared/Single/Single';
 
-const FollowingSingle = ({ following }) => (
-  <ListGroup.Item
-    className="FollowingSingle bg-light text-center mb-2"
-    action
-    href={`/${following.login}`}
-    style={{ border: '2px solid #343a40', paddingTop: '1.2rem' }}
-  >
-    <h5 stlye={{ marginTop: '2rem', padding: 0 }}>
-      {following.login}
-    </h5>
-  </ListGroup.Item>
-);
+const FollowingSingle = ({ following }) => <Single section="Following" item={following} />;
 
 FollowingSingle.propTypes = {
   following: PropTypes.objectOf({
+    name: PropTypes.string.isRequired,
     login: PropTypes.string.isRequired,
   }).isRequired,
 };
