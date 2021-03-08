@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import gistsAPI from '../../API/gistsAPI';
 import Section from '../Shared/Section';
+import gistsAPI from '../../API/gistsAPI';
 import GistsFound from './GistsFound';
 
 const Gists = () => {

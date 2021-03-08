@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 const GistsSingle = ({ gist }) => (
   <ListGroup.Item
     action
+    href={gist.url}
+    target="_blank"
+    rel="noreferrer"
     className="GistsSingle bg-light text-center mb-2"
     style={{ border: '2px solid #343a40', padding: '1rem 0 0 0' }}
   >
