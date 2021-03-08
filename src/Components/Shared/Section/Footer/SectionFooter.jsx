@@ -8,7 +8,7 @@ const SectionFooter = () => (
     target="_blank"
     rel="noreferrer"
   >
-    <div className="Footer text-center">
+    <div className="SectionFooter text-center">
       <h5 className="text-light">
         @4c3x5u/portfolio_github-profile-finder
       </h5>
