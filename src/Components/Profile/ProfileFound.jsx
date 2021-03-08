@@ -41,7 +41,7 @@ const ProfileFound = ({ user }) => {
                 <Row className="mb-2" style={{ margin: 'auto' }}>
                   <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfPublicRepos > 0 ? (
-                      <Link className="text-dark font-weight-bold" to={`/${user.login}/repos`}>
+                      <Link className="NavLink" to={`/${user.login}/repos`}>
                         {`Repos: ${user.numberOfPublicRepos}`}
                       </Link>
                     ) : (
@@ -52,7 +52,7 @@ const ProfileFound = ({ user }) => {
                   </Col>
                   <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfPublicGists > 0 ? (
-                      <Link className="text-dark font-weight-bold" to={`/${user.login}/gists`}>
+                      <Link className="NavLink" to={`/${user.login}/gists`}>
                         {`Gists: ${user.numberOfPublicGists}`}
                       </Link>
                     ) : (
@@ -63,7 +63,7 @@ const ProfileFound = ({ user }) => {
                   </Col>
                   <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfFollowers > 0 ? (
-                      <Link className="text-dark font-weight-bold" to={`/${user.login}/followers`}>
+                      <Link className="NavLink" to={`/${user.login}/followers`}>
                         {`Followers: ${user.numberOfFollowers}`}
                       </Link>
                     ) : (
@@ -74,7 +74,7 @@ const ProfileFound = ({ user }) => {
                   </Col>
                   <Col className="NavCol" xs={6} style={{ textAlign: 'center' }}>
                     {user.numberOfFollowing > 0 ? (
-                      <Link className="text-dark font-weight-bold" to={`/${user.login}/following`}>
+                      <Link className="NavLink" to={`/${user.login}/following`}>
                         {`Following: ${user.numberOfFollowing}`}
                       </Link>
                     ) : (

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './Header.sass';
 
 const Header = ({ title, href, hasFooter }) => (
-  <a href={href} target="_blank" rel="noreferrer">
-    <div className={`${hasFooter ? 'Section' : 'Profile'}Header text-center bg-dark`}>
+  <a className="HeaderLink" href={href} target="_blank" rel="noreferrer">
+    <div className={`${hasFooter ? 'Section' : 'Profile'}Header text-center`}>
       <h5 className="text-light">
         {title}
       </h5>
