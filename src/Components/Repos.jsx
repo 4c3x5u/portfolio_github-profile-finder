@@ -1,15 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import reposAPI from '../API/reposAPI';
 import Section from './Shared/Section/Section';
 import SectionList from './Shared/Section/List/SectionList';
 import SectionItem from './Shared/Section/Item/SectionItem';
+import getReposList from '../API/repos/getReposList';
 
 const Repos = () => (
   <Section
     name="Repos"
     href={`https://www.github.com/${useParams().login}?tab=repositories`}
-    api={reposAPI}
+    get={getReposList}
     view={(repos) => (
       <SectionList
         items={repos}

@@ -10,7 +10,7 @@ const Profile = () => {
     <Section
       name={`@${login}`}
       href={`https://www.github.com/${login}`}
-      api={userAPI}
+      get={userAPI.search}
       view={(user) => <ProfileBody user={user} />}
       hasFooter={false}
     />

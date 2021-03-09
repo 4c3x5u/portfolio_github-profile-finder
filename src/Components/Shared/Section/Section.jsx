@@ -8,7 +8,7 @@ import NotFound from '../NotFound';
 
 const Section = ({
   name,
-  api,
+  get,
   href,
   view,
   hasFooter,
@@ -20,7 +20,7 @@ const Section = ({
 
   useEffect(() => {
     setSearching(true);
-    api.search(login, setSearching, setFound, setItems);
+    get(login, setSearching, setFound, setItems);
   }, [login]);
 
   const sectionHeader = () => <SectionHeader title={name} href={href} hasFooter={hasFooter} />;
@@ -44,9 +44,7 @@ const Section = ({
 
 Section.propTypes = {
   name: PropTypes.string.isRequired,
-  api: PropTypes.objectOf({
-    search: PropTypes.func.isRequried,
-  }).isRequired,
+  get: PropTypes.func.isRequired,
   href: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasFooter: PropTypes.bool.isRequired,

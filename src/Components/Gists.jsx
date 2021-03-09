@@ -10,7 +10,7 @@ const Gists = () => (
     hasFooter
     name="Gists"
     href={`https://gist.github.com/${useParams().login}`}
-    api={gistsAPI}
+    get={gistsAPI.search}
     view={(gists) => (
       <SectionList
         items={gists}

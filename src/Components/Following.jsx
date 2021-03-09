@@ -10,7 +10,7 @@ const Following = () => (
     hasFooter
     name="Following"
     href={`https://www.github.com/${useParams().login}?tab=following`}
-    api={followingAPI}
+    get={followingAPI.search}
     view={(following) => (
       <SectionList
         items={following}

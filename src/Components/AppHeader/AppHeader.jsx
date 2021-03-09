@@ -13,7 +13,9 @@ const AppHeader = () => {
   return (
     <Row className="AppHeader">
       <Col xs={8}>
-        <h2 className="Title text-dark">GitHub Profile Finder</h2>
+        <h2 className="Title text-dark">
+          GitHub Profile Finder
+        </h2>
       </Col>
       <Col xs={4}>
         <Form className="Controls mb-3" onSubmit={(e) => e.preventDefault()}>
@@ -21,7 +23,9 @@ const AppHeader = () => {
             <Col xs={9}>
               <InputGroup className="TextBox">
                 <InputGroup.Prepend>
-                  <InputGroup.Text className="bg-dark text-light">@</InputGroup.Text>
+                  <InputGroup.Text className="bg-dark text-light">
+                    @
+                  </InputGroup.Text>
                 </InputGroup.Prepend>
                 <Form.Control
                   type="text"
@@ -30,7 +34,7 @@ const AppHeader = () => {
                 />
               </InputGroup>
             </Col>
-            <Col className="pl-2" size={3}>
+            <Col className="pl-2">
               <Link className="SearchButton btn btn-dark sm" to={`/${searchParam}`}>
                 Search
               </Link>

@@ -9,7 +9,7 @@ const Followers = () => (
   <Section
     hasFooter
     name="Followers"
-    api={followersAPI}
+    get={followersAPI.search}
     href={`https://www.github.com/${useParams().login}?tab=followers`}
     view={(followers) => (
       <SectionList
