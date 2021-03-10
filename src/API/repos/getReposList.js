@@ -1,16 +1,18 @@
-import axios from 'axios';
-import { handleItemsFound, handleItemsNotFound } from '../util';
+import get from '../shared/get';
 
 const parseRepo = (repoData) => ({
   name: repoData.name,
-  url: repoData.html_url,
+  url: repoData.url,
 });
 
 const getReposList = (login, setSearching, setFound, setRepos) => (
-  axios
-    .get(`https://api.github.com/users/${login}/repos`)
-    .then(handleItemsFound(setSearching, setFound, setRepos, parseRepo))
-    .catch(handleItemsNotFound(setSearching, setFound, setRepos))
+  get(
+    `https://api.github.com/users/${login}/repos`,
+    setSearching,
+    setFound,
+    setRepos,
+    parseRepo,
+  )
 );
 
 export default getReposList;

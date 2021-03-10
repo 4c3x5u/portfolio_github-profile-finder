@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../Shared/Section/Section';
-import userAPI from '../../API/userAPI';
+import userAPI from '../../API/user/userAPI';
 import ProfileBody from './Body/ProfileBody';
 
 const Profile = () => {
