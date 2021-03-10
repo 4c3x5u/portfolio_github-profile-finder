@@ -14,6 +14,7 @@ const getReposSingle = (login, repoName, setSearching, setFound, setRepos) => (
     setFound,
     setRepos,
     parseRepo,
+    true,
   )
 );
 

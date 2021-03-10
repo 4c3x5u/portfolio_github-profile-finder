@@ -12,6 +12,7 @@ const getFollowersList = (login, setSearching, setFound, setFollowers) => (
     setFound,
     setFollowers,
     parseFollower,
+    false,
   )
 );
 

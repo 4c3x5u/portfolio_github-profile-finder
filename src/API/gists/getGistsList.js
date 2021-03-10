@@ -12,6 +12,7 @@ const getGistsList = (login, setSearching, setFound, setGists) => (
     setFound,
     setGists,
     parseGist,
+    false,
   )
 );
 

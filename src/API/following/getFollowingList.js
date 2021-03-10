@@ -12,6 +12,7 @@ const getFollowingList = (login, setSearching, setFound, setFollowing) => (
     setFound,
     setFollowing,
     parseFollowing,
+    false,
   )
 );
 
