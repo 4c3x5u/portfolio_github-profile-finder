@@ -13,6 +13,7 @@ const ReposSingle = () => {
       get={getReposSingle}
       href={`https://www.github.com/${login}/${name}`}
       view={(repo) => <ReposSingleBody repo={repo} />}
+      hasFooter
     />
   );
 };
