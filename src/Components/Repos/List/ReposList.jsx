@@ -13,7 +13,7 @@ const ReposList = () => (
     view={(repos) => (
       <SectionList
         items={repos}
-        view={(repo) => <SectionItem newTabOnClick item={repo} />}
+        view={(repo) => <SectionItem item={repo} />}
       />
     )}
     hasFooter

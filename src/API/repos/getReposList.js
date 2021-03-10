@@ -1,8 +1,8 @@
 import get from '../shared/get';
 
-const parseRepo = (repoData) => ({
+const parseRepo = (login) => (repoData) => ({
   name: repoData.name,
-  url: repoData.url,
+  url: `/${login}/repos/${repoData.name}`,
 });
 
 const getReposList = (login, setSearching, setFound, setRepos) => (
@@ -11,7 +11,7 @@ const getReposList = (login, setSearching, setFound, setRepos) => (
     setSearching,
     setFound,
     setRepos,
-    parseRepo,
+    parseRepo(login),
     false,
   )
 );
