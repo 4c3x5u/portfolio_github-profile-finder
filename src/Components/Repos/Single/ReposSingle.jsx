@@ -5,14 +5,14 @@ import ReposSingleBody from './ReposSingleBody';
 import getReposSingle from '../../../API/repos/getReposSingle';
 
 const ReposSingle = () => {
-  const { login } = useParams();
+  const { login, name } = useParams();
   return (
     <Section
-      name={`@${login}`}
-      href={`https://www.github.com/${login}`}
+      name={`Repos/${name}`}
+      single={name}
       get={getReposSingle}
-      view={(user) => <ReposSingleBody user={user} />}
-      hasFooter={false}
+      href={`https://www.github.com/${login}/${name}`}
+      view={(repo) => <ReposSingleBody repo={repo} />}
     />
   );
 };

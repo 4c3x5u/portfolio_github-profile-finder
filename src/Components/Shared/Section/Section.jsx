@@ -8,6 +8,7 @@ import NotFound from '../NotFound';
 
 const Section = ({
   name,
+  single,
   get,
   href,
   view,
@@ -20,7 +21,11 @@ const Section = ({
 
   useEffect(() => {
     setSearching(true);
-    get(login, setSearching, setFound, setItems);
+    if (single) {
+      get(login, single, setSearching, setFound, setItems);
+    } else {
+      get(login, setSearching, setFound, setItems);
+    }
   }, [login]);
 
   const sectionHeader = () => <SectionHeader title={name} href={href} hasFooter={hasFooter} />;
@@ -44,10 +49,13 @@ const Section = ({
 
 Section.propTypes = {
   name: PropTypes.string.isRequired,
+  single: PropTypes.string,
   get: PropTypes.func.isRequired,
   href: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasFooter: PropTypes.bool.isRequired,
 };
+
+Section.defaultProps = { single: undefined };
 
 export default Section;

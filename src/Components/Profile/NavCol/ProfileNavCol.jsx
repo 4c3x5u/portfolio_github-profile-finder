@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import './ProfileNavCol.sass';
 

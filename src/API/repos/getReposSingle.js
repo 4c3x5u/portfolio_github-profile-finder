@@ -7,9 +7,9 @@ const parseRepo = (repoData) => ({
   url: repoData.url,
 });
 
-const getReposSingle = (login, repoName, setSearching, setFound, setRepos) => (
+const getReposSingle = (login, name, setSearching, setFound, setRepos) => (
   get(
-    `https://api.github.com/repos/${login}/${repoName}`,
+    `https://api.github.com/repos/${login}/${name}`,
     setSearching,
     setFound,
     setRepos,

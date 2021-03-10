@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import AppHeader from './Components/AppHeader/AppHeader';
 import Profile from './Components/Profile/Profile';
-import ReposList from './Components/Repos/ReposList';
+import ReposList from './Components/Repos/List/ReposList';
 import GistsList from './Components/Gists/GistsList';
 import FollowersList from './Components/Followers/FollowersList';
 import FollowingList from './Components/Following/FollowingList';
 import SectionFooter from './Components/Shared/Section/Footer/SectionFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
+import ReposSingle from './Components/Repos/Single/ReposSingle';
 
 const App = () => (
   <Container className="App">
@@ -19,6 +20,7 @@ const App = () => (
         <Profile />
         <Switch>
           <Route exact path="/:login/repos" component={ReposList} />
+          <Route exact path="/:login/repos/:name" component={ReposSingle} />
           <Route exact path="/:login/gists" component={GistsList} />
           <Route exact path="/:login/followers" component={FollowersList} />
           <Route exact path="/:login/following" component={FollowingList} />
