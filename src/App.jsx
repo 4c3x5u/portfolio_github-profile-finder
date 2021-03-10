@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import AppHeader from './Components/AppHeader/AppHeader';
 import Profile from './Components/Profile/Profile';
-import Repos from './Components/Repos';
-import Gists from './Components/Gists';
-import Followers from './Components/Followers';
-import Following from './Components/Following';
+import ReposList from './Components/Repos/ReposList';
+import GistsList from './Components/Gists/GistsList';
+import FollowersList from './Components/Followers/FollowersList';
+import FollowingList from './Components/Following/FollowingList';
 import SectionFooter from './Components/Shared/Section/Footer/SectionFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
@@ -18,10 +18,10 @@ const App = () => (
       <Route path="/:login">
         <Profile />
         <Switch>
-          <Route exact path="/:login/repos" component={Repos} />
-          <Route exact path="/:login/gists" component={Gists} />
-          <Route exact path="/:login/followers" component={Followers} />
-          <Route exact path="/:login/following" component={Following} />
+          <Route exact path="/:login/repos" component={ReposList} />
+          <Route exact path="/:login/gists" component={GistsList} />
+          <Route exact path="/:login/followers" component={FollowersList} />
+          <Route exact path="/:login/following" component={FollowingList} />
           <Route path="/:login" component={SectionFooter} />
         </Switch>
       </Route>

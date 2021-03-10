@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import getFollowingList from '../API/following/getFollowingList';
-import Section from './Shared/Section/Section';
-import SectionList from './Shared/Section/List/SectionList';
-import SectionItem from './Shared/Section/Item/SectionItem';
+import getFollowingList from '../../API/following/getFollowingList';
+import Section from '../Shared/Section/Section';
+import SectionList from '../Shared/Section/List/SectionList';
+import SectionItem from '../Shared/Section/Item/SectionItem';
 
-const Following = () => (
+const FollowingList = () => (
   <Section
     hasFooter
     name="Following"
@@ -20,4 +20,4 @@ const Following = () => (
   />
 );
 
-export default Following;
+export default FollowingList;
