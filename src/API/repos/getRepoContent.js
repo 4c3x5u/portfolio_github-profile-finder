@@ -1,11 +1,11 @@
 import get from '../shared/get';
 
-const parseFile = (fileData) => ({
-  name: fileData.name,
-  url: fileData.url,
-  size: fileData.size,
-  type: fileData.type,
-  children: fileData.type === 'dir' ? [] : undefined,
+const parseBlob = (blobData) => ({
+  name: blobData.name,
+  url: blobData.url,
+  size: blobData.size,
+  type: blobData.type,
+  children: [],
 });
 
 const getRepoContent = (login, repoName, setSearching, setFound, setContent) => (
@@ -14,7 +14,7 @@ const getRepoContent = (login, repoName, setSearching, setFound, setContent) => 
     setSearching,
     setFound,
     setContent,
-    parseFile,
+    parseBlob,
     false,
   )
 );
