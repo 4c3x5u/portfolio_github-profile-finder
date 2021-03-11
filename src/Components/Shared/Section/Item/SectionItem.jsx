@@ -14,18 +14,13 @@ const SectionItem = ({ item, newTabOnClick }) => (
         target={newTabOnClick ? '_blank' : ''}
         rel={newTabOnClick ? 'noreferrer' : ''}
       >
-        <h5 className="ItemName">
-          {item.name}
-        </h5>
+        <h5 className="ItemName">{item.name}</h5>
       </ListGroup.Item>
     )
     : (
-      <Link to={item.url}>
-        {console.log(`ITEM URL: ${item.url}`)}
+      <Link to={item.url} className="ItemLink">
         <ListGroup.Item className="SectionItem bg-light text-center mb-2">
-          <h5 className="ItemName">
-            {item.name}
-          </h5>
+          <h5 className="ItemName">{item.name}</h5>
         </ListGroup.Item>
       </Link>
     )

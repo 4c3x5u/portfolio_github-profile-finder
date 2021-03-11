@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../../Shared/Section/Section';
-import ReposSingleBody from './ReposSingleBody';
+import ReposSingleBody from './Body/ReposSingleBody';
 import getReposSingle from '../../../API/repos/getReposSingle';
 
 const ReposSingle = () => {
