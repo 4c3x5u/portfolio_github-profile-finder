@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt, faQuestion } from '@fortawesome/free-solid-svg-icons';
-import {
-  Row,
-  Col,
-  Card,
-  Button,
-} from 'react-bootstrap';
-import ProfileInfoModal from '../InfoModal/ProfileInfoModal';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { Row, Col, Card } from 'react-bootstrap';
+import InfoModal from '../../Shared/InfoModal/InfoModal';
+import InfoModalToggler from '../../Shared/InfoModal/Toggler/InfoModalToggler';
+import ProfileInfoModalBody from '../InfoModal/Body';
 import ProfileNavCol from '../NavCol/ProfileNavCol';
 import './ProfileBody.sass';
 
@@ -19,7 +16,15 @@ const ProfileBody = ({ user }) => {
 
   return (
     <Card className="ProfileBody bg-light">
-      {showingInfoModal && <ProfileInfoModal handleHide={handleHideInfoModal} />}
+      {
+        showingInfoModal && (
+          <InfoModal
+            title="Profile Controls"
+            handleHide={handleHideInfoModal}
+            viewBody={() => <ProfileInfoModalBody />}
+          />
+        )
+      }
       <Row noGutters>
         <Col className="PictureCol" xs={4}>
           <Card.Img className="Picture" variant="left" src={user.avatar} />
@@ -40,9 +45,7 @@ const ProfileBody = ({ user }) => {
                     {user.location}
                   </Col>
                   <Col className="QuestionCol mt-3" xs={12}>
-                    <Button className="ToggleModal" onClick={handleShowInfoModal} variant="dark">
-                      <FontAwesomeIcon icon={faQuestion} />
-                    </Button>
+                    <InfoModalToggler handleShowInfoModal={handleShowInfoModal} />
                   </Col>
                 </Row>
               </div>
