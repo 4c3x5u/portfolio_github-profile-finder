@@ -8,7 +8,7 @@ const ReposSingle = () => {
   const { login, name } = useParams();
   return (
     <Section
-      name={`Repos / ${name}`}
+      name="Repos"
       single={name}
       get={getReposSingle}
       href={`https://www.github.com/${login}/${name}`}

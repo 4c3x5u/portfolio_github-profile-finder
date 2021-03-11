@@ -2,7 +2,7 @@ import get from '../shared/get';
 
 const parseRepo = (repoData) => ({
   name: repoData.name,
-  description: repoData.description || 'No Description',
+  description: repoData.description,
   forked: repoData.fork,
   url: repoData.html_url,
 });
