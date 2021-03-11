@@ -8,7 +8,7 @@ const SectionItem = ({ item, newTabOnClick }) => (
   newTabOnClick
     ? (
       <ListGroup.Item
-        className="SectionItem bg-light text-center mb-2"
+        className="SectionItem text-center mb-2"
         action
         href={item.url}
         target={newTabOnClick ? '_blank' : ''}
@@ -19,7 +19,7 @@ const SectionItem = ({ item, newTabOnClick }) => (
     )
     : (
       <Link to={item.url} className="ItemLink">
-        <ListGroup.Item className="SectionItem bg-light text-center mb-2">
+        <ListGroup.Item className="SectionItem text-center mb-2">
           <h5 className="ItemName">{item.name}</h5>
         </ListGroup.Item>
       </Link>
