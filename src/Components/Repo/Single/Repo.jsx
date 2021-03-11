@@ -7,13 +7,15 @@ import getRepo from '../../../API/repos/getRepo';
 const Repo = () => {
   const { login, name } = useParams();
   return (
-    <Section
-      name="Repos"
-      single={name}
-      get={getRepo}
-      href={`https://www.github.com/${login}/${name}`}
-      view={(repo) => <RepoBody repo={repo} />}
-    />
+    <>
+      <Section
+        name="Repos"
+        single={name}
+        get={getRepo}
+        href={`https://www.github.com/${login}/${name}`}
+        view={(repo) => <RepoBody repo={repo} />}
+      />
+    </>
   );
 };
 

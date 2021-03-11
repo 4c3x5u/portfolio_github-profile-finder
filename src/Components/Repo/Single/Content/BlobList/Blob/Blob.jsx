@@ -9,7 +9,7 @@ import './Blob.sass';
 const Blob = ({ blob }) => (
   <Link to={blob.url} className="BlobLink">
     <ListGroup.Item className="Blob text-center mb-2">
-      <h5 className="ItemName">
+      <h5>
         {
           blob.type === 'dir'
             ? <FontAwesomeIcon className="Icon" icon={faFolder} />
