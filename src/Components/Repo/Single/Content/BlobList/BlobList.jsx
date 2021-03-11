@@ -6,7 +6,7 @@ import Blob from './Blob/Blob';
 const BlobList = ({ content }) => {
   const orderedContent = content.sort().sort((blob) => blob.type !== 'dir');
   return (
-    <ListGroup className="SectionList">
+    <ListGroup className="BlobList">
       {orderedContent.map((blob) => <Blob blob={blob} />)}
     </ListGroup>
   );
