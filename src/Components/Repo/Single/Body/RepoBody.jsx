@@ -1,14 +1,25 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import InfoModal from '../../../Shared/InfoModal/InfoModal';
+import InfoModalToggler from '../../../Shared/InfoModal/Toggler/InfoModalToggler';
 import './RepoBody.sass';
+import RepoInfoModalBody from './InfoModal/RepoInfoModalBody';
 
 const RepoBody = ({ repo }) => {
-  const { login, name } = useParams();
+  const [showingInfoModal, setShowingInfoModal] = useState(false);
   return (
-    <Card className="RepoBody">
-      <Link className="ContentLink" to={`/${login}/repos/${name}/content`}>
+    <>
+      {
+        showingInfoModal && (
+          <InfoModal
+            title="Repo Actions"
+            viewBody={() => <RepoInfoModalBody />}
+            handleHide={() => setShowingInfoModal(false)}
+          />
+        )
+      }
+      <Card className="RepoBody bg-light">
         <Card.Body className="Body">
           <Card.Text className="Text">
             <Card.Title className="Title">
@@ -17,9 +28,10 @@ const RepoBody = ({ repo }) => {
             </Card.Title>
             {repo.description && <p className="Description">{repo.description}</p>}
           </Card.Text>
+          <InfoModalToggler isSmall handleShowInfoModal={() => setShowingInfoModal(true)} />
         </Card.Body>
-      </Link>
-    </Card>
+      </Card>
+    </>
   );
 };
 

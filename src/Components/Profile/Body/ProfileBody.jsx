@@ -5,23 +5,20 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Card } from 'react-bootstrap';
 import InfoModal from '../../Shared/InfoModal/InfoModal';
 import InfoModalToggler from '../../Shared/InfoModal/Toggler/InfoModalToggler';
-import ProfileInfoModalBody from '../InfoModal/Body';
+import ProfileInfoModalBody from '../InfoModal/ProfileInfoModalBody';
 import ProfileNavCol from '../NavCol/ProfileNavCol';
 import './ProfileBody.sass';
 
 const ProfileBody = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
-  const handleShowInfoModal = () => setShowingInfoModal(true);
-  const handleHideInfoModal = () => setShowingInfoModal(false);
-
   return (
     <Card className="ProfileBody bg-light">
       {
         showingInfoModal && (
           <InfoModal
             title="Profile Controls"
-            handleHide={handleHideInfoModal}
             viewBody={() => <ProfileInfoModalBody />}
+            handleHide={() => setShowingInfoModal(false)}
           />
         )
       }
@@ -45,7 +42,7 @@ const ProfileBody = ({ user }) => {
                     {user.location}
                   </Col>
                   <Col className="QuestionCol mt-3" xs={12}>
-                    <InfoModalToggler handleShowInfoModal={handleShowInfoModal} />
+                    <InfoModalToggler handleShowInfoModal={() => setShowingInfoModal(true)} />
                   </Col>
                 </Row>
               </div>
