@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Section from '../../Shared/Section/Section';
 import SectionList from '../../Shared/Section/List/SectionList';
 import SectionItem from '../../Shared/Section/Item/SectionItem';
-import getReposList from '../../../API/repos/getReposList';
+import getReposList from '../../../API/repos/getRepoList';
 
 const ReposList = () => (
   <Section

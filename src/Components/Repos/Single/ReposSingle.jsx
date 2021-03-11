@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../../Shared/Section/Section';
 import ReposSingleBody from './Body/ReposSingleBody';
-import getReposSingle from '../../../API/repos/getReposSingle';
+import getRepo from '../../../API/repos/getRepo';
 
 const ReposSingle = () => {
   const { login, name } = useParams();
@@ -10,7 +10,7 @@ const ReposSingle = () => {
     <Section
       name="Repos"
       single={name}
-      get={getReposSingle}
+      get={getRepo}
       href={`https://www.github.com/${login}/${name}`}
       view={(repo) => <ReposSingleBody repo={repo} />}
       hasFooter

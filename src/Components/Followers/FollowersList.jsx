@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import Section from '../Shared/Section/Section';
 import SectionList from '../Shared/Section/List/SectionList';
 import SectionItem from '../Shared/Section/Item/SectionItem';
-import getFollowersList from '../../API/followers/getFollowersList';
+import getFollowerList from '../../API/followers/getFollowerList';
 
 const FollowersList = () => (
   <Section
     hasFooter
     name="Followers"
-    get={getFollowersList}
+    get={getFollowerList}
     href={`https://www.github.com/${useParams().login}?tab=followers`}
     view={(followers) => (
       <SectionList
