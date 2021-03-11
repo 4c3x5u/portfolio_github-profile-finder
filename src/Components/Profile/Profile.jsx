@@ -8,11 +8,11 @@ const Profile = () => {
   const { login } = useParams();
   return (
     <Section
+      hasRoundTop
       name={`@${login}`}
       href={`https://www.github.com/${login}`}
       get={getUser}
       view={(user) => <ProfileBody user={user} />}
-      hasFooter={false}
     />
   );
 };

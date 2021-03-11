@@ -11,8 +11,7 @@ const Section = ({
   get,
   href,
   view,
-  // TODO: rename to curvedTop
-  hasFooter,
+  hasRoundTop,
 }) => {
   const { login } = useParams();
   const [searching, setSearching] = useState(false);
@@ -28,7 +27,7 @@ const Section = ({
     }
   }, [login]);
 
-  const sectionHeader = () => <SectionHeader title={name} href={href} hasFooter={hasFooter} />;
+  const sectionHeader = () => <SectionHeader title={name} href={href} hasRoundTop={hasRoundTop} />;
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
@@ -50,7 +49,7 @@ Section.propTypes = {
   get: PropTypes.func.isRequired,
   href: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
-  hasFooter: PropTypes.bool.isRequired,
+  hasRoundTop: PropTypes.bool.isRequired,
 };
 
 Section.defaultProps = { single: undefined };

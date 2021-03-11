@@ -5,7 +5,7 @@ import SectionList from '../../Shared/Section/List/SectionList';
 import SectionItem from '../../Shared/Section/Item/SectionItem';
 import getReposList from '../../../API/repos/getRepoList';
 
-const RepoList = () => (
+const ReposList = () => (
   <Section
     name="Repos"
     href={`https://www.github.com/${useParams().login}?tab=repositories`}
@@ -19,4 +19,4 @@ const RepoList = () => (
   />
 );
 
-export default RepoList;
+export default ReposList;

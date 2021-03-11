@@ -7,7 +7,6 @@ import SectionItem from '../Shared/Section/Item/SectionItem';
 
 const GistList = () => (
   <Section
-    hasFooter
     name="Gists"
     href={`https://gist.github.com/${useParams().login}`}
     get={getGistList}

@@ -7,7 +7,6 @@ import SectionItem from '../Shared/Section/Item/SectionItem';
 
 const FollowingList = () => (
   <Section
-    hasFooter
     name="Following"
     href={`https://www.github.com/${useParams().login}?tab=following`}
     get={getFollowingList}

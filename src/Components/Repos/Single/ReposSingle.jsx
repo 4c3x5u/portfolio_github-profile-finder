@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../../Shared/Section/Section';
-import RepoBody from './Body/RepoBody';
+import ReposSingleBody from './Body/ReposSingleBody';
 import getRepo from '../../../API/repos/getRepo';
 
-const Repo = () => {
+const ReposSingle = () => {
   const { login, name } = useParams();
   return (
     <Section
@@ -12,9 +12,9 @@ const Repo = () => {
       single={name}
       get={getRepo}
       href={`https://www.github.com/${login}/${name}`}
-      view={(repo) => <RepoBody repo={repo} />}
+      view={(repo) => <ReposSingleBody repo={repo} />}
     />
   );
 };
 
-export default Repo;
+export default ReposSingle;

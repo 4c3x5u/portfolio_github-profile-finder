@@ -2,12 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
 import './Blob.sass';
 
 const Blob = ({ blob }) => (
   <Link to={blob.url} className="BlobLink">
     <ListGroup.Item className="Blob text-center mb-2">
-      <h5 className="ItemName">{`(${blob.type}) ${blob.name}`}</h5>
+      <h5 className="ItemName">
+        {
+          blob.type === 'dir'
+            ? <FontAwesomeIcon className="Icon" icon={faFolder} />
+            : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
+        }
+        {blob.name}
+      </h5>
     </ListGroup.Item>
   </Link>
 );
