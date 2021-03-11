@@ -5,7 +5,6 @@ const parseBlob = (blobData) => ({
   url: blobData.url,
   size: blobData.size,
   type: blobData.type,
-  children: [],
 });
 
 const getRepoContent = (login, name, setSearching, setFound, setContent) => (

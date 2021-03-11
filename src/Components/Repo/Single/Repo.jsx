@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../../Shared/Section/Section';
-import ReposSingleBody from './Body/RepoBody';
+import RepoBody from './Body/RepoBody';
 import getRepo from '../../../API/repos/getRepo';
 
 const Repo = () => {
@@ -12,7 +12,7 @@ const Repo = () => {
       single={name}
       get={getRepo}
       href={`https://www.github.com/${login}/${name}`}
-      view={(repo) => <ReposSingleBody repo={repo} />}
+      view={(repo) => <RepoBody repo={repo} />}
       hasFooter
     />
   );

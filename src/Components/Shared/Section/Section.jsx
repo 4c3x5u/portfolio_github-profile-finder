@@ -11,6 +11,7 @@ const Section = ({
   get,
   href,
   view,
+  // TODO: rename to curvedTop
   hasFooter,
 }) => {
   const { login } = useParams();

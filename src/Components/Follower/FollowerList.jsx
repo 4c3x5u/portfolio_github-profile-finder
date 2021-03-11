@@ -5,7 +5,7 @@ import SectionList from '../Shared/Section/List/SectionList';
 import SectionItem from '../Shared/Section/Item/SectionItem';
 import getFollowerList from '../../API/followers/getFollowerList';
 
-const FollowersList = () => (
+const FollowerList = () => (
   <Section
     hasFooter
     name="Followers"
@@ -20,4 +20,4 @@ const FollowersList = () => (
   />
 );
 
-export default FollowersList;
+export default FollowerList;
