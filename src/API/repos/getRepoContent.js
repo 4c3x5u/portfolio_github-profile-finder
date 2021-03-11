@@ -8,9 +8,9 @@ const parseBlob = (blobData) => ({
   children: [],
 });
 
-const getRepoContent = (login, repoName, setSearching, setFound, setContent) => (
+const getRepoContent = (login, name, setSearching, setFound, setContent) => (
   get(
-    `https://api.github.com/repos/${login}/${repoName}/content`,
+    `https://api.github.com/repos/${login}/${name}/contents`,
     setSearching,
     setFound,
     setContent,

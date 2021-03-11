@@ -1,28 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ListGroup } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import Section from '../../../Shared/Section/Section';
+import SectionList from '../../../Shared/Section/List/SectionList';
+import SectionItem from '../../../Shared/Section/Item/SectionItem';
+import getRepoContent from '../../../../API/repos/getRepoContent';
 
-const RepoContent = ({ content }) => (
-  <ListGroup className="RepoContent">
-    {content.map((blob) => (
-      <ListGroup.Item className="Blob text-center mb-2">
-        <h5 className="Name">{blob.name}</h5>
-      </ListGroup.Item>
-    ))}
-
-  </ListGroup>
-);
-
-RepoContent.propTypes = {
-  content: PropTypes.arrayOf(
-    PropTypes.objectOf({
-      name: PropTypes.string.isRequired,
-      // url: PropTypes.string.isRequired,
-      // size: PropTypes.number.isRequired,
-      // type: PropTypes.string.isRequired,
-      // children: PropTypes.array.isRequired,
-    }).isRequired,
-  ).isRequired,
+const RepoContent = () => {
+  const { login, name } = useParams();
+  return (
+    <Section
+      name="Content"
+      single={name}
+      get={getRepoContent}
+      href={`https://www.github.com/${login}/${name}`}
+      view={(content) => (
+        <SectionList items={content} view={(blob) => <SectionItem item={blob} />} />
+      )}
+      hasFooter
+    />
+  );
 };
 
 export default RepoContent;

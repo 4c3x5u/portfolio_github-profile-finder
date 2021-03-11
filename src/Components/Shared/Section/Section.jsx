@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SectionHeader from './Header/SectionHeader';
-import SectionFooter from './Footer/SectionFooter';
 import Searching from '../Searching';
 import NotFound from '../NotFound';
 
@@ -36,13 +35,10 @@ const Section = ({
     return <NotFound page={name} />;
   };
 
-  const sectionFooter = () => hasFooter && <SectionFooter />;
-
   return (
     <div className="Section">
       {sectionHeader()}
       {sectionContent()}
-      {sectionFooter()}
     </div>
   );
 };
