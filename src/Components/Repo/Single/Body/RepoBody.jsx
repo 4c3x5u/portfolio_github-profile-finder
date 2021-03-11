@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
-import './ReposSingleBody.sass';
+import './RepoBody.sass';
 
-const RepoSingleBody = ({ repo }) => (
-  <Card className="ReposSingleBody bg-light">
+const RepoBody = ({ repo }) => (
+  <Card className="RepoBody bg-light">
     <Card.Body className="Body">
       <Card.Text className="Text">
         <Card.Title className="Title">
@@ -17,7 +17,7 @@ const RepoSingleBody = ({ repo }) => (
   </Card>
 );
 
-RepoSingleBody.propTypes = {
+RepoBody.propTypes = {
   repo: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -26,4 +26,4 @@ RepoSingleBody.propTypes = {
   }).isRequired,
 };
 
-export default RepoSingleBody;
+export default RepoBody;

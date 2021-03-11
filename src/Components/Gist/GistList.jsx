@@ -5,7 +5,7 @@ import Section from '../Shared/Section/Section';
 import SectionList from '../Shared/Section/List/SectionList';
 import SectionItem from '../Shared/Section/Item/SectionItem';
 
-const GistsList = () => (
+const GistList = () => (
   <Section
     hasFooter
     name="Gists"
@@ -20,4 +20,4 @@ const GistsList = () => (
   />
 );
 
-export default GistsList;
+export default GistList;
