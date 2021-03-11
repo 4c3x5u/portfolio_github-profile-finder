@@ -7,7 +7,7 @@ const parseRepo = (repoData) => ({
   url: repoData.html_url,
 });
 
-const getReposSingle = (login, name, setSearching, setFound, setRepos) => (
+const getRepo = (login, name, setSearching, setFound, setRepos) => (
   get(
     `https://api.github.com/repos/${login}/${name}`,
     setSearching,
@@ -18,4 +18,4 @@ const getReposSingle = (login, name, setSearching, setFound, setRepos) => (
   )
 );
 
-export default getReposSingle;
+export default getRepo;

@@ -5,7 +5,7 @@ const parseFollower = (followerData) => ({
   url: `/${followerData.login}`,
 });
 
-const getFollowersList = (login, setSearching, setFound, setFollowers) => (
+const getFollowerList = (login, setSearching, setFound, setFollowers) => (
   get(
     `https://api.github.com/users/${login}/followers`,
     setSearching,
@@ -16,4 +16,4 @@ const getFollowersList = (login, setSearching, setFound, setFollowers) => (
   )
 );
 
-export default getFollowersList;
+export default getFollowerList;

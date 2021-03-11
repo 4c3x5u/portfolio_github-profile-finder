@@ -5,7 +5,7 @@ const parseGist = (gistData) => ({
   url: gistData.html_url,
 });
 
-const getGistsList = (login, setSearching, setFound, setGists) => (
+const getGistList = (login, setSearching, setFound, setGists) => (
   get(
     `https://api.github.com/users/${login}/gists`,
     setSearching,
@@ -16,4 +16,4 @@ const getGistsList = (login, setSearching, setFound, setGists) => (
   )
 );
 
-export default getGistsList;
+export default getGistList;
