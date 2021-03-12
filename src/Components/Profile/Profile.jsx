@@ -12,7 +12,6 @@ const Profile = () => {
       href={`https://www.github.com/${login}`}
       get={getUser}
       view={(user) => <ProfileBody user={user} />}
-      hasHeader
       hasRoundTop
     />
   );

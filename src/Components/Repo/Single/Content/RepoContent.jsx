@@ -8,9 +8,15 @@ const RepoContent = () => {
   const { login, name } = useParams();
   const path = useLocation().pathname;
   const dir = path.substring(path.indexOf(name));
+  const suffix = (
+    path.substring(
+      path.indexOf(`${name}/content`) + `${name}/content/`.length,
+    )
+  );
+  const title = `Content${suffix && `/${suffix}`}`;
   return (
     <Section
-      name="Content"
+      name={title.length > 80 ? `${title.substring(0, 80)}...` : title}
       single={dir}
       get={getRepoContent}
       href={`https://www.github.com/${login}/${name}`}

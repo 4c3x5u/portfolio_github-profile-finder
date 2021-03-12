@@ -9,7 +9,7 @@ const parseBlob = (login, name) => (blobData) => ({
 
 const getRepoContent = (login, name, setSearching, setFound, setContent) => {
   const repoName = name.substring(0, name.indexOf('/')) || name;
-  const dirName = `/${name.substring(name.indexOf(repoName) + repoName.length)}`;
+  const dirName = `/${name.substring(name.indexOf('content') + 'content'.length + 1)}`;
   const contentPath = dirName !== '/' ? dirName : '';
   get(
     `https://api.github.com/repos/${login}/${repoName}/contents${contentPath}?ref=master`,

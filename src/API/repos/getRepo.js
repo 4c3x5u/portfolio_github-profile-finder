@@ -2,6 +2,7 @@ import get from '../shared/get';
 
 const parseRepo = (repoData) => ({
   name: repoData.name,
+  fullName: repoData.full_name,
   description: repoData.description,
   forked: repoData.fork,
   url: repoData.html_url,

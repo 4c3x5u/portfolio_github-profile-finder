@@ -1,43 +1,40 @@
 import React, { useState } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
-import InfoModal from '../../../Shared/InfoModal/InfoModal';
-import InfoModalToggler from '../../../Shared/InfoModal/Toggler/InfoModalToggler';
 import './RepoBody.sass';
-import RepoInfoModalBody from './InfoModal/RepoInfoModalBody';
 
 const RepoBody = ({ repo }) => {
-  const [showingInfoModal, setShowingInfoModal] = useState(false);
+  const { login } = useParams();
+  const { pathname } = useLocation();
+  const [showingContent, setShowingContent] = useState(pathname.includes('content'));
   return (
-    <>
-      {
-        showingInfoModal && (
-          <InfoModal
-            title="Repo Actions"
-            viewBody={() => <RepoInfoModalBody />}
-            handleHide={() => setShowingInfoModal(false)}
-          />
-        )
-      }
-      <Card className="RepoBody bg-light">
-        <Card.Body className="Body">
-          <Card.Text className="Text">
-            <Card.Title className="Title">
-              {repo.name}
-              {repo.forked ? ' (Forked)' : ' (Original)'}
-            </Card.Title>
-            {repo.description && <p className="Description">{repo.description}</p>}
-          </Card.Text>
-          <InfoModalToggler isSmall handleShowInfoModal={() => setShowingInfoModal(true)} />
-        </Card.Body>
-      </Card>
-    </>
+    <Card className="RepoBody bg-light">
+      <Card.Body className="Body">
+        <Card.Text className="Text">
+          <Card.Title className="Title">
+            {repo.fullName}
+            {repo.forked ? ' (Forked)' : ' (Original)'}
+          </Card.Title>
+          {repo.description && <p className="Description">{repo.description}</p>}
+        </Card.Text>
+        <Link
+          className="btn btn-dark"
+          to={showingContent ? `/${login}/repos/${repo.name}` : `/${login}/repos/${repo.name}/content`}
+          onClick={() => setShowingContent(!showingContent)}
+        >
+          {showingContent ? 'Hide Content' : 'View Content'}
+        </Link>
+        <br />
+      </Card.Body>
+    </Card>
   );
 };
 
 RepoBody.propTypes = {
   repo: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     forked: PropTypes.bool.isRequired,
     url: PropTypes.func.isRequired,

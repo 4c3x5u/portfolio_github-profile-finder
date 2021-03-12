@@ -12,7 +12,6 @@ const Section = ({
   href,
   view,
   hasRoundTop,
-  hasHeader,
 }) => {
   const { login } = useParams();
   const [searching, setSearching] = useState(false);
@@ -28,11 +27,7 @@ const Section = ({
     }
   }, [login, single]);
 
-  const sectionHeader = () => (
-    hasHeader
-      ? <SectionHeader title={name} href={href} hasRoundTop={hasRoundTop} />
-      : <></>
-  );
+  const sectionHeader = () => <SectionHeader title={name} href={href} hasRoundTop={hasRoundTop} />;
 
   const sectionContent = () => {
     if (searching) { return <Searching />; }
@@ -55,7 +50,6 @@ Section.propTypes = {
   href: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasRoundTop: PropTypes.bool.isRequired,
-  hasHeader: PropTypes.bool.isRequired,
 };
 
 Section.defaultProps = { single: undefined };
