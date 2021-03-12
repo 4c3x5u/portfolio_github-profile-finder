@@ -19,7 +19,7 @@ const App = () => (
       <Route path="/:login">
         <Profile />
         <Route exact path="/:login/repos" component={RepoList} />
-        <Route exact path="/:login/repos/:name" component={Repo} />
+        <Route path="/:login/repos/:name" component={Repo} />
         <Route exact path="/:login/gists" component={GistList} />
         <Route exact path="/:login/followers" component={FollowerList} />
         <Route exact path="/:login/following" component={FollowingList} />
