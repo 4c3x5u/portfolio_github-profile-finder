@@ -16,6 +16,7 @@ const GistList = () => (
         view={(gist) => <SectionItem newTabOnClick item={gist} />}
       />
     )}
+    hasHeader
   />
 );
 

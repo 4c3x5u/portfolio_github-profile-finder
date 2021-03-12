@@ -16,6 +16,7 @@ const FollowingList = () => (
         view={(user) => <SectionItem item={user} />}
       />
     )}
+    hasHeader
   />
 );
 

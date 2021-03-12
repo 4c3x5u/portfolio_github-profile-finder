@@ -15,6 +15,7 @@ const Repo = () => {
         get={getRepo}
         href={`https://www.github.com/${login}/${name}`}
         view={(repo) => <RepoBody repo={repo} />}
+        hasHeader
       />
       <RepoContent />
     </>

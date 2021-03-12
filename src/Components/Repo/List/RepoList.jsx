@@ -16,6 +16,7 @@ const RepoList = () => (
         view={(repo) => <SectionItem item={repo} />}
       />
     )}
+    hasHeader
   />
 );
 

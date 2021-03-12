@@ -16,6 +16,7 @@ const FollowerList = () => (
         view={(follower) => <SectionItem item={follower} />}
       />
     )}
+    hasHeader
   />
 );
 
