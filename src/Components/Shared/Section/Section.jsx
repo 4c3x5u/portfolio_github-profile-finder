@@ -25,7 +25,7 @@ const Section = ({
     } else {
       get(login, setSearching, setFound, setItems);
     }
-  }, [login]);
+  }, [login, single]);
 
   const sectionHeader = () => <SectionHeader title={name} href={href} hasRoundTop={hasRoundTop} />;
 
