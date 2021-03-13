@@ -14,13 +14,15 @@ const RepoContent = () => {
     )
   );
   const title = `Content${suffix && `: /${suffix}`}`;
+
   return (
     <Section
       name={title.length > 80 ? `${title.substring(0, 80)}...` : title}
       single={dir}
       get={getRepoContent}
-      href={`https://www.github.com/${login}/${name}`}
+      href={`/${login}/repos/${name}/content`}
       view={(content) => <BlobList content={content} />}
+      hasInSiteLink
     />
   );
 };

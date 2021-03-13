@@ -16,7 +16,7 @@ const Blob = ({ blob }) => (
               ? <FontAwesomeIcon className="Icon" icon={faFolder} />
               : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
           }
-          {blob.name}
+          {blob.name.length < 80 ? blob.name : blob.name.substring(0, 80)}
         </h5>
       </ListGroup.Item>
     </Link>
@@ -29,7 +29,6 @@ Blob.propTypes = {
     url: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
-    children: PropTypes.array.isRequired,
   }).isRequired,
 };
 

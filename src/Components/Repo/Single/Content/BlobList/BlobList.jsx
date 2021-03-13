@@ -19,7 +19,6 @@ BlobList.propTypes = {
       url: PropTypes.string.isRequired,
       size: PropTypes.number.isRequired,
       type: PropTypes.string.isRequired,
-      children: PropTypes.array.isRequired,
     }).isRequired,
   ).isRequired,
 };
