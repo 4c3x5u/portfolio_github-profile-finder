@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
-import Blob from "./Blob/Blob";
+import FileListItem from "./Item/FileListItem";
 
-const BlobList = ({ content }) => {
+const FileList = ({ content }) => {
   const orderedContent = content.sort().sort((blob) => blob.type !== "dir");
   return (
-    <ListGroup className="BlobList">
-      {orderedContent.map((blob) => <Blob blob={blob} />)}
+    <ListGroup className="FileList">
+      {orderedContent.map((blob) => <FileListItem blob={blob} />)}
     </ListGroup>
   );
 };
 
-BlobList.propTypes = {
+FileList.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.objectOf({
       name: PropTypes.string.isRequired,
@@ -23,4 +23,4 @@ BlobList.propTypes = {
   ).isRequired,
 };
 
-export default BlobList;
+export default FileList;

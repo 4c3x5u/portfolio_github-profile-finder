@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Section from "../../../Shared/Section/Section";
-import BlobList from "./BlobList/BlobList";
+import FileList from "./File/List/FileList";
 import getRepoContent from "../../../../API/repos/getRepoContent";
 
 const RepoContent = () => {
@@ -21,7 +21,7 @@ const RepoContent = () => {
       single={dir}
       get={getRepoContent}
       href={`/${login}/repos/${name}/content`}
-      view={(content) => <BlobList content={content} />}
+      view={(content) => <FileList content={content} />}
       hasInSiteLink
     />
   );
