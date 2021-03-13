@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup';
-import PropTypes from 'prop-types';
-import './SectionItem.sass';
+import React from "react";
+import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
+import PropTypes from "prop-types";
+import "./SectionItem.sass";
 
 const SectionItem = ({ item, newTabOnClick }) => (
   newTabOnClick
@@ -11,8 +11,8 @@ const SectionItem = ({ item, newTabOnClick }) => (
         className="SectionItem text-center mb-2"
         action
         href={item.url}
-        target={newTabOnClick ? '_blank' : ''}
-        rel={newTabOnClick ? 'noreferrer' : ''}
+        target={newTabOnClick ? "_blank" : ""}
+        rel={newTabOnClick ? "noreferrer" : ""}
       >
         <h5 className="ItemName">{item.name}</h5>
       </ListGroup.Item>

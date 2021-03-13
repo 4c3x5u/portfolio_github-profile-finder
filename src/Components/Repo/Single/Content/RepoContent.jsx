@@ -1,8 +1,8 @@
-import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import Section from '../../../Shared/Section/Section';
-import BlobList from './BlobList/BlobList';
-import getRepoContent from '../../../../API/repos/getRepoContent';
+import React from "react";
+import { useParams, useLocation } from "react-router-dom";
+import Section from "../../../Shared/Section/Section";
+import BlobList from "./BlobList/BlobList";
+import getRepoContent from "../../../../API/repos/getRepoContent";
 
 const RepoContent = () => {
   const { login, name } = useParams();

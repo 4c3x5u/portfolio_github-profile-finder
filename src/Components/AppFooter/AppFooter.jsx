@@ -1,5 +1,5 @@
-import React from 'react';
-import './AppFooter.sass';
+import React from "react";
+import "./AppFooter.sass";
 
 const AppFooter = () => (
   <a

@@ -7,19 +7,20 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    "plugin:react/recommended",
+    "airbnb",
   ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
   plugins: [
-    'react',
+    "react",
   ],
   rules: {
+    quotes: [2, "double", { avoidEscape: true }]
   },
 };

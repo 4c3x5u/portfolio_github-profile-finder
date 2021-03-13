@@ -1,9 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Section from '../Shared/Section/Section';
-import SectionList from '../Shared/Section/List/SectionList';
-import SectionItem from '../Shared/Section/Item/SectionItem';
-import getFollowerList from '../../API/followers/getFollowerList';
+import React from "react";
+import { useParams } from "react-router-dom";
+import Section from "../Shared/Section/Section";
+import SectionList from "../Shared/Section/List/SectionList";
+import SectionItem from "../Shared/Section/Item/SectionItem";
+import getFollowerList from "../../API/followers/getFollowerList";
 
 const FollowerList = () => (
   <Section

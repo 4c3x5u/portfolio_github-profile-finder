@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
-import { Row, Col, Card } from 'react-bootstrap';
-import InfoModal from '../../Shared/InfoModal/InfoModal';
-import InfoModalToggler from '../../Shared/InfoModal/Toggler/InfoModalToggler';
-import ProfileInfoModalBody from '../InfoModal/ProfileInfoModalBody';
-import ProfileNavCol from '../NavCol/ProfileNavCol';
-import './ProfileBody.sass';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
+import { Row, Col, Card } from "react-bootstrap";
+import InfoModal from "../../Shared/InfoModal/InfoModal";
+import InfoModalToggler from "../../Shared/InfoModal/Toggler/InfoModalToggler";
+import ProfileInfoModalBody from "../InfoModal/ProfileInfoModalBody";
+import ProfileNavCol from "../NavCol/ProfileNavCol";
+import "./ProfileBody.sass";
 
 const ProfileBody = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);

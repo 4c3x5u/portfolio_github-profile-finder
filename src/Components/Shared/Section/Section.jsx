@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import SectionHeader from './Header/SectionHeader';
-import Searching from '../Searching';
-import NotFound from '../NotFound';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
+import SectionHeader from "./Header/SectionHeader";
+import Searching from "../Searching";
+import NotFound from "../NotFound";
 
 const Section = ({
   name,

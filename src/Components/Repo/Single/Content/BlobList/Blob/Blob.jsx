@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup';
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
-import './Blob.sass';
+import React from "react";
+import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileAlt, faFolder } from "@fortawesome/free-solid-svg-icons";
+import "./Blob.sass";
 
 const Blob = ({ blob }) => (
   <div className="Blob">
@@ -12,7 +12,7 @@ const Blob = ({ blob }) => (
       <ListGroup.Item className="Item text-center mb-2">
         <h5>
           {
-            blob.type === 'dir'
+            blob.type === "dir"
               ? <FontAwesomeIcon className="Icon" icon={faFolder} />
               : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
           }

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Col from 'react-bootstrap/Col';
-import './ProfileNavCol.sass';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import "./ProfileNavCol.sass";
 
 const ProfileNavCol = ({ name, url, amount }) => (
   <Col className="ProfileNavCol" xs={6}>

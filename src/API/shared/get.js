@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const pta = process.env.REACT_APP_PERSONAL_ACCESS_TOKEN;
 

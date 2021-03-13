@@ -1,9 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import getGistList from '../../API/gists/getGistList';
-import Section from '../Shared/Section/Section';
-import SectionList from '../Shared/Section/List/SectionList';
-import SectionItem from '../Shared/Section/Item/SectionItem';
+import React from "react";
+import { useParams } from "react-router-dom";
+import getGistList from "../../API/gists/getGistList";
+import Section from "../Shared/Section/Section";
+import SectionList from "../Shared/Section/List/SectionList";
+import SectionItem from "../Shared/Section/Item/SectionItem";
 
 const GistList = () => (
   <Section

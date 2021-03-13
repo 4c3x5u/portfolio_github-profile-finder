@@ -1,7 +1,7 @@
-import get from '../shared/get';
+import get from "../shared/get";
 
 const parseGist = (gistData) => ({
-  name: gistData.description || '[No Name]',
+  name: gistData.description || "[No Name]",
   url: gistData.html_url,
 });
 

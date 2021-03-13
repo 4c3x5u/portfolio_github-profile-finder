@@ -1,6 +1,6 @@
-import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
-import PropTypes from 'prop-types';
+import React from "react";
+import ListGroup from "react-bootstrap/ListGroup";
+import PropTypes from "prop-types";
 
 const SectionList = ({ items, view }) => (
   <ListGroup className="SectionList">

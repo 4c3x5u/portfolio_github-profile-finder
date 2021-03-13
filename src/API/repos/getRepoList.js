@@ -1,4 +1,4 @@
-import get from '../shared/get';
+import get from "../shared/get";
 
 const parseRepo = (login) => (repoData) => ({
   name: repoData.name,

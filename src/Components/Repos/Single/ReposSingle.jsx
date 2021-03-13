@@ -1,8 +1,8 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Section from '../../Shared/Section/Section';
-import ReposSingleBody from './Body/ReposSingleBody';
-import getRepo from '../../../API/repos/getRepo';
+import React from "react";
+import { useParams } from "react-router-dom";
+import Section from "../../Shared/Section/Section";
+import ReposSingleBody from "./Body/ReposSingleBody";
+import getRepo from "../../../API/repos/getRepo";
 
 const ReposSingle = () => {
   const { login, name } = useParams();
