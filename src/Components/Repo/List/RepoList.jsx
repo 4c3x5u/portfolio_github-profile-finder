@@ -9,8 +9,8 @@ const RepoList = () => {
   const { login } = useParams();
   return (
     <Section
-      name="Repos"
-      href={`https://www.github.com/${login}?tab=repositories`}
+      title="Repos"
+      url={`https://www.github.com/${login}?tab=repositories`}
       get={getRepoList(login)}
       view={(repos) => (
         <SectionList

@@ -5,9 +5,9 @@ import Searching from "../Searching";
 import NotFound from "../NotFound";
 
 const Section = ({
-  name,
+  title,
+  url,
   get,
-  href,
   view,
   hasRoundTop,
   hasInSiteLink,
@@ -19,12 +19,12 @@ const Section = ({
   useEffect(() => {
     setSearching(true);
     get(setSearching, setFound, setItems);
-  }, [name]);
+  }, [title]);
 
   const sectionHeader = () => (
     <SectionHeader
-      title={name}
-      href={href}
+      title={title}
+      href={url}
       hasRoundTop={hasRoundTop}
       hasInSiteLink={hasInSiteLink}
     />
@@ -33,7 +33,7 @@ const Section = ({
   const sectionContent = () => {
     if (searching) { return <Searching />; }
     if (found) { return view(items); }
-    return <NotFound page={name} />;
+    return <NotFound page={title} />;
   };
 
   return (
@@ -45,9 +45,9 @@ const Section = ({
 };
 
 Section.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   get: PropTypes.func.isRequired,
-  href: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasRoundTop: PropTypes.bool,
   hasInSiteLink: PropTypes.bool,

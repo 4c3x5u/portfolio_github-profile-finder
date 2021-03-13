@@ -8,10 +8,9 @@ const Repo = () => {
   const { login, name } = useParams();
   return (
     <Section
-      name={`Repo: ${name}`}
-      single={name}
+      title={`Repo: ${name}`}
+      url={`https://www.github.com/${login}/${name}`}
       get={getRepo(login, name)}
-      href={`https://www.github.com/${login}/${name}`}
       view={(repo) => <RepoBody repo={repo} />}
     />
   );

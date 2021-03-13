@@ -6,7 +6,7 @@ import { getFile } from "../../../../../../API/fileAPI";
 
 const File = ({ url }) => (
   <Section
-    name="File"
+    title="File"
     get={getFile(url)}
     view={(content) => <FileContent content={content} />}
   />

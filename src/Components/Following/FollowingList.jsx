@@ -9,8 +9,8 @@ const FollowingList = () => {
   const { login } = useParams();
   return (
     <Section
-      name="Following"
-      href={`https://www.github.com/${login}?tab=following`}
+      title="Following"
+      url={`https://www.github.com/${login}?tab=following`}
       get={getFollowingList(login)}
       view={(following) => (
         <SectionList

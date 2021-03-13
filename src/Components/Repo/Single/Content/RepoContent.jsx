@@ -14,12 +14,11 @@ const RepoContent = () => {
     )
   );
   const title = `Content${suffix && `: /${suffix}`}`;
-
   return (
     <Section
-      name={title.length > 80 ? `${title.substring(0, 80)}...` : title}
+      title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
+      url={`/${login}/repos/${name}/content`}
       get={getRepoContent(login, dir)}
-      href={`/${login}/repos/${name}/content`}
       view={(content) => <FileList content={content} />}
       hasInSiteLink
     />

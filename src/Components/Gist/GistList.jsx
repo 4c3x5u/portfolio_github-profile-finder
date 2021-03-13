@@ -9,8 +9,8 @@ const GistList = () => {
   const { login } = useParams();
   return (
     <Section
-      name="Gists"
-      href={`https://gist.github.com/${login}`}
+      title="Gists"
+      url={`https://gist.github.com/${login}`}
       get={getGistList(login)}
       view={(gists) => (
         <SectionList
