@@ -13,9 +13,11 @@ const AppHeader = () => {
   return (
     <Row className="AppHeader">
       <Col xs={8}>
-        <h2 className="Title text-dark">
-          GitHub Profile Finder
-        </h2>
+        <Link className="TitleLink" to="/">
+          <h2 className="Title text-dark">
+            GitHub Profile Finder
+          </h2>
+        </Link>
       </Col>
       <Col xs={4}>
         <Form className="Controls mb-3" onSubmit={(e) => e.preventDefault()}>
