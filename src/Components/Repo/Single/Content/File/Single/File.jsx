@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FileContent from "./Content/FileContent";
 import Section from "../../../../../Shared/Section/Section";
-import getFile from "../../../../../../API/file/fileAPI";
+import { getFile } from "../../../../../../API/fileAPI";
 
 const File = ({ url }) => (
   <Section
