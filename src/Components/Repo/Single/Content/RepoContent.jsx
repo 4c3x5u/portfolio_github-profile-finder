@@ -13,7 +13,7 @@ const RepoContent = () => {
       path.indexOf(`${name}/content`) + `${name}/content/`.length,
     )
   );
-  const title = `Content${suffix && `/${suffix}`}`;
+  const title = `Content${suffix && `: /${suffix}`}`;
   return (
     <Section
       name={title.length > 80 ? `${title.substring(0, 80)}...` : title}

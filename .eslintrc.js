@@ -21,6 +21,6 @@ module.exports = {
     "react",
   ],
   rules: {
-    quotes: [2, "double", { avoidEscape: true }]
+    quotes: [2, "double", { avoidEscape: true }],
   },
 };
