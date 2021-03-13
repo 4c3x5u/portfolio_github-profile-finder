@@ -1,6 +1,6 @@
 import get from "./shared/get";
 
-export const getFile = (url, setSearching, setFound, setFollowers) => (
+export const getFile = (url) => (setSearching, setFound, setFollowers) => (
   get(
     url,
     setSearching,

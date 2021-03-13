@@ -5,18 +5,21 @@ import SectionList from "../../Shared/Section/List/SectionList";
 import SectionItem from "../../Shared/Section/Item/SectionItem";
 import { getRepoList } from "../../../API/repoAPI";
 
-const RepoList = () => (
-  <Section
-    name="Repos"
-    href={`https://www.github.com/${useParams().login}?tab=repositories`}
-    get={getRepoList}
-    view={(repos) => (
-      <SectionList
-        items={repos}
-        view={(repo) => <SectionItem item={repo} />}
-      />
-    )}
-  />
-);
+const RepoList = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      name="Repos"
+      href={`https://www.github.com/${login}?tab=repositories`}
+      get={getRepoList(login)}
+      view={(repos) => (
+        <SectionList
+          items={repos}
+          view={(repo) => <SectionItem item={repo} />}
+        />
+      )}
+    />
+  );
+};
 
 export default RepoList;

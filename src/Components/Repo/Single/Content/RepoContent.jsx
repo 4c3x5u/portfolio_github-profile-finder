@@ -18,8 +18,7 @@ const RepoContent = () => {
   return (
     <Section
       name={title.length > 80 ? `${title.substring(0, 80)}...` : title}
-      single={dir}
-      get={getRepoContent}
+      get={getRepoContent(login, dir)}
       href={`/${login}/repos/${name}/content`}
       view={(content) => <FileList content={content} />}
       hasInSiteLink

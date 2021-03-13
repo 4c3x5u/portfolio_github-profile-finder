@@ -5,18 +5,21 @@ import SectionList from "../Shared/Section/List/SectionList";
 import SectionItem from "../Shared/Section/Item/SectionItem";
 import { getGistList } from "../../API/gistAPI";
 
-const GistList = () => (
-  <Section
-    name="Gists"
-    href={`https://gist.github.com/${useParams().login}`}
-    get={getGistList}
-    view={(gists) => (
-      <SectionList
-        items={gists}
-        view={(gist) => <SectionItem newTabOnClick item={gist} />}
-      />
-    )}
-  />
-);
+const GistList = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      name="Gists"
+      href={`https://gist.github.com/${login}`}
+      get={getGistList(login)}
+      view={(gists) => (
+        <SectionList
+          items={gists}
+          view={(gist) => <SectionItem newTabOnClick item={gist} />}
+        />
+      )}
+    />
+  );
+};
 
 export default GistList;

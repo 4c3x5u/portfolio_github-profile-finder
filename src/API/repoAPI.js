@@ -1,6 +1,6 @@
 import get from "./shared/get";
 
-export const getRepoList = (login, setSearching, setFound, setRepos) => (
+export const getRepoList = (login) => (setSearching, setFound, setRepos) => (
   get(
     `https://api.github.com/users/${login}/repos`,
     setSearching,
@@ -14,7 +14,7 @@ export const getRepoList = (login, setSearching, setFound, setRepos) => (
   )
 );
 
-export const getRepo = (login, name, setSearching, setFound, setRepos) => (
+export const getRepo = (login, name) => (setSearching, setFound, setRepos) => (
   get(
     `https://api.github.com/repos/${login}/${name}`,
     setSearching,
@@ -31,7 +31,7 @@ export const getRepo = (login, name, setSearching, setFound, setRepos) => (
   )
 );
 
-export const getRepoContent = (login, name, setSearching, setFound, setContent) => {
+export const getRepoContent = (login, name) => (setSearching, setFound, setContent) => {
   const repoName = name.substring(0, name.indexOf("/")) || name;
   const dirName = `/${name.substring(name.indexOf("content") + "content".length + 1)}`;
   const contentPath = dirName !== "/" ? dirName : "";

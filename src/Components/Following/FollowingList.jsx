@@ -5,18 +5,21 @@ import SectionList from "../Shared/Section/List/SectionList";
 import SectionItem from "../Shared/Section/Item/SectionItem";
 import { getFollowingList } from "../../API/followingAPI";
 
-const FollowingList = () => (
-  <Section
-    name="Following"
-    href={`https://www.github.com/${useParams().login}?tab=following`}
-    get={getFollowingList}
-    view={(following) => (
-      <SectionList
-        items={following}
-        view={(user) => <SectionItem item={user} />}
-      />
-    )}
-  />
-);
+const FollowingList = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      name="Following"
+      href={`https://www.github.com/${login}?tab=following`}
+      get={getFollowingList(login)}
+      view={(following) => (
+        <SectionList
+          items={following}
+          view={(user) => <SectionItem item={user} />}
+        />
+      )}
+    />
+  );
+};
 
 export default FollowingList;

@@ -10,9 +10,10 @@ const Profile = () => {
     <Section
       name={`@${login}`}
       href={`https://www.github.com/${login}`}
-      get={getUser}
+      get={getUser(login)}
       view={(user) => <ProfileBody user={user} />}
       hasRoundTop
+      hasInSiteLink
     />
   );
 };
