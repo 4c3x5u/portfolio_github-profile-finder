@@ -6,9 +6,9 @@ export const getGistList = (login) => (setSearching, setFound, setGists) => (
     setSearching,
     setFound,
     setGists,
-    (gistData) => ({
-      name: gistData.description || "[No Name]",
-      url: gistData.html_url,
+    (res) => ({
+      name: res.description || "[No Name]",
+      url: res.html_url,
     }),
     false,
   )

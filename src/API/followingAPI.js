@@ -6,9 +6,9 @@ export const getFollowingList = (login) => (setSearching, setFound, setFollowing
     setSearching,
     setFound,
     setFollowing,
-    (followingData) => ({
-      name: followingData.login,
-      url: `/${followingData.login}`,
+    (res) => ({
+      name: res.login,
+      url: `/${res.login}`,
     }),
     false,
   )

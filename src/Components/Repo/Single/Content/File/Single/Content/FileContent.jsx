@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FileContent = ({ content }) => (
+const FileContent = ({ file }) => (
   <div className="FileContent">
-    {content}
+    {console.log(`FileContent.file ${JSON.stringify(file)}`)}
+    {file.content}
   </div>
 );
 
 FileContent.propTypes = {
-  content: PropTypes.string.isRequired,
+  file: PropTypes.string.isRequired,
 };
 
 export default FileContent;

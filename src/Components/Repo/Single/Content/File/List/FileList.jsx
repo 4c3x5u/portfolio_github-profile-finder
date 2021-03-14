@@ -7,7 +7,7 @@ const FileList = ({ content }) => {
   const orderedContent = content.sort().sort((blob) => blob.type !== "dir");
   return (
     <ListGroup className="FileList">
-      {orderedContent.map((blob) => <FileListItem blob={blob} />)}
+      {orderedContent.map((item) => <FileListItem item={item} />)}
     </ListGroup>
   );
 };

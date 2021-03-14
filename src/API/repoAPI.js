@@ -6,9 +6,9 @@ export const getRepoList = (login) => (setSearching, setFound, setRepos) => (
     setSearching,
     setFound,
     setRepos,
-    (repoData) => ({
-      name: repoData.name,
-      url: `/${login}/repos/${repoData.name}`,
+    (res) => ({
+      name: res.name,
+      url: `/${login}/repos/${res.name}`,
     }),
     false,
   )
@@ -20,12 +20,12 @@ export const getRepo = (login, name) => (setSearching, setFound, setRepos) => (
     setSearching,
     setFound,
     setRepos,
-    (repoData) => ({
-      name: repoData.name,
-      fullName: repoData.full_name,
-      description: repoData.description,
-      forked: repoData.fork,
-      url: repoData.html_url,
+    (response) => ({
+      name: response.name,
+      fullName: response.full_name,
+      description: response.description,
+      forked: response.fork,
+      url: response.html_url,
     }),
     true,
   )
@@ -40,11 +40,11 @@ export const getRepoContent = (login, name) => (setSearching, setFound, setConte
     setSearching,
     setFound,
     setContent,
-    (blobData) => ({
-      name: blobData.name,
-      url: `/${login}/repos/${name}/${blobData.name}`,
-      size: blobData.size,
-      type: blobData.type,
+    (response) => ({
+      name: response.name,
+      url: `/${login}/repos/${name}/${response.name}`,
+      size: response.size,
+      type: response.type,
     }),
     false,
   );

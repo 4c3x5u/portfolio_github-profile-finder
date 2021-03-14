@@ -1,12 +1,12 @@
 import get from "./shared/get";
 
-export const getFile = (url) => (setSearching, setFound, setFollowers) => (
+export const getFile = (login, repoName, filePath) => (setSearching, setFound, setFollowers) => (
   get(
-    url,
+    `https://api.github.com/repos/${login}/${repoName}/contents/${filePath}?ref=master`,
     setSearching,
     setFound,
     setFollowers,
-    (content) => ({ content }),
+    (res) => res,
     false,
   )
 );

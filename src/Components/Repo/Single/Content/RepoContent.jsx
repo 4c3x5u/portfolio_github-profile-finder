@@ -6,11 +6,11 @@ import { getRepoContent } from "../../../../API/repoAPI";
 
 const RepoContent = () => {
   const { login, name } = useParams();
-  const path = useLocation().pathname;
-  const dir = path.substring(path.indexOf(name));
+  const { pathname } = useLocation();
+  const dir = pathname.substring(pathname.indexOf(name));
   const suffix = (
-    path.substring(
-      path.indexOf(`${name}/content`) + `${name}/content/`.length,
+    pathname.substring(
+      pathname.indexOf(`${name}/content`) + `${name}/content/`.length,
     )
   );
   const title = `Content${suffix && `: /${suffix}`}`;

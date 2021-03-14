@@ -6,17 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileAlt, faFolder } from "@fortawesome/free-solid-svg-icons";
 import "./FileListItem.sass";
 
-const FileListItem = ({ blob }) => (
+const FileListItem = ({ item }) => (
   <div className="FileListItem">
-    <Link to={blob.url} className="Link">
+    <Link to={item.url} className="Link">
       <ListGroup.Item className="Item text-center mb-2">
         <h5>
           {
-            blob.type === "dir"
+            item.type === "dir"
               ? <FontAwesomeIcon className="Icon" icon={faFolder} />
               : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
           }
-          {blob.name.length < 80 ? blob.name : blob.name.substring(0, 80)}
+          {item.name.length < 80 ? item.name : item.name.substring(0, 80)}
         </h5>
       </ListGroup.Item>
     </Link>
@@ -24,7 +24,7 @@ const FileListItem = ({ blob }) => (
 );
 
 FileListItem.propTypes = {
-  blob: PropTypes.objectOf({
+  item: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired,
