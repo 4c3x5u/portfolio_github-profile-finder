@@ -45,7 +45,7 @@ export const getRepoContent = (login, name) => (setSearching, setFound, setConte
       url:
         res.type === "dir"
           ? `/${login}/repos/${name}/${res.name}`
-          : `/${login}/repos/${repoName}/file/${res.name}`,
+          : `/${login}/repos/${repoName}/file/${res.path}`,
       size: res.size,
       type: res.type,
     }),
