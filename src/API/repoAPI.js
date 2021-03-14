@@ -40,11 +40,14 @@ export const getRepoContent = (login, name) => (setSearching, setFound, setConte
     setSearching,
     setFound,
     setContent,
-    (response) => ({
-      name: response.name,
-      url: `/${login}/repos/${name}/${response.name}`,
-      size: response.size,
-      type: response.type,
+    (res) => ({
+      name: res.name,
+      url:
+        res.type === "dir"
+          ? `/${login}/repos/${name}/${res.name}`
+          : `/${login}/repos/${repoName}/file/${res.name}`,
+      size: res.size,
+      type: res.type,
     }),
     false,
   );

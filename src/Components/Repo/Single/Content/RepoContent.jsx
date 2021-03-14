@@ -8,12 +8,10 @@ const RepoContent = () => {
   const { login, name } = useParams();
   const { pathname } = useLocation();
   const dir = pathname.substring(pathname.indexOf(name));
-  const suffix = (
-    pathname.substring(
-      pathname.indexOf(`${name}/content`) + `${name}/content/`.length,
-    )
+  const titleSuffix = (
+    pathname.substring(pathname.indexOf(`${name}/content`) + `${name}/content/`.length)
   );
-  const title = `Content${suffix && `: /${suffix}`}`;
+  const title = `Content${titleSuffix && `: /${titleSuffix}`}`;
   return (
     <Section
       title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
