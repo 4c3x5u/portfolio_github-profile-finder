@@ -6,8 +6,11 @@ export const getFile = (login, repoName, filePath) => (setSearching, setFound, s
     setSearching,
     setFound,
     setFollowers,
-    (res) => res,
-    false,
+    (res) => {
+      console.log(`getFile.res.content: ${JSON.stringify(atob(res.content))}`);
+      return { content: atob(res.content) };
+    },
+    true,
   )
 );
 

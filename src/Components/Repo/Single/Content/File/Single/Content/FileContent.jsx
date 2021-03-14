@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SyntaxHighlighter from "react-syntax-highlighter";
 
 const FileContent = ({ file }) => (
-  <div className="FileContent">
-    {console.log(`FileContent.file ${JSON.stringify(file)}`)}
+  <SyntaxHighlighter className="FileContent">
     {file.content}
-  </div>
+  </SyntaxHighlighter>
 );
 
 FileContent.propTypes = {

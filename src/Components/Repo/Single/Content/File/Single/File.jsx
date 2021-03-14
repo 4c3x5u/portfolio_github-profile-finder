@@ -10,9 +10,9 @@ const File = () => {
   const filePath = pathname.substring(pathname.indexOf(fileName));
   return (
     <Section
-      title="File"
+      title={`File: /${filePath}`}
       get={getFile(login, repoName, filePath)}
-      view={(content) => <FileContent content={content} />}
+      view={(file) => <FileContent file={file} />}
     />
   );
 };
