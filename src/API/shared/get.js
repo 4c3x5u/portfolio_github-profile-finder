@@ -5,13 +5,13 @@ const pta = process.env.REACT_APP_PERSONAL_ACCESS_TOKEN;
 const handleFound = (setSearching, setFound, setItems, parseItem, isSingle) => (res) => {
   setItems(isSingle ? parseItem(res.data) : res.data.map(parseItem));
   setFound(true);
-  setTimeout(() => setSearching(false), 700);
+  setSearching(false);
 };
 
 const handleNotFound = (setSearching, setFound, setItems) => () => {
   setItems([]);
   setFound(false);
-  setTimeout(() => setSearching(false), 700);
+  setSearching(false);
 };
 
 const get = (url, setSearching, setFound, setItems, parseItem, isSingle) => (
