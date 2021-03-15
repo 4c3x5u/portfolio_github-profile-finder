@@ -12,7 +12,7 @@ const Section = ({
   hasBackButton,
   url,
 }) => {
-  const [searching, setSearching] = useState(false);
+  const [searching, setSearching] = useState(true);
   const [found, setFound] = useState(false);
   const [items, setItems] = useState([]);
 
