@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
-import SectionItem from "../../../../../Shared/Section/Item/SectionItem";
+import SectionItem from "../../../../Shared/Section/ItemList/Item/SectionItem";
 
 const RepoFileList = ({ content }) => (
   <ListGroup className="FileList">

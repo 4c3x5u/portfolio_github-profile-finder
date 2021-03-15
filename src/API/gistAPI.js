@@ -39,6 +39,7 @@ export const getGistFile = (id, name) => (setSearching, setFound, setGists) => (
     setFound,
     setGists,
     (res) => ({
+      type: "file",
       content: (
         Object.values(res.files)
           .find((file) => file.filename === name)

@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import FileContent from "../../../Shared/FileContent";
-import Section from "../../../Shared/Section/Section";
-import { getGistFile } from "../../../../API/gistAPI";
+import FileContent from "../../Shared/FileContent";
+import Section from "../../Shared/Section/Section";
+import { getGistFile } from "../../../API/gistAPI";
 
 const GistFile = () => {
   const { id, name } = useParams();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Section from "../../../Shared/Section/Section";
-import RepoFileList from "./File/List/RepoFileList";
+import RepoFileList from "./File/RepoFileList";
 import { getRepoContent } from "../../../../API/repoAPI";
 
 const RepoContent = () => {
