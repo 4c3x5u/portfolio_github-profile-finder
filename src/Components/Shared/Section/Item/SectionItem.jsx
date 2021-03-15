@@ -11,8 +11,8 @@ const SectionItem = ({ item, newTabOnClick }) => (
         className="SectionItem text-center mb-2"
         action
         href={item.url}
-        target={newTabOnClick ? "_blank" : ""}
-        rel={newTabOnClick ? "noreferrer" : ""}
+        target="_blank"
+        rel="noreferrer"
       >
         <h5 className="ItemName">{item.name}</h5>
       </ListGroup.Item>

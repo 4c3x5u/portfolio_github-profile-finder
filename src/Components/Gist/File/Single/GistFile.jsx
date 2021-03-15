@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
-const FileContent = ({ file }) => (
+const GistContent = ({ gist }) => (
   <SyntaxHighlighter className="FileContent">
-    {file.content}
+    {gist.content}
   </SyntaxHighlighter>
 );
 
-FileContent.propTypes = {
-  file: PropTypes.objectOf({
+GistContent.propTypes = {
+  gist: PropTypes.objectOf({
     content: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default FileContent;
+export default GistContent;

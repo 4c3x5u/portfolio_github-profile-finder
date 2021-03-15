@@ -6,7 +6,8 @@ import Profile from "./Components/Profile/Profile";
 import RepoList from "./Components/Repo/List/RepoList";
 import Repo from "./Components/Repo/Single/Repo";
 import RepoContent from "./Components/Repo/Single/Content/RepoContent";
-import GistList from "./Components/Gist/GistList";
+import GistList from "./Components/Gist/List/GistList";
+import GistFiles from "./Components/Gist/File/List/GistFileList";
 import FollowerList from "./Components/Follower/FollowerList";
 import FollowingList from "./Components/Following/FollowingList";
 import Footer from "./Components/AppFooter/AppFooter";
@@ -25,6 +26,8 @@ const App = () => (
         <Route path="/:login/repos/:name/content" component={RepoContent} />
         <Route path="/:login/repos/:repoName/file/:fileName" component={File} />
         <Route exact path="/:login/gists" component={GistList} />
+        <Route path="/:login/gists/:id" component={GistFiles} />
+        <Route path="/:login/gists/:id/:fileName" component={GistFiles} />
         <Route exact path="/:login/followers" component={FollowerList} />
         <Route exact path="/:login/following" component={FollowingList} />
       </Route>
