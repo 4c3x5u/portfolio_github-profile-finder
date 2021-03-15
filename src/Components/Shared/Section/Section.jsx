@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import SectionHeader from './Header/SectionHeader';
-import Searching from '../Searching';
+import Spinner from '../Spinner';
 import NotFound from '../NotFound';
 
 const Section = ({
@@ -31,7 +31,7 @@ const Section = ({
   );
 
   const sectionContent = () => {
-    if (searching) { return <Searching />; }
+    if (searching) { return <Spinner />; }
     if (found) { return view(items); }
     return <NotFound page={title} />;
   };

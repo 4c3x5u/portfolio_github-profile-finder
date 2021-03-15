@@ -1,9 +1,9 @@
 import React from 'react';
-import RotateLoader from 'react-spinners/RotateLoader';
+import HashLoader from 'react-spinners/HashLoader';
 
-const Searching = () => (
+const Spinner = () => (
   <div className="Searching mb-5">
-    <RotateLoader
+    <HashLoader
       loading
       size={60}
       margin={50}
@@ -13,4 +13,4 @@ const Searching = () => (
   </div>
 );
 
-export default Searching;
+export default Spinner;
