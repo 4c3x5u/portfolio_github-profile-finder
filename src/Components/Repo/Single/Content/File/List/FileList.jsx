@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
 import FileListItem from "./Item/FileListItem";
 
-const FileList = ({ content }) => {
-  const orderedContent = content.sort().sort((blob) => blob.type !== "dir");
-  return (
-    <ListGroup className="FileList">
-      {orderedContent.map((file) => <FileListItem file={file} />)}
-    </ListGroup>
-  );
-};
+const FileList = ({ content }) => (
+  <ListGroup className="FileList">
+    {
+      content
+        .sort()
+        .sort((blob) => (blob.type !== "dir" ? 1 : -1))
+        .map((file) => <FileListItem file={file} />)
+    }
+  </ListGroup>
+);
 
 FileList.propTypes = {
   content: PropTypes.arrayOf(
