@@ -1,6 +1,10 @@
 import get from "./shared/get";
 
-export const getRepoList = (login) => (setSearching, setFound, setRepos) => (
+export const getRepoList = (
+  login,
+) => (
+  setSearching, setFound, setRepos,
+) => (
   get(
     `https://api.github.com/users/${login}/repos`,
     setSearching,
@@ -14,7 +18,11 @@ export const getRepoList = (login) => (setSearching, setFound, setRepos) => (
   )
 );
 
-export const getRepo = (login, name) => (setSearching, setFound, setRepos) => (
+export const getRepo = (
+  login, name,
+) => (
+  setSearching, setFound, setRepos,
+) => (
   get(
     `https://api.github.com/repos/${login}/${name}`,
     setSearching,
@@ -25,13 +33,17 @@ export const getRepo = (login, name) => (setSearching, setFound, setRepos) => (
       fullName: response.full_name,
       description: response.description,
       forked: response.fork,
-      url: response.html_url,
     }),
     true,
   )
 );
 
-export const getRepoContent = (login, name) => (setSearching, setFound, setContent) => {
+export const getRepoContent = (
+  login,
+  name,
+) => (
+  setSearching, setFound, setContent,
+) => {
   const repoName = name.substring(0, name.indexOf("/")) || name;
   const dirName = `/${name.substring(name.indexOf("content") + "content".length + 1)}`;
   const contentPath = dirName !== "/" ? dirName : "";
@@ -41,19 +53,22 @@ export const getRepoContent = (login, name) => (setSearching, setFound, setConte
     setFound,
     setContent,
     (res) => ({
-      name: res.name,
+      name: res.name.length < 80 ? res.name : res.name.substring(0, 80),
       url:
         res.type === "dir"
           ? `/${login}/repos/${name}/${res.name}`
           : `/${login}/repos/${repoName}/file/${res.path}`,
-      size: res.size,
       type: res.type,
     }),
     false,
   );
 };
 
-export const getFile = (login, repoName, filePath) => (setSearching, setFound, setFollowers) => (
+export const getRepoFile = (
+  login, repoName, filePath,
+) => (
+  setSearching, setFound, setFollowers,
+) => (
   get(
     `https://api.github.com/repos/${login}/${repoName}/contents/${filePath}?ref=master`,
     setSearching,
@@ -68,5 +83,5 @@ export default {
   getRepoList,
   getRepo,
   getRepoContent,
-  getFile,
+  getRepoFile,
 };

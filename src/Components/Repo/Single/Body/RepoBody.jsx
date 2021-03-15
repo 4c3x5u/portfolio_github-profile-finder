@@ -37,7 +37,6 @@ RepoBody.propTypes = {
     fullName: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     forked: PropTypes.bool.isRequired,
-    url: PropTypes.func.isRequired,
   }).isRequired,
 };
 
