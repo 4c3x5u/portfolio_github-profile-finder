@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
 import AppHeader from './Components/AppHeader/AppHeader';
-import Profile from './Components/User/User';
+import Welcome from './Components/Welcome';
+import User from './Components/User/User';
 import RepoList from './Components/RepoList/RepoList';
 import Repo from './Components/RepoList/Repo/Repo';
 import RepoContent from './Components/RepoList/Repo/Content/RepoContent';
@@ -20,8 +21,9 @@ const App = () => (
   <Container className="App">
     <Router>
       <AppHeader />
+      <Route exact path="/" component={Welcome} />
       <Route path="/:login">
-        <Profile />
+        <User />
         <Route exact path="/:login/repos" component={RepoList} />
         <Route path="/:login/repos/:name" component={Repo} />
         <Route path="/:login/repos/:name/content" component={RepoContent} />

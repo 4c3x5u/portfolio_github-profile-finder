@@ -15,7 +15,7 @@ const AppHeader = () => {
       <Col xs={8}>
         <Link className="TitleLink" to="/">
           <h2 className="Title text-dark">
-            GitHub Profile Finder
+            GitHub Finder
           </h2>
         </Link>
       </Col>
