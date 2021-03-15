@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import FileContent from "./Content/FileContent";
 import Section from "../../../../../Shared/Section/Section";
-import { getFile } from "../../../../../../API/fileAPI";
+import { getFile } from "../../../../../../API/repoAPI";
 
 const File = () => {
   const { login, repoName, fileName } = useParams();

@@ -53,8 +53,20 @@ export const getRepoContent = (login, name) => (setSearching, setFound, setConte
   );
 };
 
+export const getFile = (login, repoName, filePath) => (setSearching, setFound, setFollowers) => (
+  get(
+    `https://api.github.com/repos/${login}/${repoName}/contents/${filePath}?ref=master`,
+    setSearching,
+    setFound,
+    setFollowers,
+    (res) => ({ content: atob(res.content) }),
+    true,
+  )
+);
+
 export default {
   getRepoList,
   getRepo,
   getRepoContent,
+  getFile,
 };
