@@ -5,10 +5,12 @@
   margin-bottom: 0.4rem
   background-color: #343a40
   position: relative
-  &:hover
-    background-color: #23272b
+.RoundHeader
+  @extend .SquareHeader
+  border-radius: 2rem 2rem 0 0
+
 .SquareBackButton
-  color: #F8F9FA
+  color: #F8F9FA !important
   background-color: #343a40
   position: absolute
   display: flex
@@ -19,12 +21,9 @@
   top: -0.3rem
   left: -0.3rem
   border: 0.2rem solid #F8F9FA
-  z-index: 123124124
-.RoundHeader
-  @extend .SquareHeader
-  border-radius: 2rem 2rem 0 0
+  &:hover
+    background-color: #23272b
 .RoundBackButton
   @extend .SquareBackButton
   border-radius: 2rem 0 0 0
-.HeaderLink
-  text-decoration: none !important
+

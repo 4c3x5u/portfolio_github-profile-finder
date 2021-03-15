@@ -18,7 +18,6 @@ const RepoContent = () => {
       url={`/${login}/repos/${name}/content`}
       get={getRepoContent(login, dir)}
       view={(content) => <FileList content={content} />}
-      hasInSiteLink
     />
   );
 };

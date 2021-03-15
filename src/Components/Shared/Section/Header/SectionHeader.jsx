@@ -9,40 +9,29 @@ const SectionHeader = ({
   title,
   href,
   hasRoundTop,
-  hasInSiteLink,
   hasBackButton,
-}) => {
-  const backButton = () => (
-    hasBackButton && (
-      <div className={`${hasRoundTop ? "Round" : "Square"}BackButton`}>
-        <FontAwesomeIcon icon={faArrowAltCircleLeft} size="2x" />
-      </div>
-    )
-  );
-  const headerLink = (content) => (
-    hasInSiteLink
-      ? <Link className="HeaderLink" to={href}>{content}</Link>
-      : <a className="HeaderLink" href={href} target="_blank" rel="noreferrer">{content}</a>
-  );
-  return (
-    <div className={`${hasRoundTop ? "Round" : "Square"}Header text-center`}>
-      {backButton()}
-      {headerLink(<h5 className="text-light">{title}</h5>)}
-    </div>
-  );
-};
+}) => (
+  <div className={`${hasRoundTop ? "Round" : "Square"}Header text-center`}>
+    {
+      hasBackButton && (
+        <Link to={href} className={`${hasRoundTop ? "Round" : "Square"}BackButton`}>
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} size="2x" />
+        </Link>
+      )
+    }
+    <h5 className="text-light">{title}</h5>
+  </div>
+);
 
 SectionHeader.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   hasRoundTop: PropTypes.bool,
-  hasInSiteLink: PropTypes.bool,
   hasBackButton: PropTypes.bool,
 };
 
 SectionHeader.defaultProps = {
   hasRoundTop: false,
-  hasInSiteLink: false,
   hasBackButton: false,
 };
 

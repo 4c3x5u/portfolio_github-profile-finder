@@ -10,7 +10,7 @@ const Section = ({
   get,
   view,
   hasRoundTop,
-  hasInSiteLink,
+  hasBackButton,
 }) => {
   const [searching, setSearching] = useState(false);
   const [found, setFound] = useState(false);
@@ -26,7 +26,7 @@ const Section = ({
       title={title}
       href={url}
       hasRoundTop={hasRoundTop}
-      hasInSiteLink={hasInSiteLink}
+      hasBackButton={hasBackButton}
     />
   );
 
@@ -50,12 +50,12 @@ Section.propTypes = {
   url: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasRoundTop: PropTypes.bool,
-  hasInSiteLink: PropTypes.bool,
+  hasBackButton: PropTypes.bool,
 };
 
 Section.defaultProps = {
   hasRoundTop: false,
-  hasInSiteLink: false,
+  hasBackButton: false,
 };
 
 export default Section;

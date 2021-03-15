@@ -13,7 +13,6 @@ const Profile = () => {
       get={getUser(login)}
       view={(user) => <ProfileBody user={user} />}
       hasRoundTop
-      hasInSiteLink
     />
   );
 };
