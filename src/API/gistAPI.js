@@ -14,6 +14,20 @@ export const getGistList = (login) => (setSearching, setFound, setGists) => (
   )
 );
 
+export const getGist = (id) => (setSearching, setFound, setGists) => (
+  get(
+    `https://api.github.com/gists/${id}`,
+    setSearching,
+    setFound,
+    setGists,
+    (res) => ({
+      name: res.description || "[No Name]",
+      content: res.content,
+    }),
+    true,
+  )
+);
+
 export default {
   getGistList,
 };
