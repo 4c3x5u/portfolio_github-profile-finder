@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Row,
   Col,
   Form,
   InputGroup,
-} from "react-bootstrap";
-import "./AppHeader.sass";
+} from 'react-bootstrap';
+import './AppHeader.sass';
 
 const AppHeader = () => {
-  const [searchParam, setSearchParam] = useState("4c3x5u");
+  const [searchParam, setSearchParam] = useState('4c3x5u');
   return (
     <Row className="AppHeader">
       <Col xs={8}>
@@ -32,7 +32,7 @@ const AppHeader = () => {
                 <Form.Control
                   type="text"
                   placeholder="4c3x5u"
-                  onChange={(e) => setSearchParam(e.target.value || "4c3x5u")}
+                  onChange={(e) => setSearchParam(e.target.value || '4c3x5u')}
                 />
               </InputGroup>
             </Col>

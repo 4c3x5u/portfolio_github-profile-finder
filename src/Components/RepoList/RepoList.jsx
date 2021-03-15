@@ -1,9 +1,9 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Section from "../Shared/Section/Section";
-import SectionItemList from "../Shared/Section/ItemList/SectionItemList";
-import SectionItem from "../Shared/Section/ItemList/Item/SectionItem";
-import { getRepoList } from "../../API/repoAPI";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Section from '../Shared/Section/Section';
+import SectionItemList from '../Shared/Section/ItemList/SectionItemList';
+import SectionItem from '../Shared/Section/ItemList/Item/SectionItem';
+import { getRepoList } from '../../API/repoAPI';
 
 const RepoList = () => (
   <Section

@@ -1,4 +1,4 @@
-import get from "./shared/get";
+import get from './shared/get';
 
 export const getFollowerList = (login) => (setSearching, setFound, setFollowers) => (
   get(

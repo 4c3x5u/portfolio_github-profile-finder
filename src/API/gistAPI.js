@@ -1,4 +1,4 @@
-import get from "./shared/get";
+import get from './shared/get';
 
 export const getGistList = (login) => (setSearching, setFound, setGists) => (
   get(
@@ -7,7 +7,7 @@ export const getGistList = (login) => (setSearching, setFound, setGists) => (
     setFound,
     setGists,
     (res) => ({
-      name: res.description || "[No Title]",
+      name: res.description || '[No Title]',
       url: `/${login}/gists/${res.id}`,
     }),
     false,
@@ -25,6 +25,7 @@ export const getGistFileList = (login, id) => (setSearching, setFound, setGists)
         Object.values(res.files).map((file) => ({
           name: file.filename,
           url: `/${login}/gists/${id}/${file.filename}`,
+          type: 'file',
         }))
       ),
     }),
@@ -39,7 +40,6 @@ export const getGistFile = (id, name) => (setSearching, setFound, setGists) => (
     setFound,
     setGists,
     (res) => ({
-      type: "file",
       content: (
         Object.values(res.files)
           .find((file) => file.filename === name)

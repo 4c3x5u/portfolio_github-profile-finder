@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import ListGroup from "react-bootstrap/ListGroup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAlt, faFolder } from "@fortawesome/free-solid-svg-icons";
-import "./SectionItem.sass";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
+import './SectionItem.sass';
 
 const SectionItem = ({ item, newTabOnClick }) => {
   const itemContent = (
@@ -12,7 +12,7 @@ const SectionItem = ({ item, newTabOnClick }) => {
       <h5 className="ItemName">
         {
           item.type && (
-            item.type === "dir"
+            item.type === 'dir'
               ? <FontAwesomeIcon className="Icon" icon={faFolder} />
               : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
           )

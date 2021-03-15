@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import React from 'react';
+import PropTypes from 'prop-types';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const FileContent = ({ file }) => (
   <SyntaxHighlighter className="FileContent">

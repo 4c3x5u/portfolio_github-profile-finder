@@ -1,8 +1,8 @@
-import React from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
-import "./InfoModal.sass";
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
+import './InfoModal.sass';
 
 const InfoModal = ({ title, viewBody, handleHide }) => (
   <Modal className="InfoModal" show onHide={handleHide}>

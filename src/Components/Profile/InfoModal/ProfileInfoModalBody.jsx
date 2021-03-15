@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const ProfileInfoModalBody = () => (
   <>
     <p className="mb-0">
       Click on
-      <em>{" Repos, Gists, Followers, Following, "}</em>
+      <em>{' Repos, Gists, Followers, Following, '}</em>
       or
-      <em>{" the location "}</em>
+      <em>{' the location '}</em>
       to toggle their corresponding sections.
     </p>
     <br />

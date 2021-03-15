@@ -1,4 +1,4 @@
-import get from "./shared/get";
+import get from './shared/get';
 
 export const getRepoList = (
   login,
@@ -39,23 +39,22 @@ export const getRepo = (
 );
 
 export const getRepoContent = (
-  login,
-  name,
+  login, name,
 ) => (
   setSearching, setFound, setContent,
 ) => {
-  const repoName = name.substring(0, name.indexOf("/")) || name;
-  const dirName = `/${name.substring(name.indexOf("content") + "content".length + 1)}`;
-  const contentPath = dirName !== "/" ? dirName : "";
+  const repoName = name.substring(0, name.indexOf('/')) || name;
+  const dirName = `/${name.substring(name.indexOf('content') + 'content'.length + 1)}`;
+  const contentPath = dirName !== '/' ? dirName : '';
   get(
     `https://api.github.com/repos/${login}/${repoName}/contents${contentPath}?ref=master`,
     setSearching,
     setFound,
     setContent,
     (res) => ({
-      name: res.name.length < 80 ? res.name : res.name.substring(0, 80),
+      name: res.name.length < 70 ? res.name : `${res.name.substring(0, 70)}...`,
       url:
-        res.type === "dir"
+        res.type === 'dir'
           ? `/${login}/repos/${name}/${res.name}`
           : `/${login}/repos/${repoName}/file/${res.path}`,
       type: res.type,
