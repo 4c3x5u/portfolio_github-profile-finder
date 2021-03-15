@@ -10,7 +10,6 @@ const FollowerList = () => {
   return (
     <Section
       title="Followers"
-      url={`https://www.github.com/${login}?tab=followers`}
       get={getFollowerList(login)}
       view={(followers) => (
         <SectionList
@@ -18,6 +17,8 @@ const FollowerList = () => {
           view={(follower) => <SectionItem item={follower} />}
         />
       )}
+      hasBackButton
+      url={`/${login}`}
     />
   );
 };

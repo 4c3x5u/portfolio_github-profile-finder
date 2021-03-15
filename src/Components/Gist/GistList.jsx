@@ -10,7 +10,6 @@ const GistList = () => {
   return (
     <Section
       title="Gists"
-      url={`https://gist.github.com/${login}`}
       get={getGistList(login)}
       view={(gists) => (
         <SectionList
@@ -18,6 +17,8 @@ const GistList = () => {
           view={(gist) => <SectionItem newTabOnClick item={gist} />}
         />
       )}
+      hasBackButton
+      url={`/${login}`}
     />
   );
 };
