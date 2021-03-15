@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileInfoModalBody = () => (
+const UserInfoModalBody = () => (
   <>
     <p className="mb-0">
       Click on
@@ -29,4 +29,4 @@ const ProfileInfoModalBody = () => (
   </>
 );
 
-export default ProfileInfoModalBody;
+export default UserInfoModalBody;

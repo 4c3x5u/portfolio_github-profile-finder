@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import AppHeader from './Components/AppHeader/AppHeader';
-import Profile from './Components/Profile/Profile';
+import Profile from './Components/User/User';
 import RepoList from './Components/RepoList/RepoList';
 import Repo from './Components/RepoList/Repo/Repo';
 import RepoContent from './Components/RepoList/Repo/Content/RepoContent';

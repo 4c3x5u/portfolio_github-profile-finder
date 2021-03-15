@@ -1,19 +1,19 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Section from '../Shared/Section/Section';
-import ProfileBody from './Body/ProfileBody';
+import UserBody from './Body/UserBody';
 import { getUser } from '../../API/userAPI';
 
-const Profile = () => {
+const User = () => {
   const { login } = useParams();
   return (
     <Section
       title={`@${login}`}
       get={getUser(login)}
-      view={(user) => <ProfileBody user={user} />}
+      view={(user) => <UserBody user={user} />}
       hasRoundTop
     />
   );
 };
 
-export default Profile;
+export default User;
