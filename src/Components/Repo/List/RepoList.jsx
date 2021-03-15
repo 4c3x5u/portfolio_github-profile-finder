@@ -5,22 +5,17 @@ import SectionList from "../../Shared/Section/List/SectionList";
 import SectionItem from "../../Shared/Section/Item/SectionItem";
 import { getRepoList } from "../../../API/repoAPI";
 
-const RepoList = () => {
-  const { login } = useParams();
-  return (
-    <Section
-      title="Repos"
-      url={`/${login}`}
-      get={getRepoList(login)}
-      view={(repos) => (
-        <SectionList
-          items={repos}
-          view={(repo) => <SectionItem item={repo} />}
-        />
-      )}
-      hasBackButton
-    />
-  );
-};
+const RepoList = () => (
+  <Section
+    title="Repos"
+    get={getRepoList(useParams().login)}
+    view={(repos) => (
+      <SectionList
+        items={repos}
+        view={(repo) => <SectionItem item={repo} />}
+      />
+    )}
+  />
+);
 
 export default RepoList;
