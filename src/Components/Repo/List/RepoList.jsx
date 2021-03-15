@@ -10,7 +10,7 @@ const RepoList = () => {
   return (
     <Section
       title="Repos"
-      url={`https://www.github.com/${login}?tab=repositories`}
+      url={`/${login}`}
       get={getRepoList(login)}
       view={(repos) => (
         <SectionList
@@ -18,6 +18,7 @@ const RepoList = () => {
           view={(repo) => <SectionItem item={repo} />}
         />
       )}
+      hasBackButton
     />
   );
 };

@@ -9,9 +9,9 @@ const Repo = () => {
   return (
     <Section
       title={`Repo: ${name}`}
-      url={`https://www.github.com/${login}/${name}`}
       get={getRepo(login, name)}
       view={(repo) => <RepoBody repo={repo} />}
+      hasBackButton
     />
   );
 };

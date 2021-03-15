@@ -9,7 +9,6 @@ const Profile = () => {
   return (
     <Section
       title={`@${login}`}
-      url={`https://www.github.com/${login}`}
       get={getUser(login)}
       view={(user) => <ProfileBody user={user} />}
       hasRoundTop

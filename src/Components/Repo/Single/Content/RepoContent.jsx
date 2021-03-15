@@ -15,9 +15,9 @@ const RepoContent = () => {
   return (
     <Section
       title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
-      url={`/${login}/repos/${name}/content`}
       get={getRepoContent(login, dir)}
       view={(content) => <FileList content={content} />}
+      hasBackButton
     />
   );
 };

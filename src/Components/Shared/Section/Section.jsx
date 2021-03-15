@@ -6,11 +6,11 @@ import NotFound from "../NotFound";
 
 const Section = ({
   title,
-  url,
   get,
   view,
   hasRoundTop,
   hasBackButton,
+  url,
 }) => {
   const [searching, setSearching] = useState(false);
   const [found, setFound] = useState(false);
@@ -24,9 +24,9 @@ const Section = ({
   const sectionHeader = () => (
     <SectionHeader
       title={title}
-      href={url}
       hasRoundTop={hasRoundTop}
       hasBackButton={hasBackButton}
+      url={url}
     />
   );
 
@@ -47,15 +47,16 @@ const Section = ({
 Section.propTypes = {
   title: PropTypes.string.isRequired,
   get: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired,
   view: PropTypes.func.isRequired,
   hasRoundTop: PropTypes.bool,
   hasBackButton: PropTypes.bool,
+  url: PropTypes.string,
 };
 
 Section.defaultProps = {
   hasRoundTop: false,
   hasBackButton: false,
+  url: undefined,
 };
 
 export default Section;

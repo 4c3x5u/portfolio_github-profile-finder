@@ -13,8 +13,7 @@ const File = () => {
       title={`File: /${filePath}`}
       get={getFile(login, repoName, filePath)}
       view={(file) => <FileContent file={file} />}
-      url={`/${login}/repos/${repoName}/content`}
-      hasInSiteLink
+      hasBackButton
     />
   );
 };
