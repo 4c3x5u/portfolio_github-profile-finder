@@ -1,20 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
-import FileListItem from "./Item/FileListItem";
+import RepoFileListItem from "./Item/RepoFileListItem";
 
-const FileList = ({ content }) => (
+const RepoFileList = ({ content }) => (
   <ListGroup className="FileList">
     {
       content
         .sort()
         .sort((blob) => (blob.type !== "dir" ? 1 : -1))
-        .map((file) => <FileListItem file={file} />)
+        .map((file) => <RepoFileListItem file={file} />)
     }
   </ListGroup>
 );
 
-FileList.propTypes = {
+RepoFileList.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.objectOf({
       name: PropTypes.string.isRequired,
@@ -25,4 +25,4 @@ FileList.propTypes = {
   ).isRequired,
 };
 
-export default FileList;
+export default RepoFileList;

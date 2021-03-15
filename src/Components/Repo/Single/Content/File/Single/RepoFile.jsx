@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
-import FileContent from "./Content/FileContent";
+import FileContent from "../../../../../Shared/FileContent";
 import Section from "../../../../../Shared/Section/Section";
 import { getFile } from "../../../../../../API/repoAPI";
 
-const File = () => {
+const RepoFile = () => {
   const { login, repoName, fileName } = useParams();
   const { pathname } = useLocation();
   const filePath = pathname.substring(pathname.indexOf(fileName));
@@ -18,4 +18,4 @@ const File = () => {
   );
 };
 
-export default File;
+export default RepoFile;

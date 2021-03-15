@@ -4,10 +4,10 @@ import ListGroup from "react-bootstrap/ListGroup";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileAlt, faFolder } from "@fortawesome/free-solid-svg-icons";
-import "./FileListItem.sass";
+import "./RepoFileListItem.sass";
 
-const FileListItem = ({ file }) => (
-  <div className="FileListItem">
+const RepoFileListItem = ({ file }) => (
+  <div className="RepoFileListItem">
     <Link to={file.url} className="Link">
       <ListGroup.Item className="Item text-center mb-2">
         <h5>
@@ -23,7 +23,7 @@ const FileListItem = ({ file }) => (
   </div>
 );
 
-FileListItem.propTypes = {
+RepoFileListItem.propTypes = {
   file: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
@@ -32,4 +32,4 @@ FileListItem.propTypes = {
   }).isRequired,
 };
 
-export default FileListItem;
+export default RepoFileListItem;

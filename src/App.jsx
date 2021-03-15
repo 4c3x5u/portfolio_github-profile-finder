@@ -12,7 +12,7 @@ import GistFile from "./Components/Gist/File/Single/GistFile";
 import FollowerList from "./Components/Follower/FollowerList";
 import FollowingList from "./Components/Following/FollowingList";
 import Footer from "./Components/AppFooter/AppFooter";
-import File from "./Components/Repo/Single/Content/File/Single/File";
+import RepoFile from "./Components/Repo/Single/Content/File/Single/RepoFile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.sass";
 
@@ -25,10 +25,10 @@ const App = () => (
         <Route exact path="/:login/repos" component={RepoList} />
         <Route path="/:login/repos/:name" component={Repo} />
         <Route path="/:login/repos/:name/content" component={RepoContent} />
-        <Route path="/:login/repos/:repoName/file/:fileName" component={File} />
+        <Route path="/:login/repos/:repoName/file/:fileName" component={RepoFile} />
         <Route exact path="/:login/gists" component={GistList} />
         <Route path="/:login/gists/:id" component={GistFileList} />
-        <Route path="/:login/gists/:id/:fileName" component={GistFile} />
+        <Route path="/:login/gists/:id/:name" component={GistFile} />
         <Route exact path="/:login/followers" component={FollowerList} />
         <Route exact path="/:login/following" component={FollowingList} />
       </Route>

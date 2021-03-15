@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Section from "../../../Shared/Section/Section";
-import FileList from "./File/List/FileList";
+import RepoFileList from "./File/List/RepoFileList";
 import { getRepoContent } from "../../../../API/repoAPI";
 
 const RepoContent = () => {
@@ -16,7 +16,7 @@ const RepoContent = () => {
     <Section
       title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
       get={getRepoContent(login, dir)}
-      view={(content) => <FileList content={content} />}
+      view={(content) => <RepoFileList content={content} />}
       hasBackButton={titleSuffix}
     />
   );

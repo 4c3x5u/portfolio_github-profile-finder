@@ -14,17 +14,36 @@ export const getGistList = (login) => (setSearching, setFound, setGists) => (
   )
 );
 
-export const getGistFiles = (login, id) => (setSearching, setFound, setGists) => (
+export const getGistFileList = (login, id) => (setSearching, setFound, setGists) => (
   get(
     `https://api.github.com/gists/${id}`,
     setSearching,
     setFound,
     setGists,
     (res) => ({
-      files: Object.entries(res.files).map(([key]) => ({
-        name: key,
-        url: `/${login}/gists/${id}/${key}`,
-      })),
+      files: (
+        Object.values(res.files).map((file) => ({
+          name: file.filename,
+          url: `/${login}/gists/${id}/${file.filename}`,
+        }))
+      ),
+    }),
+    true,
+  )
+);
+
+export const getGistFile = (id, name) => (setSearching, setFound, setGists) => (
+  get(
+    `https://api.github.com/gists/${id}`,
+    setSearching,
+    setFound,
+    setGists,
+    (res) => ({
+      content: (
+        Object.values(res.files)
+          .find((file) => file.filename === name)
+          .content
+      ),
     }),
     true,
   )
@@ -32,5 +51,6 @@ export const getGistFiles = (login, id) => (setSearching, setFound, setGists) =>
 
 export default {
   getGistList,
-  getGistFiles,
+  getGistFileList,
+  getGistFile,
 };
