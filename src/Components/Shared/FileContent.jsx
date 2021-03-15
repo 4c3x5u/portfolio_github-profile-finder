@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import agate from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-light';
 
 const FileContent = ({ file }) => (
-  <SyntaxHighlighter className="FileContent">
+  <SyntaxHighlighter className="FileContent bg-light" style={agate}>
     {file.content}
   </SyntaxHighlighter>
 );

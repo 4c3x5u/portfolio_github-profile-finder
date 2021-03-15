@@ -13,7 +13,7 @@ const GistFile = () => {
       get={getGistFile(id, name)}
       view={(file) => <FileContent file={file} />}
       hasBackButton
-      url={pathname.substring(0, pathname.indexOf(name))}
+      url={pathname.substring(0, pathname.lastIndexOf('/'))}
     />
   );
 };

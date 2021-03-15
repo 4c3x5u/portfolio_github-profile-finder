@@ -14,6 +14,7 @@ const RepoFile = () => {
       get={getRepoFile(login, repoName, filePath)}
       view={(file) => <FileContent file={file} />}
       hasBackButton
+      url={pathname.substring(0, pathname.lastIndexOf('/'))}
     />
   );
 };

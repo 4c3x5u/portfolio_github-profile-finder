@@ -18,6 +18,7 @@ const RepoContent = () => {
       get={getRepoContent(login, dir)}
       view={(content) => <RepoFileList content={content} />}
       hasBackButton={titleSuffix}
+      url={pathname.substring(0, pathname.lastIndexOf('/'))}
     />
   );
 };
