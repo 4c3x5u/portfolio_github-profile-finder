@@ -17,8 +17,7 @@ const GistFiles = () => {
           view={(file) => <SectionItem item={file} />}
         />
       )}
-      hasBackButton
-      url={`/${login}/gists`}
+      backUrl={`/${login}/gists`}
     />
   );
 };

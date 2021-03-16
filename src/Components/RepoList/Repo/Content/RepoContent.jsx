@@ -17,8 +17,7 @@ const RepoContent = () => {
       title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
       get={getRepoContent(login, dir)}
       view={(content) => <RepoFileList content={content} />}
-      hasBackButton={titleSuffix}
-      url={pathname.substring(0, pathname.lastIndexOf('/'))}
+      backUrl={titleSuffix.length ? pathname.substring(0, pathname.lastIndexOf('/')) : ''}
     />
   );
 };

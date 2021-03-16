@@ -11,8 +11,7 @@ const Repo = () => {
       title={`Repo: ${name}`}
       get={getRepo(login, name)}
       view={(repo) => <RepoBody repo={repo} />}
-      url={`/${login}/repos`}
-      hasBackButton
+      backUrl={`/${login}/repos`}
     />
   );
 };
