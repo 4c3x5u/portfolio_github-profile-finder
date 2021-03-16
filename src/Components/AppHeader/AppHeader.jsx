@@ -22,8 +22,8 @@ const AppHeader = () => {
       <Col xs={8}>
         <Link className="TitleLink" to="/">
           <h2 className="Title text-dark">
-            <FontAwesomeIcon icon={faGithubSquare} size="1x" className="mr-1" />
-            Finder
+            <FontAwesomeIcon icon={faGithubSquare} size="1x" className="mr-2" />
+            <span className="mb-2">User Finder</span>
           </h2>
         </Link>
       </Col>
