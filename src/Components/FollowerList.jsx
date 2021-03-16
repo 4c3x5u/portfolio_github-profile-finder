@@ -5,17 +5,20 @@ import SectionItemList from './Shared/Section/ItemList/SectionItemList';
 import SectionItem from './Shared/Section/ItemList/Item/SectionItem';
 import { getFollowerList } from '../API/followerAPI';
 
-const FollowerList = () => (
-  <Section
-    title="Followers"
-    get={getFollowerList(useParams().login)}
-    view={(followers) => (
-      <SectionItemList
-        items={followers}
-        view={(follower) => <SectionItem item={follower} />}
-      />
-    )}
-  />
-);
+const FollowerList = () => {
+  const { login } = useParams();
+  return (
+    <Section
+      title="Followers"
+      get={getFollowerList(login)}
+      view={(followers) => (
+        <SectionItemList
+          items={followers}
+          view={(follower) => <SectionItem item={follower} />}
+        />
+      )}
+    />
+  );
+};
 
 export default FollowerList;
