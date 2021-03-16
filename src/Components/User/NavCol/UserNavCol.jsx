@@ -6,8 +6,8 @@ import './UserNavCol.sass';
 
 const UserNavCol = ({ name, url, amount }) => (
   <Col className="UserNavCol" xs={6}>
-    {amount > 0
-      ? (
+    {
+      (amount > 0) ? (
         <Link className="NavLink" to={url}>
           {`${name}: ${amount}`}
         </Link>
@@ -15,7 +15,8 @@ const UserNavCol = ({ name, url, amount }) => (
         <h6>
           {`${name}: ${amount}`}
         </h6>
-      )}
+      )
+    }
   </Col>
 );
 

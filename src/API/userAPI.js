@@ -1,6 +1,10 @@
 import get from './shared/get';
 
-export const getUser = (login) => (setSearching, setFound, setUser) => (
+export const getUser = (
+  login,
+) => (
+  setSearching, setFound, setUser,
+) => (
   get(
     `https://api.github.com/users/${login}`,
     setSearching,

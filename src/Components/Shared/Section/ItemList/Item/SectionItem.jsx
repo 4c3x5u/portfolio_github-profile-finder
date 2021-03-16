@@ -8,39 +8,35 @@ import './SectionItem.sass';
 
 const SectionItem = ({ item, newTabOnClick }) => {
   const itemContent = (
-    <>
-      <h5 className="ItemName">
-        {
-          item.type && (
-            item.type === 'dir'
-              ? <FontAwesomeIcon className="Icon" icon={faFolder} />
-              : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
-          )
-        }
-        {item.name}
-      </h5>
-    </>
+    <h5 className="ItemName">
+      {
+        item.type && (
+          item.type === 'dir'
+            ? <FontAwesomeIcon className="Icon" icon={faFolder} />
+            : <FontAwesomeIcon className="Icon" icon={faFileAlt} />
+        )
+      }
+      {item.name}
+    </h5>
   );
   return (
-    newTabOnClick
-      ? (
-        <ListGroup.Item
-          className="SectionItem text-center mb-2"
-          action
-          href={item.url}
-          target="_blank"
-          rel="noreferrer"
-        >
+    newTabOnClick ? (
+      <ListGroup.Item
+        className="SectionItem text-center mb-2"
+        action
+        href={item.url}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {itemContent}
+      </ListGroup.Item>
+    ) : (
+      <Link to={item.url} className="ItemLink">
+        <ListGroup.Item className="SectionItem text-center mb-2">
           {itemContent}
         </ListGroup.Item>
-      )
-      : (
-        <Link to={item.url} className="ItemLink">
-          <ListGroup.Item className="SectionItem text-center mb-2">
-            {itemContent}
-          </ListGroup.Item>
-        </Link>
-      )
+      </Link>
+    )
   );
 };
 

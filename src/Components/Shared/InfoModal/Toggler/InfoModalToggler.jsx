@@ -6,7 +6,11 @@ import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import './InfoModalToggler.sass';
 
 const InfoModalToggler = ({ handleShowInfoModal }) => (
-  <Button className="InfoModalToggler" onClick={handleShowInfoModal} variant="dark">
+  <Button
+    className="InfoModalToggler"
+    onClick={handleShowInfoModal}
+    variant="dark"
+  >
     <FontAwesomeIcon icon={faQuestion} />
   </Button>
 );
