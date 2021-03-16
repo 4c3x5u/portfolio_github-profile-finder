@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -12,6 +12,11 @@ import './AppHeader.sass';
 
 const AppHeader = () => {
   const [searchParam, setSearchParam] = useState('4c3x5u');
+  const history = useHistory();
+  const formSubmit = (e) => {
+    e.preventDefault();
+    history.push(`/${searchParam}`);
+  };
   return (
     <Row className="AppHeader">
       <Col xs={8}>
@@ -23,7 +28,7 @@ const AppHeader = () => {
         </Link>
       </Col>
       <Col xs={4}>
-        <Form className="Controls mb-3" onSubmit={(e) => e.preventDefault()}>
+        <Form className="Controls mb-3" onSubmit={formSubmit}>
           <Row noGutters>
             <Col xs={9}>
               <InputGroup className="TextBox">
