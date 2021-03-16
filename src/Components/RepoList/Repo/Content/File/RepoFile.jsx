@@ -7,15 +7,17 @@ import { getRepoFile } from '../../../../../API/repoAPI';
 const RepoFile = () => {
   const { login, repoName, fileName } = useParams();
   const { pathname } = useLocation();
-  const filePath = pathname.substring(pathname.indexOf(fileName));
-  const parentDir = pathname.substring(
-    pathname.indexOf('/file/') + '/file/'.length,
-    pathname.lastIndexOf('/'),
+  const filePath = pathname.substring(pathname.lastIndexOf(fileName));
+  const parentDir = (
+    pathname.substring(
+      pathname.indexOf('/file/') + '/file/'.length,
+      pathname.lastIndexOf('/'),
+    )
   );
   const url = `${
     pathname.substring(0, pathname.indexOf('/file/'))
   }/content${
-    parentDir && `/${parentDir}`
+    (parentDir === '/') ? '' : `/${parentDir}`
   }`;
   return (
     <Section
