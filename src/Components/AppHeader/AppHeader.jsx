@@ -6,6 +6,8 @@ import {
   Form,
   InputGroup,
 } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 import './AppHeader.sass';
 
 const AppHeader = () => {
@@ -15,7 +17,8 @@ const AppHeader = () => {
       <Col xs={8}>
         <Link className="TitleLink" to="/">
           <h2 className="Title text-dark">
-            GitHub Finder
+            <FontAwesomeIcon icon={faGithubSquare} size="1x" className="mr-1" />
+            Finder
           </h2>
         </Link>
       </Col>
