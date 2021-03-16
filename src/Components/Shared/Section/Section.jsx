@@ -5,12 +5,7 @@ import Spinner from '../Spinner';
 import NotFound from '../NotFound';
 
 const Section = ({
-  title,
-  get,
-  view,
-  hasRoundTop,
-  hasBackButton,
-  url,
+  title, get, view, hasRoundTop, backUrl,
 }) => {
   const [searching, setSearching] = useState(true);
   const [found, setFound] = useState(false);
@@ -25,8 +20,7 @@ const Section = ({
     <SectionHeader
       title={title}
       hasRoundTop={hasRoundTop}
-      hasBackButton={hasBackButton}
-      url={url}
+      backUrl={backUrl}
     />
   );
 
@@ -49,14 +43,12 @@ Section.propTypes = {
   get: PropTypes.func.isRequired,
   view: PropTypes.func.isRequired,
   hasRoundTop: PropTypes.bool,
-  hasBackButton: PropTypes.bool,
-  url: PropTypes.string,
+  backUrl: PropTypes.string,
 };
 
 Section.defaultProps = {
   hasRoundTop: false,
-  hasBackButton: false,
-  url: undefined,
+  backUrl: undefined,
 };
 
 export default Section;

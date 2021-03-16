@@ -9,16 +9,17 @@ const RepoContent = () => {
   const { pathname } = useLocation();
   const dir = pathname.substring(pathname.indexOf(name));
   const titleSuffix = (
-    pathname.substring(pathname.indexOf(`${name}/content`) + `${name}/content/`.length)
+    pathname.substring(
+      pathname.indexOf(`${name}/content`) + `${name}/content/`.length,
+    )
   );
   const title = `Content${titleSuffix && `: /${titleSuffix}`}`;
   return (
     <Section
-      title={title.length > 80 ? `${title.substring(0, 80)}...` : title}
+      title={title.length < 80 ? title : `${title.substring(0, 80)}...`}
       get={getRepoContent(login, dir)}
       view={(content) => <RepoFileList content={content} />}
-      hasBackButton={titleSuffix}
-      url={pathname.substring(0, pathname.lastIndexOf('/'))}
+      backUrl={titleSuffix.length ? pathname.substring(0, pathname.lastIndexOf('/')) : ''}
     />
   );
 };

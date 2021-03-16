@@ -22,8 +22,7 @@ const RepoFile = () => {
       title={`File: /${filePath}`}
       get={getRepoFile(login, repoName, filePath)}
       view={(file) => <FileContent file={file} />}
-      hasBackButton
-      url={url}
+      backUrl={url}
     />
   );
 };
