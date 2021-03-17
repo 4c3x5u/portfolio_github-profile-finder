@@ -45,7 +45,7 @@ const AppHeader = () => {
             </InputGroup.Prepend>
             <Form.Control
               type="text"
-              placeholder="4c3x5u"
+              placeholder="type username here..."
               onChange={(e) => setSearchParam(e.target.value)}
             />
           </InputGroup>
