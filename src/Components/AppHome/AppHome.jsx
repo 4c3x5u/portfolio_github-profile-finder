@@ -8,20 +8,27 @@ const AppHome = () => (
     <Card className="UserBody bg-light">
       <Card.Body className="Body">
         <Card.Text className="Text">
-          <div className="Inner text-center">
+          <div className="Inner text-center text-dark">
             <p className="Bio h6 mb-3">
-              Thank you for reviewing this demo application created by
-              <a href="https://www.github.com/4c3x5u" target="_blank" rel="noreferrer">
-                {' @4c3x5u'}
-              </a>
-              !
+              {'To initiate the app, '}
+              <b>start typing into the textbox</b>
+              {' at the top-right corner.'}
             </p>
             <p className="Bio h6 mb-1">
-              To start, please click &quot;Search&quot; (top-right).
+              Alternatively, you can click on the footer below to navigate
             </p>
-            <p className="Bio h6 mb-0">
-              Alternatively, you can click the app footer to
-              navigate to this project&apos;s GitHub page.
+            <p className="Bio h6 mb-1">
+              to this project&apos;s GitHub repository where you can find an
+            </p>
+            <p className="Bio h6 mb-1">
+              explanation for each of the libraries used within the app
+            </p>
+            <p className="Bio h6 mb-3">
+              as well as some general information about the app.
+            </p>
+            <p className="Bio h6 mb-1">
+              <b>Thank you</b>
+              {' for reviewing my app!'}
             </p>
           </div>
         </Card.Text>
