@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const NotFound = ({ page }) => (
-  <h1 className="NotFound">
-    {`${page} not found.`}
-  </h1>
+  <p className="NotFound h4 text-center">
+    {`${page.length < 60 ? page : page.substring(0, 60)} not found...`}
+  </p>
 );
 
 NotFound.propTypes = {
