@@ -1,10 +1,6 @@
 import get from './shared/get';
 
-export const getRepoList = (
-  login,
-) => (
-  setSearching, setFound, setRepos,
-) => (
+export const getRepoList = (login) => (setSearching, setFound, setRepos) => (
   get(
     `https://api.github.com/users/${login}/repos`,
     setSearching,
@@ -18,11 +14,7 @@ export const getRepoList = (
   )
 );
 
-export const getRepo = (
-  login, name,
-) => (
-  setSearching, setFound, setRepos,
-) => (
+export const getRepo = (login, name) => (setSearching, setFound, setRepos) => (
   get(
     `https://api.github.com/repos/${login}/${name}`,
     setSearching,
@@ -38,11 +30,7 @@ export const getRepo = (
   )
 );
 
-export const getRepoContent = (
-  login, name,
-) => (
-  setSearching, setFound, setContent,
-) => {
+export const getRepoContent = (login, name) => (setSearching, setFound, setContent) => {
   const repoName = name.substring(0, name.indexOf('/')) || name;
   const dirName = `/${name.substring(name.indexOf('content') + 'content'.length + 1)}`;
   const contentPath = dirName !== '/' ? dirName : '';
@@ -73,7 +61,27 @@ export const getRepoFile = (
     setSearching,
     setFound,
     setFollowers,
-    (res) => ({ content: atob(res.content) }),
+    (res) => {
+      const isImage = (
+        res.name.endsWith('.tif')
+        || res.name.endsWith('.tiff')
+        || res.name.endsWith('.bmp')
+        || res.name.endsWith('.jpg')
+        || res.name.endsWith('.jpeg')
+        || res.name.endsWith('.gif')
+        || res.name.endsWith('.png')
+        || res.name.endsWith('.eps')
+        || res.name.endsWith('.raw')
+        || res.name.endsWith('.cr2')
+        || res.name.endsWith('.nef')
+        || res.name.endsWith('.orf')
+        || res.name.endsWith('.sr2')
+      );
+      return {
+        content: isImage ? res.content : atob(res.content),
+        isImage,
+      };
+    },
     true,
   )
 );

@@ -1,10 +1,6 @@
 import get from './shared/get';
 
-export const getFollowingList = (
-  login,
-) => (
-  setSearching, setFound, setFollowing,
-) => (
+export const getFollowingList = (login) => (setSearching, setFound, setFollowing) => (
   get(
     `https://api.github.com/users/${login}/following`,
     setSearching,
@@ -18,6 +14,4 @@ export const getFollowingList = (
   )
 );
 
-export default {
-  getFollowingList,
-};
+export default { getFollowingList };

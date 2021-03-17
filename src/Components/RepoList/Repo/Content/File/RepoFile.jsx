@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import FileContent from '../../../../Shared/FileContent';
+import FileContent from '../../../../Shared/FileContent/FileContent';
 import Section from '../../../../Shared/Section/Section';
 import { getRepoFile } from '../../../../../API/repoAPI';
 

@@ -1,10 +1,6 @@
 import get from './shared/get';
 
-export const getGistList = (
-  login,
-) => (
-  setSearching, setFound, setGists,
-) => (
+export const getGistList = (login) => (setSearching, setFound, setGists) => (
   get(
     `https://api.github.com/users/${login}/gists`,
     setSearching,
@@ -18,11 +14,7 @@ export const getGistList = (
   )
 );
 
-export const getGistFileList = (
-  login, id,
-) => (
-  setSearching, setFound, setGists,
-) => (
+export const getGistFileList = (login, id) => (setSearching, setFound, setGists) => (
   get(
     `https://api.github.com/gists/${id}`,
     setSearching,
@@ -41,11 +33,7 @@ export const getGistFileList = (
   )
 );
 
-export const getGistFile = (
-  id, name,
-) => (
-  setSearching, setFound, setGists,
-) => (
+export const getGistFile = (id, name) => (setSearching, setFound, setGists) => (
   get(
     `https://api.github.com/gists/${id}`,
     setSearching,
@@ -62,8 +50,4 @@ export const getGistFile = (
   )
 );
 
-export default {
-  getGistList,
-  getGistFileList,
-  getGistFile,
-};
+export default { getGistList, getGistFileList, getGistFile };
