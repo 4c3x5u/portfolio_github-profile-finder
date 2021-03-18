@@ -40,6 +40,7 @@ const UserBody = ({ user }) => {
                   <UserNavCol name="Following" amount={user.numberOfFollowing} url={`/${user.login}/following`} />
                   <Col className="LocationCol mt-3 mb-0" xs={12}>
                     <Link
+                      className="LocationLink"
                       to={{
                         pathname: `/${user.login}/location`,
                         address: user.location,
