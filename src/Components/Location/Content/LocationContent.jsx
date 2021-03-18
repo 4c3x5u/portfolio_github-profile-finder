@@ -7,6 +7,7 @@ import './LocationContent.sass';
 const LocationContent = ({ latLng }) => (
   <Map
     isMarkerShown
+    latLng={latLng}
     googleMapURL={
       `https://maps.googleapis.com/maps/api/js?key=${
         process.env.REACT_APP_GOOGLE_MAPS_API_KEY
