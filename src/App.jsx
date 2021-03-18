@@ -14,6 +14,7 @@ import GistFileList from './Components/GistList/File/GistFileList';
 import GistFile from './Components/GistList/File/GistFile';
 import FollowerList from './Components/FollowerList';
 import FollowingList from './Components/FollowingList';
+import Location from './Components/Location/Location';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
 
@@ -41,6 +42,7 @@ const App = () => (
             </Route>
             <Route exact path="/:login/followers" component={FollowerList} />
             <Route exact path="/:login/following" component={FollowingList} />
+            <Route exact path="/:login/location" component={Location} />
           </Switch>
         </Route>
       </Switch>
