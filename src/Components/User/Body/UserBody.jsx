@@ -41,7 +41,7 @@ const UserBody = ({ user }) => {
                   <Col className="LocationCol mt-3 mb-0" xs={12}>
                     <Link
                       to={{
-                        path: `/${user.login}/location`,
+                        pathname: `/${user.login}/location`,
                         address: user.location,
                       }}
                     >
