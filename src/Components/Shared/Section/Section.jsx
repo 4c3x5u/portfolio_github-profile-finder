@@ -12,6 +12,7 @@ const Section = ({
   const [items, setItems] = useState([]);
 
   useEffect(() => {
+    setSearching(true);
     get(setSearching, setFound, setItems);
   }, [title]);
 
