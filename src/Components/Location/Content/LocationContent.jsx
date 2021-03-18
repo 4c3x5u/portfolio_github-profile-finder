@@ -1,25 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-} from 'react-google-maps';
+import Map from './Map/Map';
 import Spinner from '../../Shared/Spinner';
 import './LocationContent.sass';
-
-const Map = (
-  withScriptjs(
-    withGoogleMap(
-      ({ latLng }) => (
-        <GoogleMap className="Map" defaultZoom={10} defaultCenter={latLng}>
-          <Marker position={latLng} />
-        </GoogleMap>
-      ),
-    ),
-  )
-);
 
 const LocationContent = ({ latLng }) => (
   <Map
