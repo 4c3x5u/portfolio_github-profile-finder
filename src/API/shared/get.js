@@ -8,17 +8,15 @@ const handleFound = (setSearching, setFound, setItems, parseItem, isSingle) => (
   setSearching(false);
 };
 
-const handleNotFound = (setSearching, setFound, setItems) => () => {
-  setItems([]);
-  setFound(false);
-  setSearching(false);
-};
+const handleNotFound = (setSearching) => () => (
+  setSearching(false)
+);
 
 const get = (url, setSearching, setFound, setItems, parseItem, isSingle) => (
   axios
     .get(encodeURI(url), { headers: { Authorization: `token ${pta}` } })
     .then(handleFound(setSearching, setFound, setItems, parseItem, isSingle))
-    .catch(handleNotFound(setSearching, setFound, setItems))
+    .catch(handleNotFound(setSearching))
 );
 
 export default get;
