@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +13,11 @@ import './UserBody.sass';
 const UserBody = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
   useEffect(
-    () => { document.getElementsByClassName('SearchBox')[0].value = user.login; },
+    () => {
+      if (user.login) {
+        document.getElementsByClassName('SearchBox')[0].value = user.login;
+      }
+    },
     [user],
   );
   return (
@@ -42,8 +47,10 @@ const UserBody = ({ user }) => {
                   <UserNavCol name="Followers" amount={user.numberOfFollowers} url={`/${user.login}/followers`} />
                   <UserNavCol name="Following" amount={user.numberOfFollowing} url={`/${user.login}/following`} />
                   <Col className="LocationCol mt-3 mb-0" xs={12}>
-                    <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
-                    {user.location}
+                    <Link to={`/${user.login}/location`}>
+                      <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
+                      {user.location}
+                    </Link>
                   </Col>
                   <Col className="QuestionCol mt-3" xs={12}>
                     <InfoModalToggler handleShowInfoModal={() => setShowingInfoModal(true)} />
