@@ -39,7 +39,12 @@ const UserBody = ({ user }) => {
                   <UserNavCol name="Followers" amount={user.numberOfFollowers} url={`/${user.login}/followers`} />
                   <UserNavCol name="Following" amount={user.numberOfFollowing} url={`/${user.login}/following`} />
                   <Col className="LocationCol mt-3 mb-0" xs={12}>
-                    <Link to={`/${user.login}/location`}>
+                    <Link
+                      to={{
+                        path: `/${user.login}/location`,
+                        address: user.location,
+                      }}
+                    >
                       <FontAwesomeIcon icon={faMapMarkedAlt} className="mr-2" />
                       {user.location}
                     </Link>
