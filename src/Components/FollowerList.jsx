@@ -14,7 +14,7 @@ const FollowerList = () => {
       view={(followers) => (
         <SectionItemList
           items={followers}
-          view={(follower) => <SectionItem item={follower} />}
+          view={(user) => <SectionItem item={user} isUser />}
         />
       )}
     />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,14 +12,6 @@ import './UserBody.sass';
 
 const UserBody = ({ user }) => {
   const [showingInfoModal, setShowingInfoModal] = useState(false);
-  useEffect(
-    () => {
-      if (user.login) {
-        document.getElementsByClassName('SearchBox')[0].value = user.login;
-      }
-    },
-    [user],
-  );
   return (
     <Card className="UserBody bg-light">
       {
