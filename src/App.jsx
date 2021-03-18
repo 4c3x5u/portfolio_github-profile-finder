@@ -32,7 +32,7 @@ const App = () => (
               <Repo />
               <Switch>
                 <Route path="/:login/repos/:name/content" component={RepoContent} />
-                <Route path="/:login/repos/:repoName/file/:fileName" component={RepoFile} />
+                <Route path="/:login/repos/:repoName/file/:filePath" component={RepoFile} />
               </Switch>
             </Route>
             <Route exact path="/:login/gists" component={GistList} />

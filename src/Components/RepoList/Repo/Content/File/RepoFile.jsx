@@ -5,14 +5,14 @@ import Section from '../../../../Shared/Section/Section';
 import { getRepoFile } from '../../../../../API/repoAPI';
 
 const RepoFile = () => {
-  const { login, repoName, fileName } = useParams();
+  const { login, repoName } = useParams();
   const { pathname } = useLocation();
-  const filePath = pathname.substring(pathname.lastIndexOf(fileName));
-  const parentDir = (
-    pathname.substring(
-      pathname.indexOf('/file/') + '/file/'.length,
-      pathname.lastIndexOf('/'),
-    )
+  const filePath = pathname.substring(
+    pathname.lastIndexOf('/file/') + '/file/'.length,
+  );
+  const parentDir = pathname.substring(
+    pathname.indexOf('/file/') + '/file/'.length,
+    pathname.lastIndexOf('/'),
   );
   const url = `${
     pathname.substring(0, pathname.indexOf('/file/'))
