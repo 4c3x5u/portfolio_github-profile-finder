@@ -5,9 +5,13 @@ import {
   GoogleMap,
   Marker,
 } from 'react-google-maps';
+import SectionHeader from '../Shared/Section/Header/SectionHeader';
+import Spinner from '../Shared/Spinner';
+import './Location.sass';
 
 const Map = withScriptjs(withGoogleMap(() => (
   <GoogleMap
+    className="Map"
     defaultZoom={8}
     defaultCenter={{ lat: -34.397, lng: 150.644 }}
   >
@@ -16,21 +20,20 @@ const Map = withScriptjs(withGoogleMap(() => (
 )));
 
 const Location = () => (
-  <div style={{ height: '20rem', width: '20rem' }}>
-    {console.log(`API KEY: ${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)}
+  <>
+    <SectionHeader title="Location" />
     <Map
       isMarkerShown
       googleMapURL={
         `https://maps.googleapis.com/maps/api/js?key=${
           process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-        }&v=3.exp&libraries=geometry,drawing,places`
+        }&libraries=geometry,drawing,places`
       }
-      loadingElement={<div style={{ height: '100%' }} />}
-      containerElement={<div style={{ height: '400px' }} />}
+      loadingElement={<Spinner />}
+      containerElement={<div className="MapContainer" />}
       mapElement={<div style={{ height: '100%' }} />}
     />
-  </div>
-
+  </>
 );
 
 export default Location;

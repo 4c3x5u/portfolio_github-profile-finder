@@ -12,16 +12,11 @@ const Section = ({
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setSearching(true);
     get(setSearching, setFound, setItems);
   }, [title]);
 
   const sectionHeader = () => (
-    <SectionHeader
-      title={title}
-      hasRoundTop={hasRoundTop}
-      backUrl={backUrl}
-    />
+    <SectionHeader title={title} hasRoundTop={hasRoundTop} backUrl={backUrl} />
   );
 
   const sectionContent = () => {
