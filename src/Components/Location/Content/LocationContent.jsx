@@ -13,7 +13,6 @@ const LocationContent = ({ latLng }) => (
         process.env.REACT_APP_GOOGLE_MAPS_API_KEY
       }&libraries=geometry,drawing,places`
     }
-    latLng={latLng}
     loadingElement={<Spinner />}
     containerElement={<div className="LocationContent" />}
     mapElement={<div className="MapElement" />}
