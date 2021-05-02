@@ -4,13 +4,13 @@ import './AppFooter.sass';
 const AppFooter = () => (
   <a
     className="FooterLink"
-    href="https://github.com/4c3x5u/portfolio_github-profile-finder"
+    href="https://www.github.com/alicandev/portfolio_github-finder"
     target="_blank"
     rel="noreferrer"
   >
     <div className="AppFooter text-center">
       <h5 className="text-light">
-        @4c3x5u/portfolio_github-profile-finder
+        @alicandev/portfolio_github-finder
       </h5>
     </div>
   </a>
