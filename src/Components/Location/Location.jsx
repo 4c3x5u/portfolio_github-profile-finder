@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Section from '../Shared/Section/Section';
+import { getLocation } from '../../API/locationAPI';
 import Map from './Leaflet/Map';
 
 const Location = () => {
@@ -8,8 +9,10 @@ const Location = () => {
   return (
     <Section
       title={`Location: ${address}`}
-      get={(setSearching, setFound) => { setSearching(false); setFound(true); }}
-      view={() => <Map />}
+      get={getLocation(address)}
+      view={({ latitude, longitude, label }) => (
+        <Map latitude={latitude} longitude={longitude} label={label} />
+      )}
     />
   );
 };

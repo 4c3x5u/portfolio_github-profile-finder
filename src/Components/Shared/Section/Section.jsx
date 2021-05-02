@@ -9,11 +9,11 @@ const Section = ({
 }) => {
   const [searching, setSearching] = useState(true);
   const [found, setFound] = useState(false);
-  const [items, setItems] = useState([]);
+  const [state, setState] = useState(undefined);
 
   useEffect(() => {
     setSearching(true);
-    get(setSearching, setFound, setItems);
+    get(setSearching, setFound, setState);
   }, [title]);
 
   const sectionHeader = () => (
@@ -22,7 +22,7 @@ const Section = ({
 
   const sectionContent = () => {
     if (searching) { return <Spinner />; }
-    if (found) { return view(items); }
+    if (found) { return view(state); }
     return <NotFound page={title} />;
   };
 

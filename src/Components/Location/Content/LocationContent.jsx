@@ -1,29 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Map from './Map/Map';
-import Spinner from '../../Shared/Spinner';
+import {
+  MapContainer, TileLayer, Marker, Popup,
+} from 'react-leaflet';
+
 import './LocationContent.sass';
 
-const LocationContent = ({ latLng }) => (
-  <Map
-    isMarkerShown
-    latLng={latLng}
-    googleMapURL={
-      `https://maps.googleapis.com/maps/api/js?key=${
-        process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-      }&libraries=geometry,drawing,places`
-    }
-    loadingElement={<Spinner />}
-    containerElement={<div className="LocationContent" />}
-    mapElement={<div className="MapElement" />}
-  />
+const LocationContent = ({ latitude, longitude, label }) => (
+  <MapContainer
+    className="LocationContent"
+    center={[latitude, longitude]}
+    zoom={13}
+  >
+    <TileLayer
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    <Marker position={[latitude, longitude]}>
+      <Popup>
+        {label}
+      </Popup>
+    </Marker>
+  </MapContainer>
 );
 
 LocationContent.propTypes = {
-  latLng: PropTypes.objectOf({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-  }).isRequired,
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default LocationContent;

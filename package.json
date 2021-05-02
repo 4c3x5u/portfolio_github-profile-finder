@@ -15,6 +15,7 @@
     "bootstrap": "^4.6.0",
     "jquery": "1.9.1",
     "leaflet": "^1.7.1",
+    "leaflet-geosearch": "^3.3.2",
     "node-sass": "^5.0.0",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",

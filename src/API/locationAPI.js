@@ -1,17 +1,16 @@
-import Geocode from 'react-geocode';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 
-Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+export const getLocation = (address) => (setSearching, setFound, setLocation) => {
+  const provider = new OpenStreetMapProvider();
 
-export const getLocation = (address) => (setSearching, setFound, setLocation) => (
-  Geocode
-    .fromAddress(address)
+  return provider.search({ query: address })
     .then((res) => {
-      const { lat, lng } = res.results[0].geometry.location;
-      setLocation({ lat, lng });
+      const { x, y, label } = res[0];
+      setLocation({ latitude: y, longitude: x, label });
       setFound(true);
       setSearching(false);
     })
-    .catch(() => setSearching(false))
-);
+    .catch(() => setSearching(false));
+};
 
 export default { getLocation };
