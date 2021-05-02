@@ -24,7 +24,7 @@ const FileContent = ({ file }) => {
     );
   }
   return (
-    <SyntaxHighlighter className="FileContent px-2 mb-2" style={a11yLight}>
+    <SyntaxHighlighter className="FileContent bg-light px-2 mb-2" style={a11yLight}>
       {file.content}
     </SyntaxHighlighter>
   );
