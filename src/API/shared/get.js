@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const pat = process.env.REACT_APP_GITHUB_PAT;
+const githubAccessToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
 const handleFound = (setSearching, setFound, setItems, parseItem, isSingle) => (res) => {
   setItems(isSingle ? parseItem(res.data) : res.data.map(parseItem));
@@ -16,7 +16,7 @@ const handleNotFound = (setSearching, setFound, setItems) => () => {
 
 const get = (url, setSearching, setFound, setItems, parseItem, isSingle) => (
   axios
-    .get(encodeURI(url), { headers: { Authorization: `token ${pat}` } })
+    .get(encodeURI(url), { headers: { Authorization: `token ${githubAccessToken}` } })
     .then(handleFound(setSearching, setFound, setItems, parseItem, isSingle))
     .catch(handleNotFound(setSearching, setFound, setItems))
 );
