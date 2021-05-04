@@ -14,11 +14,11 @@ the browsing of each loaded profile's *repos*, *gists*, *followers*, *following*
 2. [Yarn](https://yarnpkg.com/getting-started/install) or [NPM](https://www.npmjs.com/get-npm)
    
 ### Instructions
-1. Install dependencies.
-    - Make sure you are inside the root folder of the project, and execute `yarn install` or `npm install` from your 
-      preferred terminal.
+1. Open up a terminal and make sure you are inside the root folder of the project.
+2. Install dependencies.
+    - `yarn install` or `npm install`
 2. Run the app.
-    - Execute `yarn start` or `npm start`.
+    - `yarn start` or `npm start`
    
 That's it! The application must now be running at *http://localhost:3000*. Navigate to this address in a browser to
 load the app.
