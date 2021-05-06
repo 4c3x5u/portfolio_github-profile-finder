@@ -1,4 +1,4 @@
-# GitHub Finder — User and Content Search
+# GitHub Finder — User Content Search
 ![GitHub Finder – UI Screenshot](https://i.ibb.co/1LnK0C8/Screenshot-2021-05-04-at-15-17-15.png)
 
 ## The Purpose
